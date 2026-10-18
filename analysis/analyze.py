@@ -52,9 +52,9 @@ def canon(cat):
     return c
 
 
-def load_records():
+def load_records(run=None):
     recs = []
-    for f in sorted(glob.glob(os.path.join(RUN, "records_*.jsonl"))):
+    for f in sorted(glob.glob(os.path.join(run or RUN, "records_*.jsonl"))):
         recs += [json.loads(l) for l in open(f)]
     scenes = {r["scene_id"]: {o["sid"]: o for o in r["objects"]} for r in recs if r["type"] == "scene"}
     subtasks = collections.OrderedDict((r["subtask"], r) for r in recs if r["type"] == "subtask")  # last write wins
