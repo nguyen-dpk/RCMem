@@ -1,0 +1,80 @@
+{
+ "how": "random sample (seed 0) per category, rendered with analysis/render_cases.py, inspected visually by Claude",
+ "cases": [
+  {
+   "subtask": "00844-q5QZSEeHe5g_1_1",
+   "auto_label": "wrong instance (goal not yet observed)",
+   "manual": "agree: chose a picture on the stairway, goal picture in another room"
+  },
+  {
+   "subtask": "00876-mv2HUxq3B53_0_0",
+   "auto_label": "wrong instance (goal not yet observed)",
+   "manual": "agree: chose a picture in the bathroom, goal elsewhere"
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_0_1",
+   "auto_label": "wrong instance (goal not yet observed)",
+   "manual": "agree: chose a doormat in the hall, goal rug in the bedroom"
+  },
+  {
+   "subtask": "00835-q3zU7Yy5E5s_0_2",
+   "auto_label": "wrong instance (goal not yet observed)",
+   "manual": "agree: chose a picture in a bedroom, goal under wood ceiling elsewhere"
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_3",
+   "auto_label": "wrong instance (goal already observed)",
+   "manual": "agree: chose hallway picture, goal painting above bedroom dresser"
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_0",
+   "auto_label": "wrong instance (goal already observed)",
+   "manual": "agree: chose living-room pictures, goal painting elsewhere"
+  },
+  {
+   "subtask": "00823-7MXmsvcQjpJ_0_4",
+   "auto_label": "wrong instance (goal already observed)",
+   "manual": "agree: chose hallway picture frame, goal picture above sideboard"
+  },
+  {
+   "subtask": "00832-qyAac8rV8Zk_0_1",
+   "auto_label": "wrong instance (goal already observed)",
+   "manual": "agree: chose living-room picture, goal picture elsewhere"
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_0_1",
+   "auto_label": "exploration failure: premature commit",
+   "manual": "agree: chose a clock for refrigerator goal"
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_2_0",
+   "auto_label": "exploration failure: premature commit",
+   "manual": "agree: chose a shelf for microwave goal"
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_0_0",
+   "auto_label": "exploration failure: premature commit",
+   "manual": "agree: chose a bench for picture goal"
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_1_4",
+   "auto_label": "exploration failure: premature commit",
+   "manual": "agree: chose a pillow for picture goal"
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_1_2",
+   "auto_label": "perception: goal seen, not detected",
+   "manual": "unclear: dresser partly visible in the first view, may be too small/occluded"
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_0_2",
+   "auto_label": "perception: goal seen, not detected",
+   "manual": "agree: goal rug fills the stored view, agent chose the chair standing on it"
+  },
+  {
+   "subtask": "00824-Dd4bFSTQ8gi_0_1",
+   "auto_label": "perception: goal seen, not detected",
+   "manual": "unclear: vase tiny in the stored view"
+  }
+ ]
+}

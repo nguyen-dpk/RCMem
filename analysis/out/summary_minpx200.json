@@ -1,0 +1,449 @@
+{
+ "baseline_vs_rerun": {
+  "baseline_SR": 23.9,
+  "baseline_acc": 64.83,
+  "rerun_SR": 21.32,
+  "rerun_acc": 65.52,
+  "rerun_n_nav": 272,
+  "rerun_n_qa": 145,
+  "nav_agreement": 84.9
+ },
+ "nav_taxonomy": [
+  {
+   "category": "perception: goal seen, not detected",
+   "count": 40,
+   "share_of_failures": 18.7,
+   "share_of_items": 14.7,
+   "examples": [
+    "00829-QaLdnwvtxbs_0_4",
+    "00813-svBbv1Pavdk_1_6",
+    "00813-svBbv1Pavdk_1_8"
+   ]
+  },
+  {
+   "category": "wrong instance (goal not yet observed)",
+   "count": 33,
+   "share_of_failures": 15.4,
+   "share_of_items": 12.1,
+   "examples": [
+    "00829-QaLdnwvtxbs_0_0",
+    "00820-mL8ThkuaVTM_0_0",
+    "00820-mL8ThkuaVTM_0_1"
+   ]
+  },
+  {
+   "category": "exploration failure: premature commit",
+   "count": 28,
+   "share_of_failures": 13.1,
+   "share_of_items": 10.3,
+   "examples": [
+    "00820-mL8ThkuaVTM_1_1",
+    "00813-svBbv1Pavdk_1_0",
+    "00813-svBbv1Pavdk_1_1"
+   ]
+  },
+  {
+   "category": "wrong instance (goal already observed)",
+   "count": 26,
+   "share_of_failures": 12.1,
+   "share_of_items": 9.6,
+   "examples": [
+    "00813-svBbv1Pavdk_0_2",
+    "00813-svBbv1Pavdk_1_4",
+    "00813-svBbv1Pavdk_1_5"
+   ]
+  },
+  {
+   "category": "exploration: aborted, no frontier available",
+   "count": 25,
+   "share_of_failures": 11.7,
+   "share_of_items": 9.2,
+   "examples": [
+    "00820-mL8ThkuaVTM_2_2",
+    "00821-eF36g7L6Z9M_0_0",
+    "00821-eF36g7L6Z9M_0_1"
+   ]
+  },
+  {
+   "category": "perception: false-positive goal detection",
+   "count": 20,
+   "share_of_failures": 9.3,
+   "share_of_items": 7.4,
+   "examples": [
+    "00820-mL8ThkuaVTM_1_2",
+    "00813-svBbv1Pavdk_0_5",
+    "00824-Dd4bFSTQ8gi_0_2"
+   ]
+  },
+  {
+   "category": "task-progress error",
+   "count": 10,
+   "share_of_failures": 4.7,
+   "share_of_items": 3.7,
+   "examples": [
+    "00829-QaLdnwvtxbs_0_2",
+    "00829-QaLdnwvtxbs_0_3",
+    "00820-mL8ThkuaVTM_2_3"
+   ]
+  },
+  {
+   "category": "selection error: gold memory shown, not chosen",
+   "count": 10,
+   "share_of_failures": 4.7,
+   "share_of_items": 3.7,
+   "examples": [
+    "00813-svBbv1Pavdk_0_0",
+    "00813-svBbv1Pavdk_1_2",
+    "00877-4ok3usBNeis_2_2"
+   ]
+  },
+  {
+   "category": "other: aborted / invalid output",
+   "count": 10,
+   "share_of_failures": 4.7,
+   "share_of_items": 3.7,
+   "examples": [
+    "00813-svBbv1Pavdk_0_4",
+    "00808-y9hTuugGdiq_1_4",
+    "00835-q3zU7Yy5E5s_0_4"
+   ]
+  },
+  {
+   "category": "goal chosen, viewpoint not reached",
+   "count": 3,
+   "share_of_failures": 1.4,
+   "share_of_items": 1.1,
+   "examples": [
+    "00824-Dd4bFSTQ8gi_0_3",
+    "00810-CrMo8WxCyVb_1_4",
+    "00853-5cdEh9F2hJL_0_4"
+   ]
+  },
+  {
+   "category": "retrieval miss",
+   "count": 3,
+   "share_of_failures": 1.4,
+   "share_of_items": 1.1,
+   "examples": [
+    "00824-Dd4bFSTQ8gi_0_5",
+    "00873-bxsVRursffK_0_3",
+    "00831-yr17PDCnDDW_0_3"
+   ]
+  },
+  {
+   "category": "exploration failure / step cap",
+   "count": 3,
+   "share_of_failures": 1.4,
+   "share_of_items": 1.1,
+   "examples": [
+    "00871-VBzV5z6i1WS_0_0",
+    "00810-CrMo8WxCyVb_0_2",
+    "00839-zt1RVoi7PcG_0_4"
+   ]
+  },
+  {
+   "category": "perception: detected, not written to memory",
+   "count": 3,
+   "share_of_failures": 1.4,
+   "share_of_items": 1.1,
+   "examples": [
+    "00800-TEEsavR23oF_0_0",
+    "00800-TEEsavR23oF_0_2",
+    "00800-TEEsavR23oF_1_0"
+   ]
+  }
+ ],
+ "nav_n_fail": 214,
+ "qa_taxonomy": [
+  {
+   "category": "exploration: evidence never observed",
+   "count": 19,
+   "share_of_failures": 38.0,
+   "share_of_items": 13.1,
+   "examples": [
+    "00829-QaLdnwvtxbs_0_6",
+    "00820-mL8ThkuaVTM_1_3",
+    "00890-6s7QHgap2fW_1_5"
+   ]
+  },
+  {
+   "category": "selection error: gold retrieved, other memory chosen",
+   "count": 9,
+   "share_of_failures": 18.0,
+   "share_of_items": 6.2,
+   "examples": [
+    "00877-4ok3usBNeis_2_6",
+    "00835-q3zU7Yy5E5s_0_5",
+    "00832-qyAac8rV8Zk_0_5"
+   ]
+  },
+  {
+   "category": "spatial-relation error",
+   "count": 6,
+   "share_of_failures": 12.0,
+   "share_of_items": 4.1,
+   "examples": [
+    "00877-4ok3usBNeis_0_4",
+    "00808-y9hTuugGdiq_1_7",
+    "00871-VBzV5z6i1WS_0_7"
+   ]
+  },
+  {
+   "category": "counting error",
+   "count": 5,
+   "share_of_failures": 10.0,
+   "share_of_items": 3.4,
+   "examples": [
+    "00813-svBbv1Pavdk_0_6",
+    "00808-y9hTuugGdiq_0_5",
+    "00808-y9hTuugGdiq_0_6"
+   ]
+  },
+  {
+   "category": "retrieval miss",
+   "count": 5,
+   "share_of_failures": 10.0,
+   "share_of_items": 3.4,
+   "examples": [
+    "00877-4ok3usBNeis_1_5",
+    "00827-BAbdmeyTvMZ_0_6",
+    "00821-eF36g7L6Z9M_0_5"
+   ]
+  },
+  {
+   "category": "perception/attribute error",
+   "count": 3,
+   "share_of_failures": 6.0,
+   "share_of_items": 2.1,
+   "examples": [
+    "00820-mL8ThkuaVTM_2_5",
+    "00877-4ok3usBNeis_0_3",
+    "00803-k1cupFYWXJ6_1_5"
+   ]
+  },
+  {
+   "category": "multi-view needed",
+   "count": 2,
+   "share_of_failures": 4.0,
+   "share_of_items": 1.4,
+   "examples": [
+    "00800-TEEsavR23oF_0_5",
+    "00853-5cdEh9F2hJL_0_6"
+   ]
+  },
+  {
+   "category": "memory writing: observed, not kept in any memory view",
+   "count": 1,
+   "share_of_failures": 2.0,
+   "share_of_items": 0.7,
+   "examples": [
+    "00849-a8BtkwhxdRV_0_5"
+   ]
+  }
+ ],
+ "qa_n_fail": 50,
+ "diag_a": {
+  "n_qa": 145,
+  "view_need": {
+   "never observed": 49,
+   "single": 87,
+   "not in memory (observed)": 7,
+   "multi-view": 2
+  },
+  "view_need_by_qcat": {
+   "Attribute": {
+    "never observed": 13,
+    "single": 21,
+    "not in memory (observed)": 3
+   },
+   "Counting": {
+    "never observed": 11,
+    "single": 14,
+    "not in memory (observed)": 2
+   },
+   "Location": {
+    "not in memory (observed)": 1,
+    "single": 16,
+    "never observed": 10,
+    "multi-view": 1
+   },
+   "Relationship": {
+    "single": 18,
+    "never observed": 7,
+    "multi-view": 1
+   },
+   "State": {
+    "never observed": 8,
+    "single": 18,
+    "not in memory (observed)": 1
+   }
+  },
+  "accuracy_by_view_need": {
+   "never observed": "30/49 = 61.2%",
+   "single": "59/87 = 67.8%",
+   "not in memory (observed)": "6/7 = 85.7%",
+   "multi-view": "0/2 = 0.0%"
+  },
+  "R_source": {
+   "verified GT view + question nouns": 84,
+   "goal instance (GT view unverified)": 39,
+   "goal instance (no noun match)": 22
+  },
+  "view_need_verified_only": {
+   "never observed": 23,
+   "single": 56,
+   "not in memory (observed)": 3,
+   "multi-view": 2
+  },
+  "single_view_exists_in_any_observed_frame": "96/145 = 66.2%"
+ },
+ "diag_b": {
+  "targets_with_same_cat_distractor_in_scene": "218/272 = 80.1%",
+  "targets_with_exact_hm3d_category_distractor": "218/272 = 80.1%",
+  "targets_with_same_cat_distractor_same_region": "136/272 = 50.0%",
+  "median_distractors": 6.0,
+  "chose_distractor_of_memory_choices": "72/222 = 32.4%",
+  "chose_distractor_of_all_targets": "72/272 = 26.5%",
+  "wrong_instance_choices_in_other_region_than_goal": "63/72 = 87.5%",
+  "goals_whose_room_type_is_named_in_instruction": "267/272 = 98.2%",
+  "wrong_instance_with_goal_room_named": "62/72 = 86.1%",
+  "wrong_instance_failures_goal_region_already_observed": "19/59 = 32.2%",
+  "premature_commit_choice_in_other_region": "27/28 = 96.4%",
+  "SR_with_vs_without_distractor": {
+   "with": "35/218 = 16.1%",
+   "without": "23/54 = 42.6%"
+  }
+ },
+ "diag_c": {
+  "qa_items_with_single_view_gold_in_memory": "87/145 = 60.0%",
+  "qa_recall_union(text@3 U image@3)": "73/87 = 83.9%",
+  "qa_recall_text@3": "53/87 = 60.9%",
+  "qa_recall_image@3": "62/87 = 71.3%",
+  "qa_acc_gold_retrieved": "50/73 = 68.5%",
+  "qa_acc_gold_not_retrieved": "9/14 = 64.3%",
+  "qa_mean_retrieved": 5.1,
+  "qa_mean_memories": 23.43,
+  "nav_goals_with_gold_det_at_last_decision": "73/272 = 26.8%",
+  "nav_recall_det_union": "63/73 = 86.3%",
+  "nav_recall_vis_union": "133/146 = 91.1%",
+  "nav_recall_vis_text@3": "107/146 = 73.3%",
+  "nav_recall_vis_image@3": "122/146 = 83.6%"
+ },
+ "diag_d": {
+  "easy": {
+   "targets": 47,
+   "failures": 33,
+   "exploration_failures": "12/33 = 36.4%",
+   "step_cap_reached": "0/33 = 0.0%",
+   "goal_never_seen": "23/33 = 69.7%"
+  },
+  "medium": {
+   "targets": 178,
+   "failures": 143,
+   "exploration_failures": "35/143 = 24.5%",
+   "step_cap_reached": "20/143 = 14.0%",
+   "goal_never_seen": "66/143 = 46.2%"
+  },
+  "hard": {
+   "targets": 47,
+   "failures": 38,
+   "exploration_failures": "9/38 = 23.7%",
+   "step_cap_reached": "0/38 = 0.0%",
+   "goal_never_seen": "18/38 = 47.4%"
+  }
+ },
+ "diag_e_qa_vs_nav": {
+  "qa_acc_goal_reached": "21/33 = 63.6%",
+  "qa_acc_goal_not_reached": "74/112 = 66.1%",
+  "evidence_never_observed_given_goal_not_reached": "48/112 = 42.9%",
+  "evidence_never_observed_given_goal_reached": "1/33 = 3.0%",
+  "qa_items_without_matching_nav_subtask": 0
+ },
+ "diag_e_qa_room": {
+  "answered_from_view_in_goal_region": "64/145 = 44.1%",
+  "acc_view_in_goal_region": "44/64 = 68.8%",
+  "acc_view_in_other_region": "51/81 = 63.0%",
+  "wrong_answers_other_region_while_goal_region_view_in_memory": "8/145 = 5.5%",
+  "other_region_answer_while_goal_region_view_in_memory": "27/145 = 18.6%"
+ },
+ "diag_e_aborts": {
+  "aborts": 25,
+  "episodes": 12,
+  "at_task_step_1": 20
+ },
+ "diag_e": {
+  "pred_letter_dist": {
+   "C": 27,
+   "B": 103,
+   "A": 13,
+   "D": 2
+  },
+  "gt_letter_dist": {
+   "C": 28,
+   "A": 29,
+   "B": 86,
+   "D": 2
+  },
+  "acc_by_n_choices": {
+   "2": "16/26 = 61.5%",
+   "4": "79/119 = 66.4%"
+  },
+  "qa_acc_chosen_memory_shows_goal": "39/53 = 73.6%",
+  "qa_acc_chosen_memory_not_goal": "56/92 = 60.9%",
+  "nav_success_by_memory_but_not_distance": "0/272 = 0.0%",
+  "constant_letter_baselines": {
+   "A": "29/145 = 20.0%",
+   "B": "86/145 = 59.3%",
+   "C": "28/145 = 19.3%",
+   "D": "2/145 = 1.4%"
+  },
+  "acc_when_pred_B": "72/103 = 69.9%",
+  "acc_when_pred_not_B": "23/42 = 54.8%"
+ },
+ "candidates": {
+  "G1_room_scoped_commitment_nav": {
+   "failures": 87,
+   "share_of_failures": 40.7,
+   "upper_bound_gain_pts": 32.0
+  },
+  "G1_room_choice_qa": {
+   "wrong_other_region_with_goal_region_view_in_memory": "8/145 = 5.5%"
+  },
+  "G2_evidence_sufficiency_qa": {
+   "failures": 19,
+   "share_of_failures": 38.0,
+   "upper_bound_gain_pts": 13.1,
+   "expected_gain_if_never_observed_items_reach_single_view_accuracy_pts": 2.2
+  },
+  "G3_multi_view_qa": {
+   "failures": 2,
+   "share_of_failures": 4.0,
+   "upper_bound_gain_pts": 1.4
+  },
+  "G4_retrieval_nav": {
+   "failures": 3,
+   "share_of_failures": 1.4,
+   "upper_bound_gain_pts": 1.1
+  },
+  "G4_retrieval_qa": {
+   "failures": 5,
+   "share_of_failures": 10.0,
+   "upper_bound_gain_pts": 3.4
+  },
+  "G5_task_progress_nav": {
+   "failures": 10,
+   "share_of_failures": 4.7,
+   "upper_bound_gain_pts": 3.7
+  },
+  "perception_nav": {
+   "failures": 63,
+   "share_of_failures": 29.4,
+   "upper_bound_gain_pts": 23.2
+  },
+  "exploration_abort_nav": {
+   "failures": 28,
+   "share_of_failures": 13.1,
+   "upper_bound_gain_pts": 10.3
+  }
+ }
+}

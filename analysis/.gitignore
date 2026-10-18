@@ -1,0 +1,6 @@
+# large run outputs and rendered images stay local (regenerate with run_all.sh RERUN=1)
+runs/*/
+runs/stdout*
+out/gt_view_pairs/
+out/cases/
+out/gt_question_views_v1.json

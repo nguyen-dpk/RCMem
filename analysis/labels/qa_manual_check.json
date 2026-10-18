@@ -1,0 +1,65 @@
+{
+ "how": "random sample (seed 0) of wrong QA answers, rendered with analysis/render_cases.py (QA source | GT-matched view | memory answered from), inspected visually by Claude",
+ "cases": [
+  {
+   "subtask": "00891-cvZr5TUy5C5_1_6",
+   "auto_label": "selection error: gold retrieved, other memory chosen",
+   "question": "Is the door at the end of the hallway open or closed?",
+   "manual": "agree: answered from a hallway view that does not show the asked door"
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_1_7",
+   "auto_label": "selection error: gold retrieved, other memory chosen",
+   "question": "How many doors are visible in the current view?",
+   "manual": "unclear: GT view unverified (fallback gold = goal instance); chosen view shows a hallway"
+  },
+  {
+   "subtask": "00832-qyAac8rV8Zk_0_6",
+   "auto_label": "selection error: gold retrieved, other memory chosen",
+   "question": "Where is the framed picture located relative to the sofa?",
+   "manual": "agree, and instance confusion: chosen view shows a different sofa+picture in another room"
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_1_5",
+   "auto_label": "retrieval miss",
+   "question": "Is the door in the background open or closed?",
+   "manual": "agree: gold (dresser room) not retrieved; answered from an unrelated view"
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_0_7",
+   "auto_label": "retrieval miss",
+   "question": "Where is the decorative wall piece located relative to the vase with flowers?",
+   "manual": "agree, and room confusion: answered from another room with wall decorations"
+  },
+  {
+   "subtask": "00873-bxsVRursffK_1_4",
+   "auto_label": "counting error",
+   "question": "How many visible corners of the framed artwork are touching the wall?",
+   "manual": "plausible: chosen view is the right room; question is visually ambiguous"
+  },
+  {
+   "subtask": "00873-bxsVRursffK_0_6",
+   "auto_label": "spatial-relation error",
+   "question": "Which object is directly next to the fireplace?",
+   "manual": "agree: chosen view shows the fireplace scene; relation answered wrongly"
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_1_7",
+   "auto_label": "spatial-relation error",
+   "question": "Where is the potted plant positioned in relation to the doorway?",
+   "manual": "agree: chosen view shows plant and doorway; relation answered wrongly"
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_8",
+   "auto_label": "exploration: evidence never observed",
+   "question": "How many framed artworks are visible on the walls in this hallway?",
+   "manual": "plausible: chosen view shows a different hallway gallery"
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_1_5",
+   "auto_label": "exploration: evidence never observed",
+   "question": "Is the window in the bedroom open or closed?",
+   "manual": "agree, and room confusion: answered from a different bedroom"
+  }
+ ]
+}
