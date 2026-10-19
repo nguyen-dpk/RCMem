@@ -1,0 +1,226 @@
+{
+ "runs": {
+  "instr_choice_sub": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 21.323529411764707,
+   "SPL": 13.240136097353721,
+   "distractor_rate_all": 26.47058823529412,
+   "distractor_rate_of_memory_choices": 32.432432432432435,
+   "premature_commit_rate": 27.573529411764707,
+   "acc": 65.51724137931035,
+   "acc_prior_corrected": 6.206896551724139,
+   "exp": "E0",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": -1.7156862745098067,
+    "SPL": -0.5861392262453791,
+    "distractor_rate_all": -0.6127450980392126,
+    "distractor_rate_of_memory_choices": -1.0521625322384338,
+    "premature_commit_rate": -0.6127450980392162,
+    "acc": -2.068965517241381,
+    "acc_prior_corrected": -2.0689655172413843
+   }
+  },
+  "p1_E0_r2": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 27.205882352941174,
+   "SPL": 17.022491820088355,
+   "distractor_rate_all": 26.47058823529412,
+   "distractor_rate_of_memory_choices": 33.17972350230415,
+   "premature_commit_rate": 29.41176470588235,
+   "acc": 68.96551724137932,
+   "acc_prior_corrected": 9.655172413793112,
+   "exp": "E0",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": 4.166666666666661,
+    "SPL": 3.1962164964892548,
+    "distractor_rate_all": -0.6127450980392126,
+    "distractor_rate_of_memory_choices": -0.30487146236671947,
+    "premature_commit_rate": 1.2254901960784288,
+    "acc": 1.3793103448275872,
+    "acc_prior_corrected": 1.379310344827589
+   }
+  },
+  "p1_E0_r3": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 20.588235294117645,
+   "SPL": 11.21619805335523,
+   "distractor_rate_all": 28.308823529411764,
+   "distractor_rate_of_memory_choices": 34.841628959276015,
+   "premature_commit_rate": 27.573529411764707,
+   "acc": 68.27586206896552,
+   "acc_prior_corrected": 8.965517241379317,
+   "exp": "E0",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": -2.4509803921568682,
+    "SPL": -2.6100772702438704,
+    "distractor_rate_all": 1.2254901960784323,
+    "distractor_rate_of_memory_choices": 1.3570339946051462,
+    "premature_commit_rate": -0.6127450980392162,
+    "acc": 0.6896551724137936,
+    "acc_prior_corrected": 0.6896551724137936
+   }
+  },
+  "p1_E1": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 38.970588235294116,
+   "SPL": 24.67432218951601,
+   "distractor_rate_all": 10.294117647058822,
+   "distractor_rate_of_memory_choices": 19.047619047619047,
+   "premature_commit_rate": 0.7352941176470589,
+   "acc": 61.37931034482759,
+   "acc_prior_corrected": 2.0689655172413834,
+   "exp": "E1",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": 15.931372549019603,
+    "SPL": 10.848046865916908,
+    "distractor_rate_all": -16.78921568627451,
+    "distractor_rate_of_memory_choices": -14.436975917051821,
+    "premature_commit_rate": -27.450980392156865,
+    "acc": -6.206896551724142,
+    "acc_prior_corrected": -6.20689655172414
+   }
+  },
+  "p1_E2": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 26.47058823529412,
+   "SPL": 15.630988659744755,
+   "distractor_rate_all": 24.63235294117647,
+   "distractor_rate_of_memory_choices": 29.777777777777775,
+   "premature_commit_rate": 29.779411764705884,
+   "acc": 62.758620689655174,
+   "acc_prior_corrected": 3.4482758620689724,
+   "exp": "E2",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": 3.4313725490196063,
+    "SPL": 1.8047133361456549,
+    "distractor_rate_all": -2.450980392156861,
+    "distractor_rate_of_memory_choices": -3.706817186893094,
+    "premature_commit_rate": 1.5931372549019613,
+    "acc": -4.827586206896555,
+    "acc_prior_corrected": -4.827586206896551
+   }
+  },
+  "p1_E4": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 27.941176470588236,
+   "SPL": 11.35615225284017,
+   "distractor_rate_all": 13.23529411764706,
+   "distractor_rate_of_memory_choices": 30.76923076923077,
+   "premature_commit_rate": 6.985294117647059,
+   "acc": 66.20689655172414,
+   "acc_prior_corrected": 6.896551724137934,
+   "exp": "E4",
+   "complete": true,
+   "verify_calls": 519,
+   "verify_rejections": 432,
+   "delta_vs_E0_mean": {
+    "SR": 4.901960784313722,
+    "SPL": -2.4701230707589303,
+    "distractor_rate_all": -13.848039215686272,
+    "distractor_rate_of_memory_choices": -2.715364195440099,
+    "premature_commit_rate": -21.200980392156865,
+    "acc": -1.3793103448275872,
+    "acc_prior_corrected": -1.379310344827589
+   }
+  },
+  "p1_E5": {
+   "n_nav": 272,
+   "n_qa": 145,
+   "episodes": 58,
+   "SR": 25.735294117647058,
+   "SPL": 13.44693208326427,
+   "distractor_rate_all": 27.205882352941174,
+   "distractor_rate_of_memory_choices": 33.94495412844037,
+   "premature_commit_rate": 28.676470588235293,
+   "acc": 64.82758620689654,
+   "acc_prior_corrected": 5.517241379310345,
+   "exp": "E5",
+   "complete": true,
+   "delta_vs_E0_mean": {
+    "SR": 2.6960784313725448,
+    "SPL": -0.3793432403348298,
+    "distractor_rate_all": 0.12254901960784181,
+    "distractor_rate_of_memory_choices": 0.46035916376950325,
+    "premature_commit_rate": 0.4901960784313708,
+    "acc": -2.7586206896551886,
+    "acc_prior_corrected": -2.758620689655178
+   }
+  }
+ },
+ "missing": [],
+ "E0_mean": {
+  "SR": 23.039215686274513,
+  "SPL": 13.8262753235991,
+  "distractor_rate_all": 27.083333333333332,
+  "distractor_rate_of_memory_choices": 33.48459496467087,
+  "premature_commit_rate": 28.186274509803923,
+  "acc": 67.58620689655173,
+  "acc_prior_corrected": 8.275862068965523
+ },
+ "E0_std": {
+  "SR": 3.6271197517031224,
+  "SPL": 2.9471903943940636,
+  "distractor_rate_all": 1.0613056418926932,
+  "distractor_rate_of_memory_choices": 1.233193793636267,
+  "premature_commit_rate": 1.0613056418926932,
+  "acc": 1.8246560765962707,
+  "acc_prior_corrected": 1.8246560765962734
+ },
+ "E0_n_runs": 3,
+ "E3": {
+  "goal in memory": {
+   "decisions": 977,
+   "commit_rate": 35.72159672466735
+  },
+  "goal not in memory": {
+   "decisions": 1459,
+   "commit_rate": 21.31596984235778
+  },
+  "goal region observed / goal in memory": {
+   "decisions": 864,
+   "commit_rate": 37.15277777777778
+  },
+  "goal region observed / goal not in memory": {
+   "decisions": 183,
+   "commit_rate": 13.661202185792352
+  },
+  "goal region not observed / goal in memory": {
+   "decisions": 113,
+   "commit_rate": 24.778761061946902
+  },
+  "goal region not observed / goal not in memory": {
+   "decisions": 1276,
+   "commit_rate": 22.413793103448278
+  }
+ },
+ "E3_commit_rate_difference": 14.40562688230957,
+ "C2_holds_as_stated": 0.0,
+ "G1": {
+  "decision": "GO",
+  "E1_minus_E0": 15.931372549019603,
+  "two_std": 7.254239503406245,
+  "E1_minus_E2": 12.499999999999996,
+  "E1_minus_E4": 11.02941176470588,
+  "gain_condition (>=5 and >2std)": true,
+  "beats_simple_fixes (>=3 over E2 and E4)": true,
+  "E2_recovery_of_E1_gain": 0.21538461538461537,
+  "E4_recovery_of_E1_gain": 0.3076923076923076
+ }
+}
