@@ -27,7 +27,7 @@ worker() {
       fi
       grep -q "All scenes finish" $log && break
       echo "$(date) GPU$g retry $i $job" >> analysis/runs/p1_queue.log
-      sleep 30
+      sleep 180
     done
     grep -q "All scenes finish" $log && echo "$(date) GPU$g done $job" >> analysis/runs/p1_queue.log || echo "$(date) GPU$g FAILED $job" >> analysis/runs/p1_queue.log
   done
