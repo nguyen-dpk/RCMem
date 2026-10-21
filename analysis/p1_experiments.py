@@ -10,6 +10,11 @@
       and the agent decides again
   E5  oracle earlier-goal exclusion: navigation decisions do not see objects whose nearest GT instance was the goal
       of an earlier subtask of the episode
+  E1b room-type gate (Phase 2): like E1 but keeps every region whose room TYPE matches the subtask's room
+      (types from analysis/out_p2/room_types.json); regions/objects of unknown type are never hidden
+
+Options (Phase 2): --fix_start reads LMEE start rotations as [w,x,y,z] (the stored order) instead of [x,y,z,w],
+removing the NaN start yaw; --seed overrides cfg.seed; --data full runs all 166 tasks instead of the 58-task subset.
 
 Ground truth (HM3D regions/instances) is used here only for the E1/E5 oracles, as DEV_PLAN.md allows.
 Usage (repo root): CUDA_VISIBLE_DEVICES=1 python analysis/p1_experiments.py --exp E1 --run_name p1_E1 --start_ratio 0 --end_ratio 1
@@ -40,6 +45,24 @@ STRUCT = {"wall", "floor", "ceiling", "Unknown", "unknown", "door frame", "windo
 MATCH_DIST = 1.5  # m, detection -> nearest GT instance (same rule as analyze.py)
 MIN_PX = 1638     # 0.1% of a 1280x1280 frame (same as analyze.py)
 EXP = os.environ.get("P1_EXP", "E0")
+ROOM_TYPES = {}  # scene -> {region int: [types]}, loaded for E1b
+
+
+def load_room_types():
+    f = os.path.join(REPO, "analysis/out_p2/room_types.json")
+    for sc, m in json.load(open(f))["scenes"].items():
+        ROOM_TYPES[sc] = {int(k): set(v["types"]) for k, v in m.items()}
+
+
+def rtypes(scene, region):
+    """Room-type set of a GT region id ('_3' or 3); empty set = unknown."""
+    if region is None:
+        return set()
+    try:
+        r = int(str(region).lstrip("_"))
+    except ValueError:
+        return set()
+    return ROOM_TYPES.get(scene._gap_scene_id, {}).get(r, set())
 ST = {"gt": {}, "room": None, "goal_sids": set(), "reject": set(), "earlier": collections.defaultdict(set),
       "episode": None}
 
@@ -145,6 +168,17 @@ def decision_filter(md, scene):
         greg = gt_scene(scene)["region"].get(goal)
         snaps = filtered(scene, keep_view=lambda rid: view_region(scene, rid) == greg)
         return (snaps, "qa_region_gate") if snaps else (None, "qa_region_gate_fallback_all")
+    if EXP == "E1b":
+        g = gt_scene(scene)
+        def ok(types_obj, target):
+            return not types_obj or not target or bool(types_obj & target)  # unknown on either side -> keep
+        if nav:
+            target = set().union(*[rtypes(scene, g["region"].get(x)) for x in md["goal_obj_ids"]])
+            return filtered(scene, keep_obj=lambda o: ok(rtypes(scene, obj_region(scene, o)), target)), "nav_roomtype_gate"
+        goal = int(md["QA"]["object_id"].split("_")[-1])
+        target = rtypes(scene, g["region"].get(goal))
+        snaps = filtered(scene, keep_view=lambda rid: ok(rtypes(scene, view_region(scene, rid)), target))
+        return (snaps, "qa_roomtype_gate") if snaps else (None, "qa_roomtype_gate_fallback_all")
     if EXP == "E4" and nav and ST["reject"]:
         return filtered(scene, keep_obj=lambda o: o not in ST["reject"]), "hide_rejected"
     if EXP == "E5" and nav and md.get("_earlier_goals"):
@@ -220,15 +254,31 @@ if __name__ == "__main__":
     from omegaconf import OmegaConf
 
     p = argparse.ArgumentParser()
-    p.add_argument("--exp", required=True, choices=["E0", "E1", "E2", "E4", "E5"])
+    p.add_argument("--exp", required=True, choices=["E0", "E1", "E1b", "E2", "E4", "E5"])
+    p.add_argument("--fix_start", action="store_true")
+    p.add_argument("--seed", type=int, default=None)
+    p.add_argument("--data", choices=["sub", "full"], default="sub")
     p.add_argument("--run_name", required=True)
     p.add_argument("--cfg_file", default=os.path.join(REPO, "analysis/cfg/instr_choice_sub.yaml"))
     p.add_argument("--start_ratio", type=float, default=0.0)
     p.add_argument("--end_ratio", type=float, default=1.0)
     args = p.parse_args()
     EXP = args.exp
+    if EXP == "E1b":
+        load_room_types()
     cfg = OmegaConf.load(args.cfg_file)
     OmegaConf.resolve(cfg)
+    if args.seed is not None:
+        cfg.seed = args.seed
+    if args.data == "full":
+        cfg.test_data_dir = os.path.join(REPO, "data/LMEE-Bench/lmee_bench")
+    if args.fix_start:
+        _orig_pts_angle = ir.run_lmee.get_pts_angle_goatbench
+
+        def fixed_pts_angle(init_pos, init_rot):  # LMEE stores [w,x,y,z]; habitat's quat_from_coeffs wants [x,y,z,w]
+            w, x, y, z = init_rot
+            return _orig_pts_angle(init_pos, [x, y, z, w])
+        ir.run_lmee.get_pts_angle_goatbench = fixed_pts_angle
     cfg.exp_name = args.run_name
     cfg.output_dir = os.path.join(cfg.output_parent_dir, cfg.exp_name)
     os.makedirs(cfg.output_dir, exist_ok=True)
@@ -245,6 +295,6 @@ if __name__ == "__main__":
         logging.StreamHandler()])
     for h in logging.getLogger().handlers:
         h.setFormatter(F(fmt="%(asctime)s - %(message)s"))
-    logging.info(f"***** P1 experiment {EXP} -> {cfg.output_dir} *****")
+    logging.info(f"***** experiment {EXP} fix_start={args.fix_start} seed={cfg.seed} data={args.data} -> {cfg.output_dir} *****")
     model, processor = ir.run_lmee.load_model(cfg)
     ir.run_lmee.main(cfg, model, processor, start_ratio=args.start_ratio, end_ratio=args.end_ratio, split=1, answer_type="choice")

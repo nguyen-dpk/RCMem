@@ -1,0 +1,27 @@
+{
+ "verifications": 519,
+ "object_found_in_records": 519,
+ "confusion": {
+  "rejected_wrong_object": 411,
+  "rejected_true_goal": 21,
+  "accepted_wrong_object": 47,
+  "accepted_true_goal": 40
+ },
+ "reject_precision": "411/432 = 95.1%",
+ "reject_recall": "411/458 = 89.7%",
+ "accept_precision": "40/87 = 46.0%",
+ "accept_recall": "40/61 = 65.6%",
+ "true_goal_rejected_share": "21/61 = 34.4%",
+ "by_goal_type": {
+  "description": {
+   "n": 117,
+   "rejected_true_goal": 5,
+   "accepted_true_goal": 15
+  },
+  "image": {
+   "n": 402,
+   "rejected_true_goal": 16,
+   "accepted_true_goal": 25
+  }
+ }
+}

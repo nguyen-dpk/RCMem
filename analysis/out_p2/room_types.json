@@ -1,0 +1,2752 @@
+{
+ "stats": {
+  "regions": 489,
+  "config_labelled": 181,
+  "object_vote": 162,
+  "unknown": 146,
+  "vote_accuracy_on_config_labelled": "159/168 = 94.6%"
+ },
+ "scenes": {
+  "00800-TEEsavR23oF": {
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [
+     "hall",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [],
+    "source": "unknown"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [],
+    "source": "unknown"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00802-wcojb4TFT35": {
+   "16": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "15": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "0": {
+    "types": [],
+    "source": "unknown"
+   },
+   "1": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [],
+    "source": "unknown"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   }
+  },
+  "00803-k1cupFYWXJ6": {
+   "0": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [],
+    "source": "unknown"
+   },
+   "8": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00808-y9hTuugGdiq": {
+   "0": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [],
+    "source": "unknown"
+   },
+   "13": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "17": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "18": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00810-CrMo8WxCyVb": {
+   "0": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "hall",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "15": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "16": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00813-svBbv1Pavdk": {
+   "1": {
+    "types": [
+     "living room",
+     "office"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   }
+  },
+  "00814-p53SfW6mjZe": {
+   "0": {
+    "types": [],
+    "source": "unknown"
+   },
+   "1": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "hall",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [],
+    "source": "unknown"
+   },
+   "10": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [
+     "dining room"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [],
+    "source": "unknown"
+   },
+   "15": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [],
+    "source": "unknown"
+   },
+   "17": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "18": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "19": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "20": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "21": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "22": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "23": {
+    "types": [],
+    "source": "unknown"
+   },
+   "24": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00815-h1zeeAwLh9Z": {
+   "0": {
+    "types": [],
+    "source": "unknown"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [
+     "dining room"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [],
+    "source": "unknown"
+   },
+   "10": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [],
+    "source": "unknown"
+   },
+   "13": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [],
+    "source": "unknown"
+   },
+   "16": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "17": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00820-mL8ThkuaVTM": {
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00821-eF36g7L6Z9M": {
+   "0": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "10": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [
+     "bathroom",
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00823-7MXmsvcQjpJ": {
+   "0": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom",
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "bedroom",
+     "living room",
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bedroom",
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [
+     "bedroom",
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "dining room"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "17": {
+    "types": [],
+    "source": "unknown"
+   },
+   "18": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "19": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "20": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "21": {
+    "types": [],
+    "source": "unknown"
+   },
+   "22": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00824-Dd4bFSTQ8gi": {
+   "0": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [
+     "dining room"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "bathroom",
+     "bedroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00827-BAbdmeyTvMZ": {
+   "0": {
+    "types": [],
+    "source": "unknown"
+   },
+   "1": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "hall",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   }
+  },
+  "00829-QaLdnwvtxbs": {
+   "0": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   }
+  },
+  "00831-yr17PDCnDDW": {
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00832-qyAac8rV8Zk": {
+   "0": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "bedroom",
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   },
+   "14": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "config"
+   }
+  },
+  "00835-q3zU7Yy5E5s": {
+   "0": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [
+     "kitchen",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   },
+   "14": {
+    "types": [],
+    "source": "unknown"
+   },
+   "15": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00839-zt1RVoi7PcG": {
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "living room",
+     "rec room"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "15": {
+    "types": [
+     "dining room"
+    ],
+    "source": "config"
+   },
+   "16": {
+    "types": [],
+    "source": "unknown"
+   },
+   "17": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "18": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00843-DYehNKdT76V": {
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00844-q5QZSEeHe5g": {
+   "1": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "16": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "17": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00848-ziup5kvtCCR": {
+   "0": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [],
+    "source": "unknown"
+   },
+   "8": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00849-a8BtkwhxdRV": {
+   "1": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [],
+    "source": "unknown"
+   },
+   "10": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "13": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [],
+    "source": "unknown"
+   },
+   "15": {
+    "types": [],
+    "source": "unknown"
+   },
+   "16": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "17": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00853-5cdEh9F2hJL": {
+   "1": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "dining room",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "living room",
+     "office"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   }
+  },
+  "00862-LT9Jq6dN3Ea": {
+   "0": {
+    "types": [],
+    "source": "unknown"
+   },
+   "1": {
+    "types": [
+     "dining room",
+     "living room"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [
+     "dining room"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [],
+    "source": "unknown"
+   },
+   "16": {
+    "types": [],
+    "source": "unknown"
+   },
+   "17": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "18": {
+    "types": [],
+    "source": "unknown"
+   },
+   "19": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "20": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "21": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "22": {
+    "types": [],
+    "source": "unknown"
+   },
+   "23": {
+    "types": [],
+    "source": "unknown"
+   },
+   "24": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "25": {
+    "types": [],
+    "source": "unknown"
+   },
+   "26": {
+    "types": [],
+    "source": "unknown"
+   },
+   "27": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "28": {
+    "types": [],
+    "source": "unknown"
+   },
+   "29": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "30": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "31": {
+    "types": [],
+    "source": "unknown"
+   },
+   "32": {
+    "types": [],
+    "source": "unknown"
+   },
+   "33": {
+    "types": [],
+    "source": "unknown"
+   },
+   "34": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "35": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00869-MHPLjHsuG27": {
+   "0": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "1": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00871-VBzV5z6i1WS": {
+   "0": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "kitchen",
+     "laundry room"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   },
+   "14": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "15": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00873-bxsVRursffK": {
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [],
+    "source": "unknown"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00876-mv2HUxq3B53": {
+   "1": {
+    "types": [],
+    "source": "unknown"
+   },
+   "2": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [],
+    "source": "unknown"
+   },
+   "11": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "12": {
+    "types": [],
+    "source": "unknown"
+   },
+   "13": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "14": {
+    "types": [],
+    "source": "unknown"
+   },
+   "15": {
+    "types": [],
+    "source": "unknown"
+   },
+   "16": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   }
+  },
+  "00877-4ok3usBNeis": {
+   "0": {
+    "types": [
+     "bedroom",
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "4": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   }
+  },
+  "00878-XB4GS9ShBRE": {
+   "1": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "2": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "6": {
+    "types": [],
+    "source": "unknown"
+   },
+   "7": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "bedroom",
+     "living room",
+     "rec room"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [],
+    "source": "unknown"
+   }
+  },
+  "00880-Nfvxx8J5NCo": {
+   "1": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bedroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "3": {
+    "types": [],
+    "source": "unknown"
+   },
+   "4": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "5": {
+    "types": [],
+    "source": "unknown"
+   },
+   "6": {
+    "types": [
+     "office"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [],
+    "source": "unknown"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "11": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "12": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   }
+  },
+  "00890-6s7QHgap2fW": {
+   "0": {
+    "types": [
+     "bedroom",
+     "hall"
+    ],
+    "source": "config"
+   },
+   "1": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [
+     "bedroom",
+     "dining room"
+    ],
+    "source": "config"
+   },
+   "3": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "7": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "config"
+   },
+   "8": {
+    "types": [],
+    "source": "unknown"
+   },
+   "9": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   }
+  },
+  "00891-cvZr5TUy5C5": {
+   "1": {
+    "types": [
+     "hall"
+    ],
+    "source": "config"
+   },
+   "2": {
+    "types": [],
+    "source": "unknown"
+   },
+   "3": {
+    "types": [
+     "kitchen"
+    ],
+    "source": "config"
+   },
+   "4": {
+    "types": [
+     "office"
+    ],
+    "source": "config"
+   },
+   "5": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "6": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "7": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "8": {
+    "types": [
+     "bathroom",
+     "living room"
+    ],
+    "source": "object_vote"
+   },
+   "9": {
+    "types": [
+     "bedroom"
+    ],
+    "source": "object_vote"
+   },
+   "10": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "config"
+   },
+   "11": {
+    "types": [],
+    "source": "unknown"
+   },
+   "12": {
+    "types": [
+     "living room"
+    ],
+    "source": "config"
+   },
+   "13": {
+    "types": [
+     "laundry room"
+    ],
+    "source": "object_vote"
+   },
+   "14": {
+    "types": [
+     "bathroom"
+    ],
+    "source": "object_vote"
+   },
+   "15": {
+    "types": [
+     "living room"
+    ],
+    "source": "object_vote"
+   }
+  }
+ }
+}
