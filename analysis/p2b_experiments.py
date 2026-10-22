@@ -262,40 +262,58 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
 
 ir.run_lmee.query_mllm_for_response = f_query
 
-if __name__ == "__main__":
-    from omegaconf import OmegaConf
+FIX_START = True
+_orig_pts_angle = ir.run_lmee.get_pts_angle_goatbench
 
+
+def pts_angle(init_pos, init_rot):
+    if not FIX_START:
+        return _orig_pts_angle(init_pos, init_rot)
+    w, x, y, z = init_rot  # LMEE stores [w,x,y,z]; habitat's quat_from_coeffs wants [x,y,z,w]
+    return _orig_pts_angle(init_pos, [x, y, z, w])
+
+
+ir.run_lmee.get_pts_angle_goatbench = pts_angle
+
+
+def parse(argv):
     p = argparse.ArgumentParser()
-    p.add_argument("--exp", required=True, choices=["F1", "F2", "F2b"])
+    p.add_argument("--exp", choices=["F1", "F2", "F2b"])
     p.add_argument("--no_fix_start", action="store_true")
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--voxel", type=float, default=VOXEL)
     p.add_argument("--max_ctx", type=int, default=MAX_CTX)
     p.add_argument("--device_map", default=None, help="e.g. 'auto' to split the VLM over all visible GPUs")
-    p.add_argument("--run_name", required=True)
+    p.add_argument("--run_name")
     p.add_argument("--cfg_file", default=os.path.join(REPO, "analysis/cfg/instr_choice_sub.yaml"))
     p.add_argument("--start_ratio", type=float, default=0.0)
     p.add_argument("--end_ratio", type=float, default=1.0)
-    args = p.parse_args()
-    EXP, VOXEL, MAX_CTX = args.exp, args.voxel, args.max_ctx
-    if EXP == "F2b":
-        P1.load_room_types()
+    p.add_argument("--worker", default=None, help="queue file: run its jobs one after another in this process, "
+                   "keeping the model (and the GPU) between jobs")
+    return p.parse_args(argv)
+
+
+def load_cfg(args):
+    from omegaconf import OmegaConf
     cfg = OmegaConf.load(args.cfg_file)
     OmegaConf.resolve(cfg)
     if args.seed is not None:
         cfg.seed = args.seed
     if args.device_map:
         cfg.model.device = args.device_map
-    if not args.no_fix_start:
-        _orig_pts_angle = ir.run_lmee.get_pts_angle_goatbench
-
-        def fixed_pts_angle(init_pos, init_rot):  # LMEE stores [w,x,y,z]; habitat's quat_from_coeffs wants [x,y,z,w]
-            w, x, y, z = init_rot
-            return _orig_pts_angle(init_pos, [x, y, z, w])
-        ir.run_lmee.get_pts_angle_goatbench = fixed_pts_angle
-    cfg.exp_name = args.run_name
+    cfg.exp_name = args.run_name or "worker"
     cfg.output_dir = os.path.join(cfg.output_parent_dir, cfg.exp_name)
+    return cfg
+
+
+def run_job(args, model=None, processor=None):
+    global EXP, VOXEL, MAX_CTX, FIX_START
+    EXP, VOXEL, MAX_CTX, FIX_START = args.exp, args.voxel, args.max_ctx, not args.no_fix_start
+    if EXP == "F2b" and not P1.ROOM_TYPES:
+        P1.load_room_types()
+    cfg = load_cfg(args)
     os.makedirs(cfg.output_dir, exist_ok=True)
+    ir.CUR["scene_dumped"] = set()  # each run's records file needs its own scene (GT object) records
     ir.OUT = open(os.path.join(cfg.output_dir, f"records_{args.start_ratio}_{args.end_ratio}.jsonl"), "a")
     t0 = time.time()
 
@@ -304,12 +322,81 @@ if __name__ == "__main__":
             s = int(r.created - t0)
             return f"{s // 3600:02}:{s % 3600 // 60:02}:{s % 60:02}"
 
-    logging.basicConfig(level=logging.INFO, format="%(message)s", handlers=[
-        logging.FileHandler(os.path.join(cfg.output_dir, f"log_{args.start_ratio:.2f}_{args.end_ratio:.2f}_1.log"), mode="a"),
-        logging.StreamHandler()])
-    for h in logging.getLogger().handlers:
+    root = logging.getLogger()
+    for h in list(root.handlers):
+        root.removeHandler(h)
+        h.close()
+    for h in (logging.FileHandler(os.path.join(cfg.output_dir, f"log_{args.start_ratio:.2f}_{args.end_ratio:.2f}_1.log"), mode="a"),
+              logging.StreamHandler()):
         h.setFormatter(F(fmt="%(asctime)s - %(message)s"))
-    logging.info(f"***** experiment {EXP} voxel={VOXEL} max_ctx={MAX_CTX} fix_start={not args.no_fix_start} seed={cfg.seed} "
+        root.addHandler(h)
+    root.setLevel(logging.INFO)
+    logging.info(f"***** experiment {EXP} voxel={VOXEL} max_ctx={MAX_CTX} fix_start={FIX_START} seed={cfg.seed} "
                  f"-> {cfg.output_dir} *****")
-    model, processor = ir.run_lmee.load_model(cfg)
-    ir.run_lmee.main(cfg, model, processor, start_ratio=args.start_ratio, end_ratio=args.end_ratio, split=1, answer_type="choice")
+    if model is None:
+        model, processor = ir.run_lmee.load_model(cfg)
+    try:
+        ir.run_lmee.main(cfg, model, processor, start_ratio=args.start_ratio, end_ratio=args.end_ratio, split=1, answer_type="choice")
+    finally:
+        ir.OUT.close()
+    return model, processor
+
+
+def worker(qfile):
+    """Pop "<exp> <run_name> <start> <end> [extra args]" lines from the queue file (same lock as p2b_queue.sh) and run
+    them in this process. A failed job goes back to the front of the queue (at most 6 attempts, counted in p2b_logs)."""
+    import fcntl
+    import gc
+    import subprocess
+    lock, logs = os.path.join(os.path.dirname(qfile), "p2b_jobs.lock"), os.path.join(os.path.dirname(qfile), "p2b_logs")
+    gpu = os.environ.get("CUDA_VISIBLE_DEVICES", "?")
+
+    def edit(fn):
+        with open(lock, "a") as lk:
+            fcntl.flock(lk, fcntl.LOCK_EX)
+            lines = [l for l in open(qfile).read().splitlines() if l.strip()] if os.path.exists(qfile) else []
+            out, lines = fn(lines)
+            open(qfile, "w").write("".join(l + "\n" for l in lines))
+            return out
+
+    def note(msg):
+        open(os.path.join(logs, "queue.log"), "a").write(f"{time.strftime('%a %b %d %I:%M:%S %p KST %Y')} GPU{gpu} {msg}\n")
+
+    model = processor = None
+    while True:
+        job = edit(lambda ls: (ls[0], ls[1:]) if ls else (None, ls))
+        if job is None:
+            return
+        exp, run, s, e, *extra = job.split()
+        note(f"start (worker) {job}")
+        subprocess.run([sys.executable, os.path.join(REPO, "analysis/clean_partial.py"), s, e, run], check=False)
+        a = parse(["--exp", exp, "--run_name", run, "--start_ratio", s, "--end_ratio", e] + extra)
+        log = os.path.join(REPO, "analysis/runs", run, f"log_{float(s):.2f}_{float(e):.2f}_1.log")
+        try:
+            model, processor = run_job(a, model, processor)
+        except Exception as ex:  # noqa: BLE001
+            logging.exception(f"job failed: {job}")
+            if isinstance(ex, torch.OutOfMemoryError):
+                model = processor = None  # reload next time
+        gc.collect()
+        torch.cuda.empty_cache()
+        if os.path.exists(log) and "All scenes finish" in open(log).read():
+            note(f"done {job}")
+            continue
+        cnt = os.path.join(logs, f"attempts_{run}_{s}")
+        n = (int(open(cnt).read()) if os.path.exists(cnt) else 0) + 1
+        open(cnt, "w").write(str(n))
+        if n < 6:
+            edit(lambda ls: (None, [job] + ls))
+            note(f"retry {n} (requeued) {job}")
+            time.sleep(60)
+        else:
+            note(f"FAILED {job}")
+
+
+if __name__ == "__main__":
+    args = parse(sys.argv[1:])
+    if args.worker:
+        worker(os.path.abspath(args.worker))
+    else:
+        run_job(args)
