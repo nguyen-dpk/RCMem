@@ -2,8 +2,8 @@
 # Phase 2b GPU job queue. Each line of analysis/runs/p2b_jobs.txt:
 #   "<exp> <run_name> <start> <end> [extra p2b_experiments.py args]"   (exp = F1 | F2 | F2b)
 #   "f0" runs analysis/p2b_f0.py
-# One worker per GPU (args: GPU ids); every attempt waits until its GPU has >= 22 GB free (the GPUs are shared); each
-# job resumes per episode and retries up to 6 times. Usage: nohup analysis/runs/p2b_queue.sh 0 1 2 3 &
+# One worker per GPU (args: GPU ids); a worker takes the next job once its GPU has >= 22 GB free (the GPUs are shared);
+# a failed attempt is requeued at the front (any GPU may resume it, per episode), up to 6 attempts per job. Usage: nohup analysis/runs/p2b_queue.sh 0 1 2 3 &
 cd "$(dirname "$0")/../.."
 P=${LMEE_PY:-/home/quang/miniconda3/envs/lmee/bin/python}
 Q=analysis/runs/p2b_jobs.txt
@@ -28,16 +28,19 @@ worker() {
       continue
     fi
     log=analysis/runs/$run/log_$(printf %.2f $s)_$(printf %.2f $e)_1.log
-    for i in 1 2 3 4 5 6; do
-      wait_free $g
-      $P analysis/clean_partial.py $s $e $run
-      PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CUDA_VISIBLE_DEVICES=$g $P analysis/p2b_experiments.py --exp $exp \
-        --run_name $run --start_ratio $s --end_ratio $e $extra >> $L/stdout_${run}_$s.txt 2>&1
-      grep -q "All scenes finish" $log && break
-      echo "$(date) GPU$g retry $i $job" >> $L/queue.log
-      sleep 180
-    done
-    grep -q "All scenes finish" $log && echo "$(date) GPU$g done $job" >> $L/queue.log || echo "$(date) GPU$g FAILED $job" >> $L/queue.log
+    $P analysis/clean_partial.py $s $e $run
+    PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CUDA_VISIBLE_DEVICES=$g $P analysis/p2b_experiments.py --exp $exp \
+      --run_name $run --start_ratio $s --end_ratio $e $extra >> $L/stdout_${run}_$s.txt 2>&1
+    if grep -q "All scenes finish" $log; then echo "$(date) GPU$g done $job" >> $L/queue.log; continue; fi
+    # failed (usually another process took the GPU): put the job back at the front so any GPU can resume it
+    n=$(( $(cat $L/attempts_${run}_$s 2>/dev/null || echo 0) + 1 )); echo $n > $L/attempts_${run}_$s
+    if [ $n -lt 6 ]; then
+      flock analysis/runs/p2b_jobs.lock sed -i "1i $job" $Q
+      echo "$(date) GPU$g retry $n (requeued) $job" >> $L/queue.log
+      sleep 60
+    else
+      echo "$(date) GPU$g FAILED $job" >> $L/queue.log
+    fi
   done
 }
 for g in "$@"; do worker $g & sleep 5; done
