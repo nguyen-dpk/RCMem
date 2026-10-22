@@ -397,6 +397,6 @@ def worker(qfile):
 if __name__ == "__main__":
     args = parse(sys.argv[1:])
     if args.worker:
-        worker(os.path.abspath(args.worker))
+        worker(args.worker if os.path.isabs(args.worker) else os.path.join(REPO, args.worker))  # cwd is evaluation/ here
     else:
         run_job(args)
