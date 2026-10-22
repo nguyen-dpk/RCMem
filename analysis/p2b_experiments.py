@@ -27,6 +27,10 @@ import re
 import sys
 import time
 
+if __name__ == "__main__" and os.environ.get("PYTHONUTF8") != "1":
+    # LMEE reads task JSON with the locale's default encoding; detached shells can end up with ASCII -> force UTF-8
+    os.execve(sys.executable, [sys.executable] + sys.argv, {**os.environ, "PYTHONUTF8": "1"})
+
 import cv2
 import numpy as np
 import torch
