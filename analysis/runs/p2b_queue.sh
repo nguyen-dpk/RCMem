@@ -2,8 +2,8 @@
 # Phase 2b GPU job queue. Each line of analysis/runs/p2b_jobs.txt:
 #   "<exp> <run_name> <start> <end> [extra p2b_experiments.py args]"   (exp = F1 | F2 | F2b)
 #   "f0" runs analysis/p2b_f0.py
-# One worker per GPU (args: GPU ids); a worker takes the next job only when its GPU has >= 22 GB free (the GPUs are
-# shared); each job resumes per episode and retries up to 6 times. Usage: nohup analysis/runs/p2b_queue.sh 0 1 2 3 &
+# One worker per GPU (args: GPU ids); every attempt waits until its GPU has >= 22 GB free (the GPUs are shared); each
+# job resumes per episode and retries up to 6 times. Usage: nohup analysis/runs/p2b_queue.sh 0 1 2 3 &
 cd "$(dirname "$0")/../.."
 P=${LMEE_PY:-/home/quang/miniconda3/envs/lmee/bin/python}
 Q=analysis/runs/p2b_jobs.txt
@@ -11,11 +11,14 @@ L=analysis/runs/p2b_logs
 mkdir -p $L
 pop() { flock analysis/runs/p2b_jobs.lock bash -c "head -n1 $Q; sed -i 1d $Q"; }
 free_mb() { nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i $1; }
+# the GPUs are shared: wait until the GPU has >= 22 GB free twice, 30 s apart (lets a job that just started elsewhere allocate)
+wait_free() { while true; do
+  if [ "$(free_mb $1)" -ge 22000 ]; then sleep 30; [ "$(free_mb $1)" -ge 22000 ] && return; fi; sleep 20; done; }
 worker() {
   g=$1
   while true; do
     [ -s $Q ] || break
-    if [ "$(free_mb $g)" -lt 22000 ]; then sleep 120; continue; fi
+    wait_free $g
     job=$(pop); [ -z "$job" ] && break
     read exp run s e extra <<< "$job"
     echo "$(date) GPU$g start $job" >> $L/queue.log
@@ -26,6 +29,7 @@ worker() {
     fi
     log=analysis/runs/$run/log_$(printf %.2f $s)_$(printf %.2f $e)_1.log
     for i in 1 2 3 4 5 6; do
+      wait_free $g
       $P analysis/clean_partial.py $s $e $run
       PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CUDA_VISIBLE_DEVICES=$g $P analysis/p2b_experiments.py --exp $exp \
         --run_name $run --start_ratio $s --end_ratio $e $extra >> $L/stdout_${run}_$s.txt 2>&1
