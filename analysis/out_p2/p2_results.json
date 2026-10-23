@@ -1,0 +1,766 @@
+{
+ "groups": {
+  "E0 no fix": {
+   "runs": {
+    "instr_choice_sub": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 21.323529411764707,
+     "SPL": 13.240136097353721,
+     "distractor_rate_all": 26.47058823529412,
+     "distractor_rate_of_memory_choices": 32.432432432432435,
+     "premature_commit_rate": 27.573529411764707,
+     "acc": 65.51724137931035,
+     "acc_prior_corrected": 6.206896551724139,
+     "frontier_aborts": 25,
+     "nav_failures": 214
+    },
+    "p2_E0_nofix_s78": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 25.735294117647058,
+     "SPL": 13.776792741680524,
+     "distractor_rate_all": 27.573529411764707,
+     "distractor_rate_of_memory_choices": 33.482142857142854,
+     "premature_commit_rate": 29.044117647058822,
+     "acc": 68.96551724137932,
+     "acc_prior_corrected": 9.655172413793112,
+     "frontier_aborts": 23,
+     "nav_failures": 202
+    },
+    "p2_E0_nofix_s79": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 21.691176470588236,
+     "SPL": 13.096127053380116,
+     "distractor_rate_all": 28.308823529411764,
+     "distractor_rate_of_memory_choices": 35.81395348837209,
+     "premature_commit_rate": 31.25,
+     "acc": 66.89655172413794,
+     "acc_prior_corrected": 7.586206896551728,
+     "frontier_aborts": 27,
+     "nav_failures": 213
+    }
+   },
+   "mean": {
+    "SR": 22.916666666666668,
+    "SPL": 13.371018630804786,
+    "distractor_rate_all": 27.450980392156865,
+    "distractor_rate_of_memory_choices": 33.90950959264912,
+    "premature_commit_rate": 29.289215686274513,
+    "acc": 67.1264367816092,
+    "acc_prior_corrected": 7.816091954022993,
+    "frontier_aborts": 25.0,
+    "nav_failures": 209.66666666666666
+   },
+   "std": {
+    "SR": 2.4479147494409528,
+    "SPL": 0.35871175472695904,
+    "distractor_rate_all": 0.9252248082439634,
+    "distractor_rate_of_memory_choices": 1.730795455247032,
+    "premature_commit_rate": 1.8504496164879285,
+    "acc": 1.7355941230507483,
+    "acc_prior_corrected": 1.735594123050751,
+    "frontier_aborts": 2.0,
+    "nav_failures": 6.6583281184793925
+   },
+   "n": 3,
+   "initial_views_distinct": {
+    "instr_choice_sub": [
+     1.0,
+     58
+    ],
+    "p2_E0_nofix_s78": [
+     1.0,
+     58
+    ],
+    "p2_E0_nofix_s79": [
+     1.0,
+     58
+    ]
+   }
+  },
+  "E0 fixed": {
+   "runs": {
+    "p2_E0_fix_s77": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 24.63235294117647,
+     "SPL": 14.93335531175172,
+     "distractor_rate_all": 29.77941176470588,
+     "distractor_rate_of_memory_choices": 34.177215189873415,
+     "premature_commit_rate": 27.573529411764707,
+     "acc": 66.89655172413794,
+     "acc_prior_corrected": 7.586206896551728,
+     "frontier_aborts": 10,
+     "nav_failures": 205
+    },
+    "p2_E0_fix_s78": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 27.573529411764707,
+     "SPL": 16.716323517857763,
+     "distractor_rate_all": 28.676470588235293,
+     "distractor_rate_of_memory_choices": 33.191489361702125,
+     "premature_commit_rate": 29.044117647058822,
+     "acc": 68.96551724137932,
+     "acc_prior_corrected": 9.655172413793112,
+     "frontier_aborts": 13,
+     "nav_failures": 197
+    },
+    "p2_E0_fix_s79": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 25.36764705882353,
+     "SPL": 16.83010186565689,
+     "distractor_rate_all": 27.941176470588236,
+     "distractor_rate_of_memory_choices": 32.900432900432904,
+     "premature_commit_rate": 30.147058823529413,
+     "acc": 68.27586206896552,
+     "acc_prior_corrected": 8.965517241379317,
+     "frontier_aborts": 15,
+     "nav_failures": 203
+    }
+   },
+   "mean": {
+    "SR": 25.8578431372549,
+    "SPL": 16.159926898422125,
+    "distractor_rate_all": 28.799019607843135,
+    "distractor_rate_of_memory_choices": 33.42304581733615,
+    "premature_commit_rate": 28.92156862745098,
+    "acc": 68.04597701149426,
+    "acc_prior_corrected": 8.735632183908052,
+    "frontier_aborts": 12.666666666666666,
+    "nav_failures": 201.66666666666666
+   },
+   "std": {
+    "SR": 1.5306367643133332,
+    "SPL": 1.063764433992479,
+    "distractor_rate_all": 0.9252248082439634,
+    "distractor_rate_of_memory_choices": 0.6691465069523878,
+    "premature_commit_rate": 1.2911340383397967,
+    "acc": 1.0534656770013433,
+    "acc_prior_corrected": 1.053465677001345,
+    "frontier_aborts": 2.5166114784235836,
+    "nav_failures": 4.163331998932265
+   },
+   "n": 3,
+   "initial_views_distinct": {
+    "p2_E0_fix_s77": [
+     7.0,
+     58
+    ],
+    "p2_E0_fix_s78": [
+     7.0,
+     58
+    ],
+    "p2_E0_fix_s79": [
+     7.0,
+     58
+    ]
+   }
+  },
+  "E1 fixed": {
+   "runs": {
+    "p2_E1_fix_s77": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 41.17647058823529,
+     "SPL": 23.105754223218025,
+     "distractor_rate_all": 11.397058823529411,
+     "distractor_rate_of_memory_choices": 18.452380952380953,
+     "premature_commit_rate": 2.2058823529411766,
+     "acc": 67.58620689655173,
+     "acc_prior_corrected": 8.275862068965523,
+     "frontier_aborts": 27,
+     "nav_failures": 160
+    },
+    "p2_E1_fix_s78": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 42.64705882352941,
+     "SPL": 25.935448527065212,
+     "distractor_rate_all": 9.191176470588236,
+     "distractor_rate_of_memory_choices": 15.060240963855422,
+     "premature_commit_rate": 1.4705882352941178,
+     "acc": 68.27586206896552,
+     "acc_prior_corrected": 8.965517241379317,
+     "frontier_aborts": 27,
+     "nav_failures": 156
+    },
+    "p2_E1_fix_s79": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 41.17647058823529,
+     "SPL": 25.395542953961574,
+     "distractor_rate_all": 11.76470588235294,
+     "distractor_rate_of_memory_choices": 19.27710843373494,
+     "premature_commit_rate": 1.838235294117647,
+     "acc": 66.20689655172414,
+     "acc_prior_corrected": 6.896551724137934,
+     "frontier_aborts": 30,
+     "nav_failures": 160
+    }
+   },
+   "mean": {
+    "SR": 41.666666666666664,
+    "SPL": 24.8122485680816,
+    "distractor_rate_all": 10.784313725490195,
+    "distractor_rate_of_memory_choices": 17.596576783323773,
+    "premature_commit_rate": 1.838235294117647,
+    "acc": 67.35632183908046,
+    "acc_prior_corrected": 8.045977011494259,
+    "frontier_aborts": 28.0,
+    "nav_failures": 158.66666666666666
+   },
+   "std": {
+    "SR": 0.8490445135141587,
+    "SPL": 1.502320444763907,
+    "distractor_rate_all": 1.391889300441243,
+    "distractor_rate_of_memory_choices": 2.2349034423132834,
+    "premature_commit_rate": 0.36764705882352944,
+    "acc": 1.0534656770013433,
+    "acc_prior_corrected": 1.0534656770013442,
+    "frontier_aborts": 1.7320508075688772,
+    "nav_failures": 2.3094010767585034
+   },
+   "n": 3,
+   "delta_vs_E0_fixed": {
+    "SR": 15.808823529411764,
+    "SPL": 8.652321669659475,
+    "distractor_rate_all": -18.014705882352942,
+    "distractor_rate_of_memory_choices": -15.82646903401238,
+    "premature_commit_rate": -27.083333333333332,
+    "acc": -0.6896551724137936,
+    "acc_prior_corrected": -0.6896551724137936
+   }
+  },
+  "E1b fixed": {
+   "runs": {
+    "p2_E1b_fix_s77": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 33.088235294117645,
+     "SPL": 20.83722873237074,
+     "distractor_rate_all": 24.264705882352942,
+     "distractor_rate_of_memory_choices": 30.8411214953271,
+     "premature_commit_rate": 25.0,
+     "acc": 66.89655172413794,
+     "acc_prior_corrected": 7.586206896551728,
+     "frontier_aborts": 16,
+     "nav_failures": 182
+    },
+    "p2_E1b_fix_s78": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 31.61764705882353,
+     "SPL": 18.717407674004665,
+     "distractor_rate_all": 24.264705882352942,
+     "distractor_rate_of_memory_choices": 30.414746543778804,
+     "premature_commit_rate": 24.264705882352942,
+     "acc": 68.27586206896552,
+     "acc_prior_corrected": 8.965517241379317,
+     "frontier_aborts": 19,
+     "nav_failures": 186
+    },
+    "p2_E1b_fix_s79": {
+     "n_nav": 272,
+     "n_qa": 145,
+     "episodes": 58,
+     "SR": 30.14705882352941,
+     "SPL": 19.26096751282939,
+     "distractor_rate_all": 23.897058823529413,
+     "distractor_rate_of_memory_choices": 29.411764705882355,
+     "premature_commit_rate": 26.470588235294116,
+     "acc": 69.6551724137931,
+     "acc_prior_corrected": 10.344827586206895,
+     "frontier_aborts": 17,
+     "nav_failures": 190
+    }
+   },
+   "mean": {
+    "SR": 31.617647058823525,
+    "SPL": 19.6052013064016,
+    "distractor_rate_all": 24.1421568627451,
+    "distractor_rate_of_memory_choices": 30.222544248329417,
+    "premature_commit_rate": 25.245098039215687,
+    "acc": 68.27586206896552,
+    "acc_prior_corrected": 8.965517241379315,
+    "frontier_aborts": 17.333333333333332,
+    "nav_failures": 186.0
+   },
+   "std": {
+    "SR": 1.4705882352941178,
+    "SPL": 1.1010372420363,
+    "distractor_rate_all": 0.21226112837853867,
+    "distractor_rate_of_memory_choices": 0.7338061730899771,
+    "premature_commit_rate": 1.123180317391136,
+    "acc": 1.37931034482758,
+    "acc_prior_corrected": 1.3793103448275836,
+    "frontier_aborts": 1.5275252316519468,
+    "nav_failures": 4.0
+   },
+   "n": 3,
+   "delta_vs_E0_fixed": {
+    "SR": 5.759803921568626,
+    "SPL": 3.4452744079794755,
+    "distractor_rate_all": -4.656862745098035,
+    "distractor_rate_of_memory_choices": -3.200501569006736,
+    "premature_commit_rate": -3.6764705882352935,
+    "acc": 0.22988505747126453,
+    "acc_prior_corrected": 0.22988505747126275
+   }
+  }
+ },
+ "missing": [],
+ "gate_check": {
+  "E1 fixed": {
+   "delta_SR": 15.808823529411764,
+   "two_std_E0_fixed": 3.0612735286266664,
+   "beyond_noise": true
+  },
+  "E1b fixed": {
+   "delta_SR": 5.759803921568626,
+   "two_std_E0_fixed": 3.0612735286266664,
+   "beyond_noise": true
+  }
+ },
+ "E1b_share_of_E1_gain": 0.3643410852713177,
+ "E1b_wrong_commit_regions": {
+  "another room of the same type": 100,
+  "same region as the goal": 74,
+  "region of unknown room type (never hidden)": 114,
+  "chosen object not matched to a GT region": 6,
+  "room of a different type": 8
+ },
+ "verifier": {
+  "verifications": 519,
+  "object_found_in_records": 519,
+  "confusion": {
+   "rejected_wrong_object": 411,
+   "rejected_true_goal": 21,
+   "accepted_wrong_object": 47,
+   "accepted_true_goal": 40
+  },
+  "reject_precision": "411/432 = 95.1%",
+  "reject_recall": "411/458 = 89.7%",
+  "accept_precision": "40/87 = 46.0%",
+  "accept_recall": "40/61 = 65.6%",
+  "true_goal_rejected_share": "21/61 = 34.4%",
+  "by_goal_type": {
+   "description": {
+    "n": 117,
+    "rejected_true_goal": 5,
+    "accepted_true_goal": 15
+   },
+   "image": {
+    "n": 402,
+    "rejected_true_goal": 16,
+    "accepted_true_goal": 25
+   }
+  }
+ },
+ "full": {
+  "run": "p2_full_E0_fix_s77",
+  "episodes": 166,
+  "nav_targets": 821,
+  "qa": 405,
+  "SR": 23.87332521315469,
+  "acc": 63.456790123456784,
+  "nav_taxonomy": {
+   "wrong instance (goal not yet observed)": {
+    "count": 138,
+    "share": 22.08
+   },
+   "exploration failure: premature commit": {
+    "count": 134,
+    "share": 21.44
+   },
+   "wrong instance (goal already observed)": {
+    "count": 87,
+    "share": 13.92
+   },
+   "perception: goal seen, not detected": {
+    "count": 75,
+    "share": 12.0
+   },
+   "exploration: aborted, no frontier available": {
+    "count": 47,
+    "share": 7.52
+   },
+   "perception: false-positive goal detection": {
+    "count": 36,
+    "share": 5.76
+   },
+   "selection error: gold memory shown, not chosen": {
+    "count": 24,
+    "share": 3.84
+   },
+   "task-progress error": {
+    "count": 19,
+    "share": 3.04
+   },
+   "goal chosen, viewpoint not reached": {
+    "count": 19,
+    "share": 3.04
+   },
+   "exploration failure / step cap": {
+    "count": 18,
+    "share": 2.88
+   },
+   "other: aborted / invalid output": {
+    "count": 17,
+    "share": 2.72
+   },
+   "retrieval miss": {
+    "count": 9,
+    "share": 1.44
+   },
+   "perception: detected, not written to memory": {
+    "count": 2,
+    "share": 0.32
+   }
+  },
+  "nav_failures": 625,
+  "qa_taxonomy": {
+   "exploration: evidence never observed": {
+    "count": 51,
+    "share": 34.45945945945946
+   },
+   "selection error: gold retrieved, other memory chosen": {
+    "count": 33,
+    "share": 22.2972972972973
+   },
+   "retrieval miss": {
+    "count": 25,
+    "share": 16.89189189189189
+   },
+   "spatial-relation error": {
+    "count": 12,
+    "share": 8.108108108108109
+   },
+   "perception/attribute error": {
+    "count": 12,
+    "share": 8.108108108108109
+   },
+   "counting error": {
+    "count": 8,
+    "share": 5.405405405405405
+   },
+   "memory writing: observed, not kept in any memory view": {
+    "count": 7,
+    "share": 4.72972972972973
+   }
+  },
+  "qa_failures": 148,
+  "E3": {
+   "goal in memory": {
+    "decisions": 929,
+    "commit_rate": 39.2
+   },
+   "goal not in memory": {
+    "decisions": 1331,
+    "commit_rate": 25.8
+   },
+   "region observed, goal in memory": {
+    "decisions": 802,
+    "commit_rate": 41.5
+   },
+   "region observed, goal not in memory": {
+    "decisions": 163,
+    "commit_rate": 19.0
+   },
+   "region not observed, goal in memory": {
+    "decisions": 127,
+    "commit_rate": 24.4
+   },
+   "region not observed, goal not in memory": {
+    "decisions": 1168,
+    "commit_rate": 26.7
+   },
+   "first decision of subtask, goal in memory": {
+    "decisions": 334,
+    "commit_rate": 59.9
+   },
+   "first decision of subtask, goal not in memory": {
+    "decisions": 449,
+    "commit_rate": 37.4
+   }
+  }
+ },
+ "subset_fixed_pooled": {
+  "nav_taxonomy": {
+   "exploration failure: premature commit": {
+    "count": 124,
+    "share": 20.49586776859504
+   },
+   "wrong instance (goal not yet observed)": {
+    "count": 112,
+    "share": 18.512396694214875
+   },
+   "perception: goal seen, not detected": {
+    "count": 91,
+    "share": 15.041322314049587
+   },
+   "wrong instance (goal already observed)": {
+    "count": 82,
+    "share": 13.553719008264462
+   },
+   "perception: false-positive goal detection": {
+    "count": 52,
+    "share": 8.59504132231405
+   },
+   "exploration: aborted, no frontier available": {
+    "count": 38,
+    "share": 6.2809917355371905
+   },
+   "task-progress error": {
+    "count": 23,
+    "share": 3.8016528925619837
+   },
+   "other: aborted / invalid output": {
+    "count": 21,
+    "share": 3.4710743801652892
+   },
+   "exploration failure / step cap": {
+    "count": 19,
+    "share": 3.1404958677685952
+   },
+   "selection error: gold memory shown, not chosen": {
+    "count": 17,
+    "share": 2.809917355371901
+   },
+   "retrieval miss": {
+    "count": 10,
+    "share": 1.6528925619834711
+   },
+   "perception: detected, not written to memory": {
+    "count": 8,
+    "share": 1.322314049586777
+   },
+   "goal chosen, viewpoint not reached": {
+    "count": 8,
+    "share": 1.322314049586777
+   }
+  },
+  "nav_failures": 605,
+  "qa_taxonomy": {
+   "exploration: evidence never observed": {
+    "count": 48,
+    "share": 34.53237410071942
+   },
+   "retrieval miss": {
+    "count": 29,
+    "share": 20.863309352517987
+   },
+   "selection error: gold retrieved, other memory chosen": {
+    "count": 24,
+    "share": 17.26618705035971
+   },
+   "spatial-relation error": {
+    "count": 16,
+    "share": 11.510791366906474
+   },
+   "counting error": {
+    "count": 8,
+    "share": 5.755395683453237
+   },
+   "perception/attribute error": {
+    "count": 8,
+    "share": 5.755395683453237
+   },
+   "memory writing: observed, not kept in any memory view": {
+    "count": 5,
+    "share": 3.597122302158273
+   },
+   "other: invalid output": {
+    "count": 1,
+    "share": 0.7194244604316546
+   }
+  },
+  "qa_failures": 139,
+  "E3": {
+   "goal in memory": {
+    "decisions": 1079,
+    "commit_rate": 35.588507877664505
+   },
+   "goal not in memory": {
+    "decisions": 1397,
+    "commit_rate": 22.83464566929134
+   },
+   "region observed, goal in memory": {
+    "decisions": 924,
+    "commit_rate": 37.55411255411256
+   },
+   "region observed, goal not in memory": {
+    "decisions": 180,
+    "commit_rate": 28.333333333333332
+   },
+   "region not observed, goal in memory": {
+    "decisions": 155,
+    "commit_rate": 23.870967741935484
+   },
+   "region not observed, goal not in memory": {
+    "decisions": 1217,
+    "commit_rate": 22.02136400986031
+   },
+   "first decision of subtask, goal in memory": {
+    "decisions": 335,
+    "commit_rate": 51.64179104477612
+   },
+   "first decision of subtask, goal not in memory": {
+    "decisions": 454,
+    "commit_rate": 35.90308370044053
+   }
+  }
+ },
+ "full_vs_subset_nav_share_diff": {
+  "exploration failure / step cap": -0.26049586776859535,
+  "exploration failure: premature commit": 0.9441322314049607,
+  "exploration: aborted, no frontier available": 1.239008264462809,
+  "goal chosen, viewpoint not reached": 1.7176859504132231,
+  "other: aborted / invalid output": -0.751074380165289,
+  "perception: detected, not written to memory": -1.0023140495867768,
+  "perception: false-positive goal detection": -2.8350413223140496,
+  "perception: goal seen, not detected": -3.0413223140495873,
+  "retrieval miss": -0.21289256198347117,
+  "selection error: gold memory shown, not chosen": 1.030082644628099,
+  "task-progress error": -0.7616528925619837,
+  "wrong instance (goal already observed)": 0.36628099173553785,
+  "wrong instance (goal not yet observed)": 3.5676033057851235
+ },
+ "max_abs_nav_share_diff": 3.5676033057851235,
+ "qa_prior": {
+  "E0 no fix": {
+   "acc": 67.1264367816092,
+   "acc_minus_best_constant": 7.816091954022993,
+   "std": 1.735594123050751
+  },
+  "E0 fixed": {
+   "acc": 68.04597701149426,
+   "acc_minus_best_constant": 8.735632183908052,
+   "std": 1.053465677001345
+  }
+ },
+ "qa_permute": {
+  "instr_choice_sub": {
+   "run": "instr_choice_sub",
+   "questions_replayed": 145,
+   "replay_fidelity_pred_agreement": "134/145 = 92.4%",
+   "recorded_accuracy_on_replayed": "95/145 = 65.5%",
+   "replay_accuracy_original_order": "99/145 = 68.3%",
+   "permuted_accuracy_mean_over_perms": 57.24,
+   "permuted_accuracy_per_perm": [
+    58.62,
+    55.86,
+    57.24
+   ],
+   "answer_consistent_across_all_orders": "63/145 = 43.4%",
+   "pred_letter_dist_permuted": {
+    "B": 233,
+    "A": 65,
+    "C": 95,
+    "D": 42
+   },
+   "permuted_accuracy_by_category": {
+    "Attribute": 71.2,
+    "Counting": 38.3,
+    "Location": 57.1,
+    "Relationship": 61.5,
+    "State": 53.1
+   }
+  },
+  "p2_E0_fix_s77": {
+   "run": "p2_E0_fix_s77",
+   "questions_replayed": 145,
+   "replay_fidelity_pred_agreement": "142/145 = 97.9%",
+   "recorded_accuracy_on_replayed": "97/145 = 66.9%",
+   "replay_accuracy_original_order": "98/145 = 67.6%",
+   "permuted_accuracy_mean_over_perms": 56.78,
+   "permuted_accuracy_per_perm": [
+    56.55,
+    56.55,
+    57.24
+   ],
+   "answer_consistent_across_all_orders": "70/145 = 48.3%",
+   "pred_letter_dist_permuted": {
+    "B": 221,
+    "A": 56,
+    "C": 98,
+    "D": 60
+   },
+   "permuted_accuracy_by_category": {
+    "Attribute": 79.3,
+    "Counting": 38.3,
+    "Location": 51.2,
+    "Relationship": 59.0,
+    "State": 48.1
+   }
+  },
+  "p2_E0_fix_s78": {
+   "run": "p2_E0_fix_s78",
+   "questions_replayed": 145,
+   "replay_fidelity_pred_agreement": "143/145 = 98.6%",
+   "recorded_accuracy_on_replayed": "100/145 = 69.0%",
+   "replay_accuracy_original_order": "99/145 = 68.3%",
+   "permuted_accuracy_mean_over_perms": 57.7,
+   "permuted_accuracy_per_perm": [
+    57.93,
+    58.62,
+    56.55
+   ],
+   "answer_consistent_across_all_orders": "65/145 = 44.8%",
+   "pred_letter_dist_permuted": {
+    "B": 222,
+    "A": 62,
+    "C": 98,
+    "D": 53
+   },
+   "permuted_accuracy_by_category": {
+    "Attribute": 72.1,
+    "Counting": 35.8,
+    "Location": 57.1,
+    "Relationship": 61.5,
+    "State": 56.8
+   }
+  },
+  "p2_E0_fix_s79": {
+   "run": "p2_E0_fix_s79",
+   "questions_replayed": 145,
+   "replay_fidelity_pred_agreement": "142/145 = 97.9%",
+   "recorded_accuracy_on_replayed": "99/145 = 68.3%",
+   "replay_accuracy_original_order": "99/145 = 68.3%",
+   "permuted_accuracy_mean_over_perms": 58.39,
+   "permuted_accuracy_per_perm": [
+    60.69,
+    55.86,
+    58.62
+   ],
+   "answer_consistent_across_all_orders": "65/145 = 44.8%",
+   "pred_letter_dist_permuted": {
+    "B": 216,
+    "A": 69,
+    "C": 95,
+    "D": 55
+   },
+   "permuted_accuracy_by_category": {
+    "Attribute": 78.4,
+    "Counting": 33.3,
+    "Location": 56.0,
+    "Relationship": 61.5,
+    "State": 55.6
+   }
+  }
+ }
+}

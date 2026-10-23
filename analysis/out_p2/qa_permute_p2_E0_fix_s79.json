@@ -1,0 +1,9248 @@
+{
+ "summary": {
+  "run": "p2_E0_fix_s79",
+  "questions_replayed": 145,
+  "replay_fidelity_pred_agreement": "142/145 = 97.9%",
+  "recorded_accuracy_on_replayed": "99/145 = 68.3%",
+  "replay_accuracy_original_order": "99/145 = 68.3%",
+  "permuted_accuracy_mean_over_perms": 58.39,
+  "permuted_accuracy_per_perm": [
+   60.69,
+   55.86,
+   58.62
+  ],
+  "answer_consistent_across_all_orders": "65/145 = 44.8%",
+  "pred_letter_dist_permuted": {
+   "B": 216,
+   "A": 69,
+   "C": 95,
+   "D": 55
+  },
+  "permuted_accuracy_by_category": {
+   "Attribute": 78.4,
+   "Counting": 33.3,
+   "Location": 56.0,
+   "Relationship": 61.5,
+   "State": 55.6
+  }
+ },
+ "items": [
+  {
+   "subtask": "00800-TEEsavR23oF_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On the right side of the refrigerator",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On the right side of the refrigerator",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On the right side of the refrigerator",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind the refrigerator",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00800-TEEsavR23oF_0_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "On",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "On",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "On",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "On",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00800-TEEsavR23oF_1_5",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Toaster",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Microwave",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Microwave",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Toaster",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00800-TEEsavR23oF_1_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00802-wcojb4TFT35_0_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Carpet",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "Carpet",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Carpet",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Carpet",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00802-wcojb4TFT35_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Straight ahead",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "To the left",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00802-wcojb4TFT35_1_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Pink",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Pink",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Pink",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Pink",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00802-wcojb4TFT35_1_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "D",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "10",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "More than 20",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "More than 20",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "15",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00802-wcojb4TFT35_1_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "",
+     "correct": false,
+     "pred_text": null,
+     "memory": "memory 0 b"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00803-k1cupFYWXJ6_0_3",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Hanging from the ceiling",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Hanging from the ceiling",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00803-k1cupFYWXJ6_0_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Silver",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Brown",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00803-k1cupFYWXJ6_1_5",
+   "category": "State",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Upright and in use",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Upright and in use",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Upright and in use",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Upright and in use",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00803-k1cupFYWXJ6_1_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "On the floor beside the armchair",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "On the floor beside the armchair",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On the floor beside the armchair",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "On the floor beside the armchair",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00803-k1cupFYWXJ6_1_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "A black vent",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "A black vent",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "A black vent",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "A black vent",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_0_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_0_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_1_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_1_7",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Directly in front of the doorway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the left of the doorway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the left of the doorway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "To the left of the doorway",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00808-y9hTuugGdiq_1_8",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Chair",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Chair",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Chair",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00810-CrMo8WxCyVb_0_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Light beige",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Light beige",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Light beige",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Light beige",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00810-CrMo8WxCyVb_0_7",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00810-CrMo8WxCyVb_0_8",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00810-CrMo8WxCyVb_1_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Above the hallway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Above the hallway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "Above the hallway",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Above the hallway",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00810-CrMo8WxCyVb_1_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "A railing with ornate woodwork",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "A railing with ornate woodwork",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "A railing with ornate woodwork",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "A railing with ornate woodwork",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00813-svBbv1Pavdk_0_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "4",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00813-svBbv1Pavdk_0_7",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Gray and white",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Gray and white",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Gray and white",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Gray and white",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00813-svBbv1Pavdk_1_9",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black and white",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black and white",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Black and white",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black and white",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00813-svBbv1Pavdk_1_10",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Hanging on the wall above the floor",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Hanging on the wall above the floor",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Hanging on the wall above the floor",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Hanging on the wall above the floor",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_0_2",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_0_3",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Painting",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Painting",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Window",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Curtains",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_1_3",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "7",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "11",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "9",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "7",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_1_4",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_1_5",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_2_5",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "A colorful bag or blanket",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "A colorful bag or blanket",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "A colorful bag or blanket",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "A potted plant",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00814-p53SfW6mjZe_2_6",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black cabinet",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Black cabinet",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Dining table",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black cabinet",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00815-h1zeeAwLh9Z_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Opposite the windows",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Opposite the windows",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "To the left of the windows",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Opposite the windows",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00815-h1zeeAwLh9Z_0_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Green",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Green",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Green",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_0_3",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_0_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Woven fiber",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Woven fiber",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Woven fiber",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Woven fiber",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_1_3",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wall",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wall",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wall",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Potted plant",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_1_4",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "3",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "3",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_1_5",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Kitchen counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Kitchen counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Kitchen counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Kitchen counter",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_2_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Blue",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "Blue",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Blue",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Blue",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00820-mL8ThkuaVTM_2_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00821-eF36g7L6Z9M_0_4",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Hanging on the wall",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "In front of the wall",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "At the base of the wall",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "At the base of the wall",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00821-eF36g7L6Z9M_0_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "4",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00821-eF36g7L6Z9M_0_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "To the left of the coffee table",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "To the right of the coffee table",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00821-eF36g7L6Z9M_1_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00821-eF36g7L6Z9M_1_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "In front of the coffee table",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00823-7MXmsvcQjpJ_0_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00823-7MXmsvcQjpJ_0_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "A wooden table",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "A wooden table",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "A sofa",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "A wooden table",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00823-7MXmsvcQjpJ_0_8",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00824-Dd4bFSTQ8gi_0_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White door",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White door",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White door",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White door",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00824-Dd4bFSTQ8gi_0_8",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of the door",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of the door",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of the door",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "To the right of the door",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00824-Dd4bFSTQ8gi_0_9",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Chairs",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Chairs",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Chairs",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Chairs",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_0_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Tile",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Tile",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Tile",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_0_7",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_0_8",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_1_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_1_7",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00827-BAbdmeyTvMZ_1_8",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Kitchen counter with a toaster",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Microwave",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Cabinet door",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Kitchen counter with a toaster",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00829-QaLdnwvtxbs_0_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Stone tiles",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Stone tiles",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Stone tiles",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Smooth plaster",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00829-QaLdnwvtxbs_0_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00829-QaLdnwvtxbs_0_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Soap dispenser",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Soap dispenser",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Soap dispenser",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Soap dispenser",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_0_4",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_0_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "C",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_0_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "4",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_1_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Black",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Gray",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_1_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "9",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "7",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_2_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_2_7",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00831-yr17PDCnDDW_2_8",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00832-qyAac8rV8Zk_0_4",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Empty",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Occupied",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Empty",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Occupied",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00832-qyAac8rV8Zk_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00832-qyAac8rV8Zk_0_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Above the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the sofa",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00835-q3zU7Yy5E5s_0_5",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00835-q3zU7Yy5E5s_0_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "In front of the door",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "In front of the door",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "In front of the door",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "In front of the door",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00835-q3zU7Yy5E5s_0_7",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_0_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Granite",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Granite",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Granite",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Granite",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_0_6",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Rug",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Bar cart",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Wall art",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Bar cart",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_0_7",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Black",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Gold",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Silver",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "White",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_1_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Chair",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Desk",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00839-zt1RVoi7PcG_1_8",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00844-q5QZSEeHe5g_0_3",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Toilet paper holder",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Toilet paper holder",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Trash can",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Toilet paper holder",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00844-q5QZSEeHe5g_0_4",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00844-q5QZSEeHe5g_1_3",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "White",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00844-q5QZSEeHe5g_1_4",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00844-q5QZSEeHe5g_1_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "4",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00848-ziup5kvtCCR_0_4",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00848-ziup5kvtCCR_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "On the nightstand next to the bed",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00848-ziup5kvtCCR_1_4",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "B",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "B",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00848-ziup5kvtCCR_1_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00849-a8BtkwhxdRV_0_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Stone",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00849-a8BtkwhxdRV_0_5",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00849-a8BtkwhxdRV_0_6",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00849-a8BtkwhxdRV_1_3",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00849-a8BtkwhxdRV_1_4",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Next to it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Next to it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Next to it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      2,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Next to it",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00853-5cdEh9F2hJL_0_6",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Framed picture",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Framed picture",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Shower",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Framed picture",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00853-5cdEh9F2hJL_0_7",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Above the bathtub",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind the bathtub",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Above the bathtub",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Behind the bathtub",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00853-5cdEh9F2hJL_1_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Tilted",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Tilted",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Upright",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Upright",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00853-5cdEh9F2hJL_1_7",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Dry",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wet",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wet",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wet",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_7",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Round mirror",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Round mirror",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Round mirror",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Round mirror",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_0_8",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_1_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_1_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "D",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "Behind the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Behind the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "To the left of the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "To the left of the countertop",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00862-LT9Jq6dN3Ea_1_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "2",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00869-MHPLjHsuG27_0_3",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00869-MHPLjHsuG27_0_4",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of the window",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Directly under the window",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Directly under the window",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Directly under the window",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00869-MHPLjHsuG27_0_5",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Radiator",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Stuffed toy",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_0_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_0_7",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Above it",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_0_8",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Next to the counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Next to the counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Next to the counter",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Next to the counter",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_1_7",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00871-VBzV5z6i1WS_1_8",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Down",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Up",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Down",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Down",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_0_4",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Stainless Steel",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Stainless Steel",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Stainless Steel",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Stainless Steel",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_0_5",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Cabinet",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_0_6",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Potted plant",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      3,
+      2
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Rug",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Rug",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Rug",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_1_3",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": null,
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Tilted",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Tilted",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Straight",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Tilted",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_1_4",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "D",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "A",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00873-bxsVRursffK_1_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Blue",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Red",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00876-mv2HUxq3B53_0_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00876-mv2HUxq3B53_0_7",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Embedded in the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Below the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      0,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Embedded in the countertop",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Embedded in the countertop",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_0_3",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_0_4",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wall",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      3,
+      2,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Box",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Shelf",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Wall",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_1_4",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "To the right of it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      3,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "To the right of it",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "To the right of it",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_1_5",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_1_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_2_4",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Open",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Closed",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_2_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00877-4ok3usBNeis_2_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "4",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "4",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "5",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00878-XB4GS9ShBRE_0_3",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Lamp",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Lamp",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Door",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "gold": "D",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Lamp",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00878-XB4GS9ShBRE_0_4",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      3,
+      2
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Against the wall",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00880-Nfvxx8J5NCo_0_5",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Stainless steel",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Stainless steel",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Stainless steel",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Stainless steel",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00880-Nfvxx8J5NCo_0_6",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "1",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "3",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00890-6s7QHgap2fW_0_5",
+   "category": "Location",
+   "n_choices": 4,
+   "recorded_pred": "A",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Below the window",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "D",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "To the right of the window",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "To the left of the window",
+     "memory": "memory 2"
+    },
+    {
+     "perm": 3,
+     "order": [
+      2,
+      1,
+      3,
+      0
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "To the right of the window",
+     "memory": "memory 2"
+    }
+   ]
+  },
+  {
+   "subtask": "00890-6s7QHgap2fW_0_6",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "C",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Hardwood",
+     "memory": "memory 5"
+    }
+   ]
+  },
+  {
+   "subtask": "00890-6s7QHgap2fW_0_7",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Off",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Off",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "On",
+     "memory": "memory 3"
+    }
+   ]
+  },
+  {
+   "subtask": "00890-6s7QHgap2fW_1_5",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "A",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00890-6s7QHgap2fW_1_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_0_2",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 1,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 2,
+     "order": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "gold": "D",
+     "pred": "D",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 1"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Brown",
+     "memory": "memory 1"
+    }
+   ]
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_0_3",
+   "category": "Attribute",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 1,
+     "order": [
+      0,
+      2,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Wood",
+     "memory": "memory 0"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      0,
+      1
+     ],
+     "gold": "D",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "Metal",
+     "memory": "memory 0"
+    }
+   ]
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_1_6",
+   "category": "State",
+   "n_choices": 2,
+   "recorded_pred": "B",
+   "answer": "A",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 2,
+     "order": [
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Open",
+     "memory": "memory 5"
+    },
+    {
+     "perm": 3,
+     "order": [
+      0,
+      1
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "Closed",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_1_7",
+   "category": "Counting",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "C",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "C",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "A",
+     "pred": "B",
+     "correct": false,
+     "pred_text": "1",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 2,
+     "order": [
+      3,
+      0,
+      2,
+      1
+     ],
+     "gold": "C",
+     "pred": "D",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 4"
+    },
+    {
+     "perm": 3,
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ],
+     "gold": "B",
+     "pred": "C",
+     "correct": false,
+     "pred_text": "2",
+     "memory": "memory 4"
+    }
+   ]
+  },
+  {
+   "subtask": "00891-cvZr5TUy5C5_1_8",
+   "category": "Relationship",
+   "n_choices": 4,
+   "recorded_pred": "B",
+   "answer": "B",
+   "runs": [
+    {
+     "perm": 0,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Side table with a bag",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 1,
+     "order": [
+      2,
+      1,
+      0,
+      3
+     ],
+     "gold": "B",
+     "pred": "B",
+     "correct": true,
+     "pred_text": "Side table with a bag",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 2,
+     "order": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "gold": "C",
+     "pred": "C",
+     "correct": true,
+     "pred_text": "Side table with a bag",
+     "memory": "memory 3"
+    },
+    {
+     "perm": 3,
+     "order": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "gold": "A",
+     "pred": "A",
+     "correct": true,
+     "pred_text": "Side table with a bag",
+     "memory": "memory 3"
+    }
+   ]
+  }
+ ]
+}

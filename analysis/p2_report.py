@@ -162,6 +162,10 @@ def main():
                     rs = [r for r in rows if r["goal_region_observed"] == obs and r["goal_in_memory"] == inm]
                     out[f"region {'observed' if obs else 'not observed'}, goal {'in' if inm else 'not in'} memory"] = {
                         "decisions": len(rs), "commit_rate": 100 * np.mean([r["commit"] for r in rs]) if rs else None}
+            for inm in (True, False):  # same extra rows as p1_report.e3
+                rs = [r for r in rows if r["first"] and r["goal_in_memory"] == inm]
+                out[f"first decision of subtask, goal {'in' if inm else 'not in'} memory"] = {
+                    "decisions": len(rs), "commit_rate": 100 * np.mean([r["commit"] for r in rs]) if rs else None}
             return out
         R["subset_fixed_pooled"] = {"nav_taxonomy": ts, "nav_failures": ns, "qa_taxonomy": qs, "qa_failures": nqs,
                                     "E3": e3_from_rows(sub_e3_rows)}
