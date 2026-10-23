@@ -42,6 +42,7 @@ def run_metrics(run):
                  captured_frames_mean=float(np.mean([d["p2b"]["captured_frames"] for d in ds])),
                  decisions_capped=sum(d["p2b"]["dropped_by_cap"] > 0 for d in ds),
                  invalid_replies=sum(d["p2b"]["parse"] == "invalid" for d in ds),
+                 invalid_with_empty_context=sum(d["p2b"]["parse"] == "invalid" and d["p2b"]["ctx_frames"] == 0 for d in ds),
                  empty_context_nav=sum(d["p2b"]["ctx_frames"] == 0 for d in ds if d["pred_answer"] is None),
                  token_count_error_max=int(max(abs(d["p2b"]["prompt_tokens"] - d["p2b"]["prompt_tokens_counted"]) for d in ds)))
         # objects listed per context frame vs the ground-truth proxy F0 used (visible non-structural instances)
@@ -178,6 +179,11 @@ def write_doc(R):
                       "(3B backbone, LoRA, or more GPUs); zero-shot P3 becomes a diagnostic and G2 is judged after training.",
                       "FALLBACK, external": "Return to the external region-indexed memory (DEV_PLAN.md appendix); the paper states why the "
                       "context was not enough."}[g["decision"]] + "\n")
+            m21, m1 = g["F2_minus_F1"] - g["threshold_2std"], g["F1_minus_E0"] + g["threshold_2std"]
+            D.append(f"**How firm:** every F run is a single seed. F2 − F1 clears the noise band by {m21:+.1f} SR and F1 clears its floor by "
+                     f"{m1:+.1f} SR; one run's SR varies by ±{g['threshold_2std'] / 2:.1f} (E0 std), so a re-run could move F2 − F1 to either "
+                     "side of the band. " + ("The F2 − F1 condition is the fragile one; " if m21 < m1 else "The F1 floor is the fragile one; ")
+                     + "two more seeds of F1 and F2 (four more 58-task runs) would settle it before the P5 compute is committed.\n")
     e0 = R.get("E0")
     if e0:
         D.append(f"E0 reference: {e0['label']} ({', '.join(e0['runs'])}), SR {e0['mean']['SR']:.1f} ± {fmt(e0['std']['SR'])}.")
@@ -214,9 +220,9 @@ def write_doc(R):
                  "where a kept frame still shows it (100% for (a)). For (c) a frame counts as in context when any of its tokens is kept.\n")
         ch = R.get("f1_setting")
         if ch:
-            D.append(f"F1 setting (rule: among frame-level settings with ≥ 95% of decisions under 16k tokens, so one 24 GB GPU holds the "
-                     f"7B model, SAM and the prompt, take the one that keeps the goal view most often): **{set_name(ch['setting'])}**, "
-                     f"{ch['share_le_16k']:.1f}% under 16k, goal view kept {ch['goal_kept']:.1f}%.\n")
+            D.append(f"F1 setting, chosen before F1 ran from the uncalibrated F0 (rule: among frame-level settings with ≥ 95% of decisions "
+                     f"under 16k tokens, so one 24 GB GPU holds the 7B model, SAM and the prompt, take the one that keeps the goal view most "
+                     f"often): **{set_name(ch['setting'])}**, {ch['share_le_16k']:.1f}% under 16k uncalibrated, goal view kept {ch['goal_kept']:.1f}%.\n")
     # ---- F runs
     F = R["F"]
     if F:
@@ -236,11 +242,21 @@ def write_doc(R):
         D.append("\nContext tokens and seconds are per VLM call (navigation and QA decisions; the baseline's separate retrieval-query "
                  "call does not exist here). Capped = decisions where the oldest frames were dropped to stay under 32k tokens. "
                  f"Exact prompt length minus the tokenizer count used for F0: max |difference| {max(m['token_count_error_max'] for m in F.values())} tokens.\n")
+        if "F1" in F and e0:
+            D.append(f"- Context-as-memory commits early more often than retrieval memory: premature commits {F['F1']['premature_commit_rate']:.1f}% "
+                     f"in F1 vs {e0['mean']['premature_commit_rate']:.1f}% in E0, and {F['F2']['premature_commit_rate']:.1f}% once the context "
+                     "holds only the goal's region (F2)." if "F2" in F else "")
         if "in_context_vs_external_gate" in R:
             x = R["in_context_vs_external_gate"]
             D.append(f"- In-context oracle gain F2 − F1 = {x['F2_minus_F1']:+.1f} SR, vs the external oracle gate E1 − E0 = {x['E1_minus_E0']:+.1f} SR.")
         if R.get("F2b_share_of_F2_gain") is not None:
-            D.append(f"- F2b recovers {100 * R['F2b_share_of_F2_gain']:.0f}% of F2's gain over F1 (realistic ceiling: room types known, exact regions not).")
+            D.append(f"- F2b recovers {100 * R['F2b_share_of_F2_gain']:.0f}% of F2's gain over F1 (realistic ceiling: room types known, exact regions not)"
+                     + ("; F2b ≥ F2 here, a difference within single-seed noise, so knowing the room type is about as good as knowing the region "
+                        "on this subset." if F["F2b"]["SR"] >= F["F2"]["SR"] else "."))
+        inv = {e: (m["invalid_replies"], m["invalid_with_empty_context"]) for e, m in F.items()}
+        D.append("- Invalid replies (" + ", ".join(f"{e}: {a}, {b} of them with no frame in context" for e, (a, b) in inv.items())
+                 + ") end the subtask, as an invalid baseline reply does; with an empty context the zero-shot model often still names a "
+                 "frame (copying the prompt's example), which is how E1 treated an emptied memory list too.")
         if "F1" in F and F["F1"].get("objects_per_frame") is not None:
             D.append(f"- Objects listed per context frame in F1: {F['F1']['objects_per_frame']:.1f} (F0's ground-truth proxy: {F['F1']['gt_proxy_per_frame']:.1f}).")
         D.append("")
