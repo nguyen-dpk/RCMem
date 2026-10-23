@@ -105,6 +105,31 @@ def main():
         if "E1 fixed" in R["groups"] and "E1b fixed" in R["groups"]:
             d1, d1b = R["groups"]["E1 fixed"]["delta_vs_E0_fixed"]["SR"], R["groups"]["E1b fixed"]["delta_vs_E0_fixed"]["SR"]
             R["E1b_share_of_E1_gain"] = d1b / d1 if d1 else None
+    # why E1b falls short of E1: where do its remaining wrong commitments land?
+    rtf = os.path.join(OUT, "room_types.json")
+    if "E1b fixed" in R["groups"] and os.path.exists(rtf):
+        rt = json.load(open(rtf))["scenes"]
+        c = collections.Counter()
+        for r in R["groups"]["E1b fixed"]["runs"]:
+            scenes, _, _, nav, _ = load(r)
+            for x in nav:
+                if not (x["chose_distractor"] or x["category"] == "exploration failure: premature commit"):
+                    continue
+                objs, sc = scenes[A.scene_of(x["subtask"])], A.scene_of(x["subtask"])
+                reg = objs.get(x.get("chosen_gt_sid"), {}).get("region") if x.get("chosen_gt_sid") is not None else None
+                greg = objs.get(x["goal_sid"], {}).get("region")
+                t = lambda g: set(rt.get(sc, {}).get(str(g).lstrip("_"), {}).get("types", [])) if g is not None else set()
+                if reg is None:
+                    c["chosen object not matched to a GT region"] += 1
+                elif reg == greg:
+                    c["same region as the goal"] += 1
+                elif not t(reg) or not t(greg):
+                    c["region of unknown room type (never hidden)"] += 1
+                elif t(reg) & t(greg):
+                    c["another room of the same type"] += 1
+                else:
+                    c["room of a different type"] += 1
+        R["E1b_wrong_commit_regions"] = dict(c)
     # verifier
     vf = os.path.join(OUT, "verifier.json")
     R["verifier"] = json.load(open(vf)) if os.path.exists(vf) else None
@@ -195,8 +220,10 @@ def write_doc(R):
                  + ("within noise." if abs(dsr) <= noise else "beyond noise."))
         da = b["mean"]["frontier_aborts"] - a["mean"]["frontier_aborts"]
         D.append(f"- Frontier aborts per run: {fmt(a['mean']['frontier_aborts'])} → {fmt(b['mean']['frontier_aborts'])} ({da:+.1f}); "
-                 + ("the fix does not remove them, so their cause lies elsewhere." if b["mean"]["frontier_aborts"] >= 0.5 * a["mean"]["frontier_aborts"]
-                    else "the fix removes most of them."))
+                 + (f"the fix removes {100 * (1 - b['mean']['frontier_aborts'] / a['mean']['frontier_aborts']):.0f}% of them"
+                    + (f"; the remaining {b['mean']['frontier_aborts']:.1f} per run have another cause." if b["mean"]["frontier_aborts"] > 0 else ".")
+                    if 0 < b["mean"]["frontier_aborts"] < a["mean"]["frontier_aborts"] or b["mean"]["frontier_aborts"] == 0 < a["mean"]["frontier_aborts"]
+                    else "the fix does not reduce them, so their cause lies elsewhere."))
     # 2 E1 / E1b
     D.append("\n## 2. E1 (oracle region gate) and E1b (room-type gate) on the fixed baseline\n")
     D.append("E1b keeps every region whose room type matches the subtask's room. Room types: task-config labels where available, otherwise a "
@@ -214,6 +241,22 @@ def write_doc(R):
     if R.get("E1b_share_of_E1_gain") is not None:
         D.append(f"- E1b recovers {100 * R['E1b_share_of_E1_gain']:.0f}% of E1's SR gain: this is the realistic ceiling for a memory that knows "
                  "room types but not exact regions (G2 in DEV_PLAN.md asks zero-shot RCMem to close half of the E0→E1 gap).")
+        if R["E1b_share_of_E1_gain"] < 0.5:
+            D.append("- **Consequence for G2:** half of the E0→E1 gap is above the measured room-type ceiling. A memory that only knows room "
+                     "types is unlikely to pass G2 as written unless typing every region (below) closes most of the shortfall; RCMem should also "
+                     "bind each subtask to a specific region (which bedroom), e.g. through the instruction's room order and visit history. "
+                     "Re-check G2 against E1b before P3 starts.")
+    wc = R.get("E1b_wrong_commit_regions")
+    if wc:
+        tot = sum(wc.values())
+        D.append(f"- Where E1b's remaining wrong commitments land (3 runs, {tot} commitments to a distractor or another-category object): "
+                 + "; ".join(f"{k} {v} ({100 * v / tot:.0f}%)" for k, v in sorted(wc.items(), key=lambda kv: -kv[1])) + ".")
+        unk = wc.get("region of unknown room type (never hidden)", 0)
+        same = wc.get("another room of the same type", 0)
+        D.append(f"- So E1b is a *lower bound* on a perfect room-type ceiling: {100 * unk / tot:.0f}% of its misses land in regions that "
+                 f"no label covers, which a VLM-labelled memory would type. Another {100 * same / tot:.0f}% are in a second room of the "
+                 "same type; only region-level binding (which bedroom) removes those. Commitments inside the goal's own region "
+                 f"({100 * wc.get('same region as the goal', 0) / tot:.0f}%) are wrong instances that no room gate can fix.")
     # 3 verifier
     v = R.get("verifier")
     if v:
