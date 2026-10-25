@@ -49,6 +49,7 @@ from src.utils import resize_image  # noqa: E402
 EXP = "F1"
 VOXEL = 0.05          # frame-level pruning voxel size, chosen from F0 (analysis/out_p2b/f0.json, see p2b_report.py)
 MAX_CTX = 32000       # prompt-token cap; the oldest frames are dropped beyond it (logged; F0 says it rarely binds)
+EMPTY_EXPLORE = True  # navigation decision with no frame in context -> nearest frontier, no VLM call
 CTX = {"episode": None, "pruner": None, "kept": [], "cam": {}, "frac": {}}
 
 
@@ -186,23 +187,38 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
                [c for _, c, _ in objs[n]]) for n in ns]
         return C.nav_prompt(md["question"], goal_b64, fr, frontier_b64) if nav else C.qa_prompt(md["question"], None, fr, ego)
 
-    hw = {}
-    counter = C.TokenCounter(processor)
-    size = lambda b: hw.setdefault(b, (1280, 1280) if b == goal_b64 else (C.PROMPT_PX, C.PROMPT_PX))
-    sys_prompt, content = build(names)
-    n_est, dropped = counter.count(sys_prompt, content, size), 0
-    while n_est > MAX_CTX and names:  # cap: drop the oldest frames
-        drop = max(1, len(names) // 10)
-        names, dropped = names[drop:], dropped + drop
+    caller = inspect.currentframe().f_back.f_locals  # run_lmee.main
+    empty = nav and not names and EMPTY_EXPLORE
+    if empty:  # empty-context rule: nothing to commit to, so explore without asking the VLM
+        n_est, dropped, reply, n_tok, dt = 0, 0, "", 0, 0.0
+    else:
+        hw = {}
+        counter = C.TokenCounter(processor)
+        size = lambda b: hw.setdefault(b, (1280, 1280) if b == goal_b64 else (C.PROMPT_PX, C.PROMPT_PX))
         sys_prompt, content = build(names)
-        n_est = counter.count(sys_prompt, content, size)
-
-    reply, n_tok, dt = call_vlm(sys_prompt, content, model, processor)
-    logging.info(f"[{EXP}] context {len(names)}/{len(CTX['kept'])} frames ({mask}), {n_tok} tokens, {dt:.1f}s\n{reply}")
+        n_est, dropped = counter.count(sys_prompt, content, size), 0
+        while n_est > MAX_CTX and names:  # cap: drop the oldest frames
+            drop = max(1, len(names) // 10)
+            names, dropped = names[drop:], dropped + drop
+            sys_prompt, content = build(names)
+            n_est = counter.count(sys_prompt, content, size)
+        reply, n_tok, dt = call_vlm(sys_prompt, content, model, processor)
+        logging.info(f"[{EXP}] context {len(names)}/{len(CTX['kept'])} frames ({mask}), {n_tok} tokens, {dt:.1f}s\n{reply}")
     by_index = {CTX["kept"].index(n): n for n in names}
     choice, ret, pred_answer, parse = None, None, None, "invalid"
 
-    if nav:
+    if empty:
+        if tsdf_planner.frontiers:  # nearest frontier (voxel distance from the agent)
+            cur = np.asarray(tsdf_planner.habitat2voxel(np.asarray(caller.get("pts"))))[:2]
+            i = int(np.argmin([np.linalg.norm(np.asarray(f.position)[:2] - cur) for f in tsdf_planner.frontiers]))
+            fr = tsdf_planner.frontiers[i]
+            ret, parse = (fr, 0), "empty_context_explore"
+            choice = {"type": "frontier", "image": fr.image, "position": np.asarray(fr.position).tolist()}
+            logging.info(f"[{EXP}] context 0/{len(CTX['kept'])} frames ({mask}): no VLM call, nearest Frontier {i} at {fr.position}")
+        else:
+            parse = "empty_context_no_frontier"
+            logging.info(f"[{EXP}] context 0/{len(CTX['kept'])} frames ({mask}) and no frontier: subtask ends (as the baseline)")
+    elif nav:
         p = parse_nav(reply)
         if p and p[0] == "frame" and p[1] in by_index and objs[by_index[p[1]]]:
             n = by_index[p[1]]
@@ -239,7 +255,6 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
         if ret is None:
             logging.info("Invalid QA answer, subtask fails (same as an invalid baseline reply)")
 
-    caller = inspect.currentframe().f_back.f_locals  # run_lmee.main
     ir.emit({
         "type": "decision", "episode": ir.CUR["episode"], "subtask": ir.CUR["subtask"],
         "cnt_step": caller.get("cnt_step"), "global_step": caller.get("global_step"),
@@ -252,7 +267,7 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
         "retrieval": [{"query": "context", "mode": "context", "top_k": None, "text_rank": [], "text_dist": [],
                        "image_rank": [], "image_dist": [], "index_aligned": True, "returned": list(names)}],
         "choice": choice, "pred_answer": pred_answer,
-        "p2b": {"exp": EXP, "mask": mask, "voxel": VOXEL, "ctx_frames": len(names), "kept_frames": len(CTX["kept"]),
+        "p2b": {"exp": EXP, "mask": mask, "voxel": VOXEL, "empty_context_rule": EMPTY_EXPLORE, "ctx_frames": len(names), "kept_frames": len(CTX["kept"]),
                 "captured_frames": len(CTX["frac"]), "dropped_by_cap": dropped, "prompt_tokens": n_tok,
                 "prompt_tokens_counted": n_est, "objects_listed": sum(len(objs[n]) for n in names),
                 "latency_s": dt, "parse": parse, "reply": reply[:2000]},
@@ -280,6 +295,7 @@ def parse(argv):
     p = argparse.ArgumentParser()
     p.add_argument("--exp", choices=["F1", "F2", "F2b"])
     p.add_argument("--no_fix_start", action="store_true")
+    p.add_argument("--no_empty_explore", action="store_true", help="ask the VLM even with no frame in context (first P2b runs)")
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--voxel", type=float, default=VOXEL)
     p.add_argument("--max_ctx", type=int, default=MAX_CTX)
@@ -306,9 +322,25 @@ def load_cfg(args):
     return cfg
 
 
+def load_vlm(cfg):
+    """LMEE's load_model, or, with P2B_VLM_MAXMEM="0:6GiB,1:15GiB", the same weights split over the visible GPUs
+    (perception models stay on cuda:0); used when no single shared GPU has room for the whole pipeline."""
+    mm = os.environ.get("P2B_VLM_MAXMEM")
+    if not mm:
+        return ir.run_lmee.load_model(cfg)
+    from transformers import AutoModelForImageTextToText, AutoProcessor
+    max_memory = {int(k): v for k, v in (x.split(":") for x in mm.split(","))}
+    model = AutoModelForImageTextToText.from_pretrained(cfg.model.pretrained_path, torch_dtype=cfg.model.torch_dtype,
+                                                        device_map="auto", max_memory=max_memory)
+    model.eval()
+    logging.info(f"VLM split over GPUs: {max_memory} -> {sorted(set(str(d) for d in model.hf_device_map.values()))}")
+    return model, AutoProcessor.from_pretrained(cfg.model.pretrained_path)
+
+
 def run_job(args, model=None, processor=None):
-    global EXP, VOXEL, MAX_CTX, FIX_START
+    global EXP, VOXEL, MAX_CTX, FIX_START, EMPTY_EXPLORE
     EXP, VOXEL, MAX_CTX, FIX_START = args.exp, args.voxel, args.max_ctx, not args.no_fix_start
+    EMPTY_EXPLORE = not args.no_empty_explore
     if EXP == "F2b" and not P1.ROOM_TYPES:
         P1.load_room_types()
     cfg = load_cfg(args)
@@ -331,10 +363,10 @@ def run_job(args, model=None, processor=None):
         h.setFormatter(F(fmt="%(asctime)s - %(message)s"))
         root.addHandler(h)
     root.setLevel(logging.INFO)
-    logging.info(f"***** experiment {EXP} voxel={VOXEL} max_ctx={MAX_CTX} fix_start={FIX_START} seed={cfg.seed} "
+    logging.info(f"***** experiment {EXP} voxel={VOXEL} max_ctx={MAX_CTX} fix_start={FIX_START} empty_explore={EMPTY_EXPLORE} seed={cfg.seed} "
                  f"-> {cfg.output_dir} *****")
     if model is None:
-        model, processor = ir.run_lmee.load_model(cfg)
+        model, processor = load_vlm(cfg)
     try:
         ir.run_lmee.main(cfg, model, processor, start_ratio=args.start_ratio, end_ratio=args.end_ratio, split=1, answer_type="choice")
     finally:
