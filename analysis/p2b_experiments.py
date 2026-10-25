@@ -189,6 +189,7 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
 
     caller = inspect.currentframe().f_back.f_locals  # run_lmee.main
     empty = nav and not names and EMPTY_EXPLORE
+    oom_dropped = 0
     if empty:  # empty-context rule: nothing to commit to, so explore without asking the VLM
         n_est, dropped, reply, n_tok, dt = 0, 0, "", 0, 0.0
     else:
@@ -202,7 +203,19 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
             names, dropped = names[drop:], dropped + drop
             sys_prompt, content = build(names)
             n_est = counter.count(sys_prompt, content, size)
-        reply, n_tok, dt = call_vlm(sys_prompt, content, model, processor)
+        while True:
+            try:
+                reply, n_tok, dt = call_vlm(sys_prompt, content, model, processor)
+                break
+            except torch.OutOfMemoryError:  # the context does not fit the GPU: drop the oldest frames, as the token cap does
+                torch.cuda.empty_cache()
+                if not names:
+                    raise
+                drop = max(1, len(names) // 10)
+                names, oom_dropped = names[drop:], oom_dropped + drop
+                sys_prompt, content = build(names)
+                n_est = counter.count(sys_prompt, content, size)
+                logging.info(f"[{EXP}] CUDA out of memory: dropped the {drop} oldest frames, retrying with {len(names)} ({n_est} tokens)")
         logging.info(f"[{EXP}] context {len(names)}/{len(CTX['kept'])} frames ({mask}), {n_tok} tokens, {dt:.1f}s\n{reply}")
     by_index = {CTX["kept"].index(n): n for n in names}
     choice, ret, pred_answer, parse = None, None, None, "invalid"
@@ -268,7 +281,7 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
                        "image_rank": [], "image_dist": [], "index_aligned": True, "returned": list(names)}],
         "choice": choice, "pred_answer": pred_answer,
         "p2b": {"exp": EXP, "mask": mask, "voxel": VOXEL, "empty_context_rule": EMPTY_EXPLORE, "ctx_frames": len(names), "kept_frames": len(CTX["kept"]),
-                "captured_frames": len(CTX["frac"]), "dropped_by_cap": dropped, "prompt_tokens": n_tok,
+                "captured_frames": len(CTX["frac"]), "dropped_by_cap": dropped, "dropped_by_oom": oom_dropped, "prompt_tokens": n_tok,
                 "prompt_tokens_counted": n_est, "objects_listed": sum(len(objs[n]) for n in names),
                 "latency_s": dt, "parse": parse, "reply": reply[:2000]},
     })

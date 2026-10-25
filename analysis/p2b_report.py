@@ -25,7 +25,7 @@ E0_GROUPS = {"E0 no fix": ["instr_choice_sub", "p1_E0_r2", "p1_E0_r3", "p2_E0_no
              "E0 fixed": E0_FIXED}
 KEYS = P2.KEYS
 DIAG = ["frontier_aborts", "ctx_tokens_mean", "ctx_tokens_max", "sec_per_decision", "ctx_frames_mean", "decisions", "vlm_calls",
-        "decisions_capped", "invalid_replies", "empty_context_explore", "objects_per_frame", "gt_proxy_per_frame"]
+        "decisions_capped", "decisions_oom_trimmed", "invalid_replies", "empty_context_explore", "objects_per_frame", "gt_proxy_per_frame"]
 FIT_SHARE, BUDGET = 95.0, "share_le_32k"
 
 
@@ -45,6 +45,7 @@ def run_metrics(run):
                  kept_frames_mean=float(np.mean([d["p2b"]["kept_frames"] for d in ds])),
                  captured_frames_mean=float(np.mean([d["p2b"]["captured_frames"] for d in ds])),
                  decisions_capped=sum(d["p2b"]["dropped_by_cap"] > 0 for d in ds),
+                 decisions_oom_trimmed=sum(d["p2b"].get("dropped_by_oom", 0) > 0 for d in ds),
                  invalid_replies=sum(d["p2b"]["parse"] == "invalid" for d in ds),
                  invalid_with_empty_context=sum(d["p2b"]["parse"] == "invalid" and d["p2b"]["ctx_frames"] == 0 for d in ds),
                  empty_context_explore=sum(d["p2b"]["parse"] == "empty_context_explore" for d in ds),
@@ -240,13 +241,14 @@ def write_doc(R):
         for name, gg in rows:
             D.append(f"| {name} | {gg['n']} | " + " | ".join(pm(gg, k) for k in KEYS) + " |")
         D.append("\n| Group | Frontier aborts | Context tokens per VLM call (mean / max) | s per VLM call | Frames in context | Decisions | "
-                 "VLM calls | Empty-context explores (no VLM call) | Invalid replies | Capped |\n|---|---|---|---|---|---|---|---|---|---|")
+                 "VLM calls | Empty-context explores (no VLM call) | Invalid replies | Capped (32k) | Trimmed after GPU OOM |\n|---|---|---|---|---|---|---|---|---|---|---|")
         for e in EXPS:
             if e in F:
                 gg = F[e]
                 D.append(f"| {e} | {pm(gg, 'frontier_aborts')} | {pm(gg, 'ctx_tokens_mean', 0)} / {fmt(gg['mean']['ctx_tokens_max'], 0)} | "
                          f"{pm(gg, 'sec_per_decision')} | {pm(gg, 'ctx_frames_mean')} | {pm(gg, 'decisions', 0)} | {pm(gg, 'vlm_calls', 0)} | "
-                         f"{pm(gg, 'empty_context_explore', 0)} | {pm(gg, 'invalid_replies', 0)} | {pm(gg, 'decisions_capped', 0)} |")
+                         f"{pm(gg, 'empty_context_explore', 0)} | {pm(gg, 'invalid_replies', 0)} | {pm(gg, 'decisions_capped', 0)} | "
+                         f"{pm(gg, 'decisions_oom_trimmed', 0)} |")
         D.append("\nPer run:\n")
         D.append("| Run | " + " | ".join(P2.NAMES[k] for k in KEYS) + " | Empty-context explores | Invalid replies |\n|---|" + "---|" * (len(KEYS) + 2))
         for e in EXPS:
@@ -318,6 +320,8 @@ def write_doc(R):
     D.append("- Empty-context rule: a navigation decision with no frame in context (F2/F2b before the goal's region or room type has been seen) "
              "goes to the nearest frontier without a VLM call; with no frontier left the subtask ends, as in the baseline. QA decisions fall "
              "back to all frames instead.")
+    D.append("- A decision whose prompt does not fit the GPU (CUDA out of memory, 24 GB card shared with SAM/YOLO) drops the oldest 10% of "
+             "its frames and is retried, the same rule as the 32k-token cap; such decisions are counted per run (\"Trimmed after GPU OOM\").")
     D.append("- F2 keeps only frames whose ground-truth region (pixel-weighted majority of visible instances) is the goal's region; F2b keeps frames "
              "whose region type matches (unknown types kept). Ground truth is used only for these oracles.")
     D.append("- The seed sets LMEE's scene order and the run's random draws; GPU inference is not bit-deterministic, so runs differ even at one seed.\n")
