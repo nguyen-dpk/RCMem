@@ -250,13 +250,16 @@ def write_doc(R):
                          f"{pm(gg, 'empty_context_explore', 0)} | {pm(gg, 'invalid_replies', 0)} | {pm(gg, 'decisions_capped', 0)} | "
                          f"{pm(gg, 'decisions_oom_trimmed', 0)} |")
         D.append("\nPer run:\n")
-        D.append("| Run | " + " | ".join(P2.NAMES[k] for k in KEYS) + " | Empty-context explores | Invalid replies |\n|---|" + "---|" * (len(KEYS) + 2))
+        D.append("| Run | " + " | ".join(P2.NAMES[k] for k in KEYS) + " | Context tokens per VLM call (mean / p95 / max) | s per VLM call "
+                 "(mean / max) | Empty-context explores | Invalid replies |\n|---|" + "---|" * (len(KEYS) + 4))
         for e in EXPS:
             for r, m in (F[e]["per_run"].items() if e in F else []):
-                D.append(f"| {r} | " + " | ".join(fmt(m[k]) for k in KEYS) + f" | {m.get('empty_context_explore', '–')} | {m.get('invalid_replies', '–')} |")
+                D.append(f"| {r} | " + " | ".join(fmt(m[k]) for k in KEYS) + f" | {m['ctx_tokens_mean']:.0f} / {m['ctx_tokens_p95']:.0f} / "
+                         f"{m['ctx_tokens_max']} | {m['sec_per_decision']:.1f} / {m['sec_per_decision_max']:.1f} | "
+                         f"{m.get('empty_context_explore', '–')} | {m.get('invalid_replies', '–')} |")
         for name, k in (("E0 fixed", "E0"), ("E1 fixed", "E1"), ("E1b fixed", "E1b")):
             for r, m in (R[k]["per_run"].items() if R.get(k) else []):
-                D.append(f"| {r} | " + " | ".join(fmt(m[kk]) for kk in KEYS) + " | | |")
+                D.append(f"| {r} | " + " | ".join(fmt(m[kk]) for kk in KEYS) + " | | | | |")
         if R["first_pass"]:
             D.append("\nSuperseded first pass (seed 77, VLM asked even with no frame in context, so an empty context often ended the subtask "
                      "with an invalid reply):\n")
