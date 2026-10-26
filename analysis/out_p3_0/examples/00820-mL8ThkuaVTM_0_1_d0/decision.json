@@ -40,7 +40,7 @@
  ],
  "kept_frames": 17,
  "seen_frames": 33,
- "render_s": 0.1403484344482422,
+ "render_s": 0.1459038257598877,
  "baseline_choice": "frontier",
  "A1_reply": "Region: 1\nGoal visible: yes",
  "A1_choice": 0,
@@ -56,6 +56,6 @@
  "B_choice": "none",
  "B_tokens": 2201,
  "B_image_tokens": 1984,
- "query_s": 3.072713851928711,
+ "query_s": 3.1126673221588135,
  "question": "The complete task is: Start in the bedroom to look at the painting on the wall and the rug underneath, then move into the shared space of the bedroom and living room to examine the other painting nearby.\nNow you need to perform the subtask of finding the exact rug, which is captured at the center of the following image? You need to pay attention to the environment and find the exact object."
 }

@@ -5,27 +5,27 @@ P3-0b is **skipped**: the plan runs it only when P3-0a passes.
 
 **Against the rule (all navigation decisions, mean ± std over seeds 77–79, tables below):**
 
-- **A1 vs B.** A1 is the best panorama option at 39.0 ± 2.3 exact-region accuracy. B scores 41.8 ± 1.8, so A1 is
-  2.9 points *below* B. The rule needs A1 to be at least 10 points *above* B.
+- **A1 vs B.** A1 is the best panorama option at 39.2 ± 2.1 exact-region accuracy. B scores 41.8 ± 1.8, so A1 is
+  2.6 points *below* B. The rule needs A1 to be at least 10 points *above* B.
 - **Random same-type.** A1 does beat random same-type (34.7 ± 0.5), but that is only the second condition and does
   not save the rule.
 - **A2.** A2 scores 17.6 ± 1.6, below random, so the "prefer A1 if within 5 points" clause does not apply.
-- **Per-seed results.** A1 never clears B by 10 points: 37.8 / 37.6 / 41.6 against 42.8 / 43.0 / 39.7.
-- **Description subtasks.** This is where A2 sees the same information as the others. A1 scores 45.6 against B's
+- **Per-seed results.** A1 never clears B by 10 points: 38.3 / 37.6 / 41.6 against 42.7 / 43.0 / 39.7.
+- **Description subtasks.** This is where A2 sees the same information as the others. A1 scores 46.3 against B's
   42.3, which is still well under +10.
 
 **Is B a fair comparator?** No, not on Qwen2.5-VL-7B. B on the MemoryExplorer checkpoint nearly always answers
-"not seen yet": recall 99.9%, precision 41.8%, and 0.7% exact-region accuracy when the goal region was already
+"not seen yet": recall 99.9%, precision 41.7%, and 0.6% exact-region accuracy when the goal region was already
 observed. Its 41.8 is therefore close to the share of decisions where "not seen yet" is the right answer.
 
 I added the same comparison on the stronger backbone, which is not degenerate:
 
 | Qwen3-VL-8B base | Exact region % |
 | --- | --- |
-| RGB panoramas, all regions in one prompt (control) | 53.7 ± 1.1 |
+| RGB panoramas, all regions in one prompt (control) | 53.8 ± 0.9 |
 | Option B (labels + 4 views per region) | 44.9 ± 1.7 |
 
-The margin is +8.8 points, so panoramas lose to B on both backbones under the ≥10-point bar. That makes the decision
+The margin is +8.9 points, so panoramas lose to B on both backbones under the ≥10-point bar. That makes the decision
 robust to which backbone is used.
 
 The Qwen3 margin is the closest call in this phase. If the provisional threshold is lowered, or P3 moves to
