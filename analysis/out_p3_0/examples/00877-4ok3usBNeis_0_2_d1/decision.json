@@ -43,7 +43,7 @@
  ],
  "kept_frames": 12,
  "seen_frames": 40,
- "render_s": 0.07007026672363281,
+ "render_s": 0.07336568832397461,
  "baseline_choice": "frontier",
  "A1_reply": "Region: 1\nGoal visible: yes",
  "A1_choice": 0,
@@ -59,6 +59,6 @@
  "B_choice": "none",
  "B_tokens": 2197,
  "B_image_tokens": 1984,
- "query_s": 2.8716769218444824,
+ "query_s": 2.854017496109009,
  "question": "The complete task is: Start in the bedroom and kitchen area to check the refrigerator and freezer, then move to the nightstand in the bedroom to see what's on it.\nNow you need to perform the subtask of finding the exact nightstand, which is captured at the center of the following image? You need to pay attention to the environment and find the exact object."
 }

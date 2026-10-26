@@ -44,7 +44,7 @@
  ],
  "kept_frames": 22,
  "seen_frames": 53,
- "render_s": 0.04416775703430176,
+ "render_s": 0.04398488998413086,
  "baseline_choice": "frontier",
  "A1_reply": "Region: 2\nGoal visible: yes",
  "A1_choice": 1,
@@ -60,6 +60,6 @@
  "B_choice": "none",
  "B_tokens": 2229,
  "B_image_tokens": 1984,
- "query_s": 2.8832454681396484,
+ "query_s": 2.8389627933502197,
  "question": "The complete task is: Start in the kitchen to observe the flower vase and microwave, then move to the living room to check the picture on the wall and the rug underneath. After that, head to the bedroom to see the painting, and finally go to the office & living room area to look at the plant near the painting.\nNow you need to perform the subtask of finding the exact flower vase, which is captured at the center of the following image? You need to pay attention to the environment and find the exact object."
 }

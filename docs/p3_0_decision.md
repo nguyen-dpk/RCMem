@@ -11,27 +11,27 @@ P3-0b is **skipped**: the plan runs it only when P3-0a passes.
 
 **Against the rule (all navigation decisions, mean ± std over seeds 77–79, tables below):**
 
-- **A1 vs B.** A1 is the best panorama option at 39.2 ± 2.1 exact-region accuracy. B scores 41.8 ± 1.8, so A1 is
-  2.6 points *below* B. The rule needs A1 to be at least 10 points *above* B.
+- **A1 vs B.** A1 is the best panorama option at 38.5 ± 2.6 exact-region accuracy. B scores 41.8 ± 1.9, so A1 is
+  3.2 points *below* B. The rule needs A1 to be at least 10 points *above* B.
 - **Random same-type.** A1 does beat random same-type (34.7 ± 0.5), but that is only the second condition and does
   not save the rule.
 - **A2.** A2 scores 17.6 ± 1.6, below random, so the "prefer A1 if within 5 points" clause does not apply.
-- **Per-seed results.** A1 never clears B by 10 points: 38.3 / 37.6 / 41.6 against 42.7 / 43.0 / 39.7.
-- **Description subtasks.** This is where A2 sees the same information as the others. A1 scores 46.3 against B's
-  42.3, which is still well under +10.
+- **Per-seed results.** A1 never clears B by 10 points: 36.9 / 37.2 / 41.5 against 42.5 / 43.2 / 39.6.
+- **Description subtasks.** This is where A2 sees the same information as the others. A1 scores 45.0 against B's
+  42.2, which is still well under +10.
 
 **Is B a fair comparator?** No, not on Qwen2.5-VL-7B. B on the MemoryExplorer checkpoint nearly always answers
-"not seen yet": recall 99.9%, precision 41.7%, and 0.6% exact-region accuracy when the goal region was already
+"not seen yet": recall 99.8%, precision 41.7%, and 0.6% exact-region accuracy when the goal region was already
 observed. Its 41.8 is therefore close to the share of decisions where "not seen yet" is the right answer.
 
 I added the same comparison on the stronger backbone, which is not degenerate:
 
 | Qwen3-VL-8B base | Exact region % |
 | --- | --- |
-| RGB panoramas, all regions in one prompt (control) | 53.8 ± 0.9 |
-| Option B (labels + 4 views per region) | 44.9 ± 1.7 |
+| RGB panoramas, all regions in one prompt (control) | 53.4 ± 0.8 |
+| Option B (labels + 4 views per region) | 44.8 ± 0.6 |
 
-The margin is +8.9 points, so panoramas lose to B on both backbones under the ≥10-point bar. That makes the decision
+The margin is +8.6 points, so panoramas lose to B on both backbones under the ≥10-point bar. That makes the decision
 robust to which backbone is used.
 
 The Qwen3 margin is the closest call in this phase. If the provisional threshold is lowered, or P3 moves to
@@ -74,72 +74,72 @@ Exact-region accuracy per seed:
 
 | Option | p2_E0_fix_s77 | p2_E0_fix_s78 | p2_E0_fix_s79 |
 |---|---|---|---|
-| A1 | 38.3 | 37.6 | 41.6 |
+| A1 | 36.9 | 37.2 | 41.5 |
 | A2 | 15.7 | 18.2 | 18.8 |
-| C_multi | 53.0 | 54.8 | 53.7 |
-| C_pr | 48.4 | 48.4 | 50.0 |
-| B | 42.7 | 43.0 | 39.7 |
-| C_B | 43.0 | 45.3 | 46.3 |
+| C_multi | 52.5 | 54.0 | 53.8 |
+| C_pr | 48.5 | 48.4 | 50.0 |
+| B | 42.5 | 43.2 | 39.6 |
+| C_B | 44.1 | 45.0 | 45.3 |
 | rand | 35.0 | 34.9 | 34.1 |
 
 ### All navigation decisions
 
 | Option | Decisions | Exact region % | Region type % | 'Not seen yet' P / R % | Goal visible P / R % | Invalid % |
 |---|---|---|---|---|---|---|
-| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 2543 | 39.2 ± 2.1 | 56.3 ± 2.7 | 79.1 ± 3.6 / 18.9 ± 0.8 | 32.1 ± 2.4 / 98.6 ± 0.5 | 0.0 ± 0.0 |
+| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 2543 | 38.5 ± 2.6 | 54.7 ± 3.1 | 79.7 ± 3.6 / 18.9 ± 0.7 | 31.6 ± 2.8 / 98.9 ± 1.2 | 0.0 ± 0.0 |
 | A2: OneCanvas feature canvases, OneCanvas-Qwen3-VL-8B, per-region yes/no | 2543 | 17.6 ± 1.6 | 27.3 ± 1.7 | — / 0.0 ± 0.0 | 12.7 ± 1.2 / 100.0 ± 0.0 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 2543 | 53.8 ± 0.9 | 67.4 ± 0.6 | 72.6 ± 0.8 / 47.6 ± 1.3 | 43.1 ± 1.1 / 99.7 ± 0.2 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 2543 | 48.9 ± 0.9 | 61.1 ± 0.4 | 70.7 ± 3.1 / 36.3 ± 2.4 | 39.9 ± 1.0 / 89.7 ± 0.6 | 0.0 ± 0.0 |
-| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 2543 | 41.8 ± 1.8 | 24.7 ± 1.2 | 41.7 ± 1.7 / 99.9 ± 0.2 | — / — | 0.3 ± 0.2 |
-| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 2543 | 44.9 ± 1.7 | 58.0 ± 0.7 | 74.6 ± 1.6 / 43.6 ± 1.7 | — / — | 0.3 ± 0.1 |
+| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 2543 | 53.4 ± 0.8 | 67.3 ± 0.3 | 71.4 ± 1.2 / 47.1 ± 1.2 | 43.0 ± 1.2 / 99.7 ± 0.2 | 0.0 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 2543 | 49.0 ± 0.9 | 61.1 ± 0.4 | 70.7 ± 3.1 / 36.3 ± 2.4 | 39.9 ± 1.1 / 89.7 ± 0.6 | 0.0 ± 0.0 |
+| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 2543 | 41.8 ± 1.9 | 24.7 ± 1.5 | 41.7 ± 1.9 / 99.8 ± 0.2 | — / — | 0.4 ± 0.4 |
+| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 2543 | 44.8 ± 0.6 | 57.9 ± 1.4 | 73.3 ± 1.7 / 43.8 ± 1.7 | — / — | 0.3 ± 0.1 |
 | Random same-type region (GT types) | 2543 | 34.7 ± 0.5 | 53.5 ± 0.5 | 100.0 ± 0.0 / 19.1 ± 1.7 | — / — | 0.0 ± 0.0 |
 
 ### Description subtasks (A2 sees the same subtask information as the others)
 
 | Option | Decisions | Exact region % | Region type % | 'Not seen yet' P / R % | Goal visible P / R % | Invalid % |
 |---|---|---|---|---|---|---|
-| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 982 | 46.3 ± 1.3 | 58.7 ± 2.4 | 80.4 ± 3.6 / 43.2 ± 2.0 | 32.4 ± 2.0 / 97.8 ± 2.0 | 0.0 ± 0.0 |
+| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 982 | 45.0 ± 2.7 | 57.1 ± 5.3 | 81.4 ± 4.0 / 43.2 ± 0.9 | 31.1 ± 3.7 / 98.8 ± 2.0 | 0.0 ± 0.0 |
 | A2: OneCanvas feature canvases, OneCanvas-Qwen3-VL-8B, per-region yes/no | 982 | 19.1 ± 3.0 | 27.1 ± 2.4 | — / 0.0 ± 0.0 | 13.3 ± 1.0 / 100.0 ± 0.0 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 982 | 51.9 ± 2.1 | 64.5 ± 1.1 | 72.3 ± 0.4 / 58.3 ± 0.5 | 36.7 ± 2.2 / 99.6 ± 0.7 | 0.0 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 982 | 51.6 ± 1.7 | 64.7 ± 0.7 | 70.9 ± 0.8 / 57.8 ± 0.5 | 37.4 ± 1.7 / 99.2 ± 0.7 | 0.0 ± 0.0 |
 | Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 982 | 47.4 ± 3.0 | 62.0 ± 2.7 | 71.8 ± 0.4 / 43.9 ± 2.4 | 41.9 ± 6.2 / 84.0 ± 3.2 | 0.0 ± 0.0 |
-| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 982 | 42.3 ± 2.2 | 29.2 ± 2.4 | 42.1 ± 2.2 / 100.0 ± 0.0 | — / — | 0.0 ± 0.0 |
-| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 982 | 48.9 ± 2.6 | 58.4 ± 1.5 | 72.0 ± 3.5 / 64.3 ± 3.2 | — / — | 0.6 ± 0.0 |
+| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 982 | 42.2 ± 2.4 | 29.1 ± 2.6 | 42.2 ± 2.4 / 100.0 ± 0.0 | — / — | 0.3 ± 0.5 |
+| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 982 | 47.8 ± 2.4 | 57.9 ± 1.6 | 71.1 ± 3.1 / 64.1 ± 3.1 | — / — | 0.6 ± 0.0 |
 | Random same-type region (GT types) | 982 | 39.4 ± 0.6 | 54.4 ± 0.8 | 100.0 ± 0.0 / 31.7 ± 2.6 | — / — | 0.0 ± 0.0 |
 
 ### Image subtasks (A2 gets only the text; the others also see the target image)
 
 | Option | Decisions | Exact region % | Region type % | 'Not seen yet' P / R % | Goal visible P / R % | Invalid % |
 |---|---|---|---|---|---|---|
-| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1561 | 34.7 ± 3.8 | 54.8 ± 2.8 | 69.2 ± 6.3 / 3.3 ± 0.9 | 32.1 ± 4.0 / 99.0 ± 1.2 | 0.0 ± 0.0 |
+| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1561 | 34.5 ± 3.1 | 53.2 ± 1.8 | 67.2 ± 4.1 / 3.3 ± 0.9 | 31.8 ± 3.5 / 99.0 ± 0.9 | 0.0 ± 0.0 |
 | A2: OneCanvas feature canvases, OneCanvas-Qwen3-VL-8B, per-region yes/no | 1561 | 16.6 ± 1.9 | 27.4 ± 1.8 | — / 0.0 ± 0.0 | 12.3 ± 1.8 / 100.0 ± 0.0 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1561 | 55.1 ± 1.9 | 69.3 ± 0.2 | 72.8 ± 1.4 / 40.8 ± 1.9 | 46.6 ± 2.1 / 99.8 ± 0.3 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 1561 | 49.9 ± 3.4 | 60.5 ± 2.0 | 69.6 ± 6.1 / 31.4 ± 3.6 | 39.3 ± 3.8 / 92.2 ± 0.6 | 0.0 ± 0.0 |
-| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1561 | 41.5 ± 1.6 | 21.8 ± 1.3 | 41.5 ± 1.4 / 99.8 ± 0.3 | — / — | 0.5 ± 0.3 |
-| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1561 | 42.4 ± 2.8 | 57.9 ± 1.6 | 78.3 ± 2.3 / 30.4 ± 2.1 | — / — | 0.1 ± 0.1 |
+| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1561 | 54.6 ± 1.9 | 68.9 ± 0.3 | 72.0 ± 1.7 / 40.3 ± 1.7 | 46.0 ± 2.3 / 100.0 ± 0.0 | 0.0 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 1561 | 50.0 ± 3.4 | 60.5 ± 2.0 | 69.6 ± 6.1 / 31.4 ± 3.6 | 39.2 ± 3.9 / 92.2 ± 0.6 | 0.0 ± 0.0 |
+| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1561 | 41.5 ± 1.6 | 21.8 ± 1.6 | 41.5 ± 1.6 / 99.7 ± 0.3 | — / — | 0.5 ± 0.4 |
+| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1561 | 42.9 ± 2.1 | 57.9 ± 1.4 | 76.5 ± 2.6 / 30.9 ± 1.9 | — / — | 0.1 ± 0.1 |
 | Random same-type region (GT types) | 1561 | 31.7 ± 0.5 | 53.0 ± 0.5 | 100.0 ± 0.0 / 11.0 ± 1.1 | — / — | 0.0 ± 0.0 |
 
 ### Goal region already observed
 
 | Option | Decisions | Exact region % | Region type % | 'Not seen yet' P / R % | Goal visible P / R % | Invalid % |
 |---|---|---|---|---|---|---|
-| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1488 | 53.5 ± 2.1 | 62.3 ± 3.3 | 0.0 ± 0.0 / — | 49.8 ± 2.1 / 98.6 ± 0.5 | 0.0 ± 0.0 |
+| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1488 | 52.4 ± 3.0 | 60.5 ± 4.6 | 0.0 ± 0.0 / — | 48.9 ± 2.8 / 98.9 ± 1.2 | 0.0 ± 0.0 |
 | A2: OneCanvas feature canvases, OneCanvas-Qwen3-VL-8B, per-region yes/no | 1488 | 30.0 ± 2.4 | 37.5 ± 2.6 | — / — | 21.7 ± 2.0 / 100.0 ± 0.0 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1488 | 58.3 ± 1.3 | 66.0 ± 0.7 | 0.0 ± 0.0 / — | 60.5 ± 2.0 / 99.7 ± 0.2 | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 1488 | 57.9 ± 0.8 | 65.7 ± 0.7 | 0.0 ± 0.0 / — | 60.2 ± 0.8 / 89.7 ± 0.6 | 0.0 ± 0.0 |
-| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1488 | 0.6 ± 0.0 | 0.6 ± 0.0 | 0.0 ± 0.0 / — | — / — | 0.5 ± 0.2 |
-| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1488 | 45.7 ± 1.9 | 53.7 ± 1.2 | 0.0 ± 0.0 / — | — / — | 0.2 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1488 | 57.9 ± 0.8 | 65.6 ± 0.5 | 0.0 ± 0.0 / — | 60.7 ± 1.4 / 99.7 ± 0.2 | 0.0 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 1488 | 58.0 ± 0.9 | 65.7 ± 0.7 | 0.0 ± 0.0 / — | 60.1 ± 0.7 / 89.7 ± 0.6 | 0.0 ± 0.0 |
+| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1488 | 0.6 ± 0.5 | 0.6 ± 0.5 | 0.0 ± 0.0 / — | — / — | 0.6 ± 0.7 |
+| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1488 | 45.5 ± 0.4 | 53.5 ± 1.2 | 0.0 ± 0.0 / — | — / — | 0.2 ± 0.0 |
 | Random same-type region (GT types) | 1488 | 45.7 ± 0.7 | 59.6 ± 0.4 | — / — | — / — | 0.0 ± 0.0 |
 
 ### Goal region not observed yet (correct answer: "not seen yet")
 
 | Option | Decisions | Exact region % | Region type % | 'Not seen yet' P / R % | Goal visible P / R % | Invalid % |
 |---|---|---|---|---|---|---|
-| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1055 | 18.9 ± 0.8 | 47.8 ± 1.6 | 100.0 ± 0.0 / 18.9 ± 0.8 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
+| A1: RGB panoramas, Qwen2.5-VL-7B (MemoryExplorer), all panoramas in one prompt | 1055 | 18.9 ± 0.7 | 46.5 ± 1.6 | 100.0 ± 0.0 / 18.9 ± 0.7 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
 | A2: OneCanvas feature canvases, OneCanvas-Qwen3-VL-8B, per-region yes/no | 1055 | 0.0 ± 0.0 | 12.9 ± 1.5 | — / 0.0 ± 0.0 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
-| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1055 | 47.6 ± 1.3 | 69.4 ± 0.7 | 100.0 ± 0.0 / 47.6 ± 1.3 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
+| Control: RGB panoramas, Qwen3-VL-8B base, all panoramas in one prompt | 1055 | 47.1 ± 1.2 | 69.7 ± 0.3 | 100.0 ± 0.0 / 47.1 ± 1.2 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
 | Control: RGB panoramas, Qwen3-VL-8B base, per-region yes/no | 1055 | 36.3 ± 2.4 | 54.5 ± 0.0 | 100.0 ± 0.0 / 36.3 ± 2.4 | 0.0 ± 0.0 / — | 0.0 ± 0.0 |
-| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1055 | 99.9 ± 0.2 | 58.6 ± 2.2 | 100.0 ± 0.0 / 99.9 ± 0.2 | — / — | 0.1 ± 0.2 |
-| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1055 | 43.6 ± 1.7 | 64.2 ± 3.2 | 100.0 ± 0.0 / 43.6 ± 1.7 | — / — | 0.4 ± 0.2 |
+| B: region markers with VLM labels + 4 views per region, Qwen2.5-VL-7B (MemoryExplorer) | 1055 | 99.8 ± 0.2 | 58.6 ± 2.2 | 100.0 ± 0.0 / 99.8 ± 0.2 | — / — | 0.2 ± 0.2 |
+| Control: option B on Qwen3-VL-8B base (labels + 4 views per region) | 1055 | 43.8 ± 1.7 | 64.1 ± 3.1 | 100.0 ± 0.0 / 43.8 ± 1.7 | — / — | 0.4 ± 0.2 |
 | Random same-type region (GT types) | 1055 | 19.1 ± 1.7 | 45.0 ± 2.2 | 100.0 ± 0.0 / 19.1 ± 1.7 | — / — | 0.0 ± 0.0 |
 
 ### Tokens, holes and render time (per decision unless stated)
@@ -150,7 +150,7 @@ Exact-region accuracy per seed:
 | B image tokens per decision (Qwen2.5-VL) | 3069.70 | 10048.00 |
 | Regions per decision | 5.09 | 17.00 |
 | Hole fraction per panorama (full sphere) | 0.71 | 1.00 |
-| Panorama update + render time per decision (s) | 0.06 | 0.46 |
+| Panorama update + render time per decision (s) | 0.06 | 0.47 |
 | Kept views per decision (frame-level pruning, 0.05 m) | 33.27 | 105.00 |
 | Seen views per decision | 118.68 | 592.00 |
 | A2 canvas tokens per decision (sum over regions) | 6384.82 | 19832.00 |
@@ -160,8 +160,8 @@ Exact-region accuracy per seed:
 
 | Check | Value | Result |
 |---|---|---|
-| Best panorama option on exact-region accuracy | A1: 39.2 | — |
-| Beats option B by ≥ 10 points | -2.6 vs B 41.8 | no |
+| Best panorama option on exact-region accuracy | A1: 38.5 | — |
+| Beats option B by ≥ 10 points | -3.2 vs B 41.8 | no |
 | Beats random same-type | vs 34.7 | yes |
-| A1 and A2 within 5 points (prefer A1) | A1 39.2, A2 17.6 | no |
+| A1 and A2 within 5 points (prefer A1) | A1 38.5, A2 17.6 | no |
 | **P3-0a passes** | | **no** |

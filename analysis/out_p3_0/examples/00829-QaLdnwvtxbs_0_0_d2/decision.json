@@ -44,7 +44,7 @@
  ],
  "kept_frames": 12,
  "seen_frames": 23,
- "render_s": 0.03776717185974121,
+ "render_s": 0.03733563423156738,
  "baseline_choice": "frontier",
  "A1_reply": "Region: not seen yet\nGoal visible: no",
  "A1_choice": "none",
@@ -60,6 +60,6 @@
  "B_choice": "none",
  "B_tokens": 1957,
  "B_image_tokens": 1728,
- "query_s": 2.620776653289795,
+ "query_s": 2.617119312286377,
  "question": "The complete task is: Start in the bathroom to observe the picture on the wall, then head to the kitchen to check the painting there, followed by visiting the other bathroom to examine its painting, and finally go to the living room to inspect the pictures and painting displayed there.\nNow you need to perform the subtask of finding the picture, which is exactly described as the 'picture of a bathroom with a tub and a mirror. the picture is located below the bathtub.'?"
 }
