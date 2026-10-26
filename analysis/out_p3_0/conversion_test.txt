@@ -1,0 +1,5 @@
+views 23: OneCanvas lift vs Habitat back-projection, max |diff| = 0.00 mm
+instance pixels inside their own GT box (+0.05 m): 1116920/1126478 = 0.9915
+region _4: hole fraction 0.412; pixel -> 3D lands in the pixel's GT box: 775/788 = 0.9835
+A2 canvas: 196 patches of view 13, max longitude difference to our projection 0.00 deg
+conversion test ok

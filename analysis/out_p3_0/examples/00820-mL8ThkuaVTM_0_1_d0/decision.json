@@ -1,0 +1,61 @@
+{
+ "run": "p2_E0_fix_s77",
+ "model": "qwen25",
+ "subtask": "00820-mL8ThkuaVTM_0_1",
+ "decision": 0,
+ "global_step": 6,
+ "goal_type": "image",
+ "goal_regions": [
+  "_8"
+ ],
+ "goal_types": [
+  "bedroom"
+ ],
+ "regions": [
+  "_6",
+  "_7",
+  "_5"
+ ],
+ "region_types": [
+  [],
+  [
+   "kitchen"
+  ],
+  []
+ ],
+ "goal_px": [
+  0,
+  0,
+  0
+ ],
+ "hole_fraction": [
+  0.3955955505371094,
+  0.7490882873535156,
+  0.8782196044921875
+ ],
+ "region_frames": [
+  16,
+  14,
+  11
+ ],
+ "kept_frames": 17,
+ "seen_frames": 33,
+ "render_s": 0.1403484344482422,
+ "baseline_choice": "frontier",
+ "A1_reply": "Region: 1\nGoal visible: yes",
+ "A1_choice": 0,
+ "A1_visible": true,
+ "A1_tokens": 2476,
+ "A1_image_tokens": 2254,
+ "B_labels": [
+  "hallway",
+  "hallway",
+  "hallway"
+ ],
+ "B_reply": "not seen yet",
+ "B_choice": "none",
+ "B_tokens": 2201,
+ "B_image_tokens": 1984,
+ "query_s": 3.072713851928711,
+ "question": "The complete task is: Start in the bedroom to look at the painting on the wall and the rug underneath, then move into the shared space of the bedroom and living room to examine the other painting nearby.\nNow you need to perform the subtask of finding the exact rug, which is captured at the center of the following image? You need to pay attention to the environment and find the exact object."
+}

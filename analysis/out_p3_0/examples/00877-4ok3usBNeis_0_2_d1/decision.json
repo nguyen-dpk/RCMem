@@ -1,0 +1,64 @@
+{
+ "run": "p2_E0_fix_s77",
+ "model": "qwen25",
+ "subtask": "00877-4ok3usBNeis_0_2",
+ "decision": 1,
+ "global_step": 7,
+ "goal_type": "image",
+ "goal_regions": [
+  "_4"
+ ],
+ "goal_types": [
+  "bedroom"
+ ],
+ "regions": [
+  "_0",
+  "_5",
+  "_1"
+ ],
+ "region_types": [
+  [
+   "bedroom",
+   "kitchen"
+  ],
+  [],
+  [
+   "bathroom"
+  ]
+ ],
+ "goal_px": [
+  0,
+  0,
+  0
+ ],
+ "hole_fraction": [
+  0.31809234619140625,
+  0.8758945465087891,
+  0.9351425170898438
+ ],
+ "region_frames": [
+  12,
+  9,
+  9
+ ],
+ "kept_frames": 12,
+ "seen_frames": 40,
+ "render_s": 0.07129120826721191,
+ "baseline_choice": "frontier",
+ "A1_reply": "Region: 1\nGoal visible: yes",
+ "A1_choice": 0,
+ "A1_visible": true,
+ "A1_tokens": 2471,
+ "A1_image_tokens": 2254,
+ "B_labels": [
+  "living room",
+  "kitchen",
+  "hallway"
+ ],
+ "B_reply": "not seen yet",
+ "B_choice": "none",
+ "B_tokens": 2197,
+ "B_image_tokens": 1984,
+ "query_s": 2.8393876552581787,
+ "question": "The complete task is: Start in the bedroom and kitchen area to check the refrigerator and freezer, then move to the nightstand in the bedroom to see what's on it.\nNow you need to perform the subtask of finding the exact nightstand, which is captured at the center of the following image? You need to pay attention to the environment and find the exact object."
+}

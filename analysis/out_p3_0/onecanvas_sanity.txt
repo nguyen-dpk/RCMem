@@ -1,0 +1,10 @@
+[depth_embed] Initialized cartesian_fourier depth embedding: 16 freqs/axis, 102 input channels (3×(1+2×16) xyz + 3 ray_dirs) → Linear(102->hidden)
+[inline_patch] SKIPPED patch-marker identity bias (use_inline_patch_embedding=False). Inline markers will carry ONLY their copied source-patch features; the model must discriminate markers from raw canvas patches via features + MRoPE alone.
+[depth_embed] Loaded depth embedding from /ssd1/quang/embodied/models/onecanvas/OneCanvas-Qwen3-VL-8B/depth_embedding.pt
+region _4 (GT living room, 20 views) | What type of room is this? Answer with one or two words. -> living room | expected living room
+region _4 (GT living room, 20 views) | Is this a bathroom? Answer yes or no. -> no | expected no
+region _4 (GT living room, 20 views) | Is this a living room? Answer yes or no. -> yes | expected yes
+region _7 (GT bathroom, 14 views) | What type of room is this? Answer with one or two words. -> bathroom | expected bathroom
+region _7 (GT bathroom, 14 views) | Is this a bathroom? Answer yes or no. -> yes | expected yes
+region _7 (GT bathroom, 14 views) | Is this a living room? Answer yes or no. -> no | expected no
+6/6 correct
