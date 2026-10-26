@@ -20,3 +20,4 @@ if [ "${RERUN:-0}" = "1" ]; then
   analysis/runs/p2b_queue.sh ${GPUS:-0 1 2 3}
 fi
 (cd analysis && $P p2b_report.py)   # -> analysis/out_p2b/p2b_results.json, docs/phase2b_decision.md
+$P analysis/p2b_completion_check.py  # prints the DEV_PLAN.md "Phase 2b completion check" table, each row checked
