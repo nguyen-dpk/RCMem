@@ -311,7 +311,7 @@ ir.run_lmee.get_pts_angle_goatbench = pts_angle
 
 def parse(argv):
     p = argparse.ArgumentParser()
-    p.add_argument("--exp", choices=["F1", "F2", "F2b", "PA", "PB", "RG", "RP", "RPin", "RPpt", "E0"])  # PA / PB: analysis/p3_0_nav.py; RG / RP / E0: analysis/p3_nav.py
+    p.add_argument("--exp", choices=["F1", "F2", "F2b", "PA", "PB", "RG", "RP", "RPin", "RPpt", "RPcu", "E0"])  # PA / PB: analysis/p3_0_nav.py; RG / RP / E0: analysis/p3_nav.py
     p.add_argument("--viz", action="store_true", help="P3: dump maps, panoramas and prompts per decision (pilot reports)")
     p.add_argument("--vlm", default=None, help="decision VLM checkpoint (default: the cfg's, MemoryExplorer)")
     p.add_argument("--no_fix_start", action="store_true")

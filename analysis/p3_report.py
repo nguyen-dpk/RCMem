@@ -33,6 +33,9 @@ DOC = os.path.join(REPO, "docs/p3_report.md")
 RUNS = [  # key, run, label
     ("RP", "p3_RP_s77", "RCMem zero-shot, predicted regions"),
     ("RG", "p3_RG_s77", "RCMem zero-shot, ground-truth regions"),
+    ("RPin", "p3_RPin_s77", "RP variant: step-2 boxes only inside the chosen region"),
+    ("RPpt", "p3_RPpt_s77", "RP variant: step 2 by pointing (no detector box needed)"),
+    ("RPcu", "p3_RPcu_s77", "RP variant: room close-ups + show threshold 1%"),
     ("PA", "p3r_PA_s77", "P3-0 panoramas (GT regions), no subtask markers"),
     ("F2bq", "p3_F2bq_s77", "F2b: context restricted to the goal's region type"),
     ("F1q", "p3r_F1_s77", "F1: all kept frames, no regions"),
@@ -51,7 +54,7 @@ def run_metrics(run):
     import p2b_report as PB  # noqa: E402
     _, _, decisions = PB.A.load_records(os.path.join(REPO, "analysis/runs", run))
     ds = [d for v in decisions.values() for d in v]
-    p3 = [d["p3"] for d in ds if d.get("p3", {}).get("exp") in ("RG", "RP", "RPin", "RPpt")]
+    p3 = [d["p3"] for d in ds if d.get("p3", {}).get("exp") in ("RG", "RP", "RPin", "RPpt", "RPcu")]
     if p3:
         m["render_s"] = float(np.mean([p["render_s"] for p in p3]))
         m["render_s_max"] = float(np.max([p["render_s"] for p in p3]))

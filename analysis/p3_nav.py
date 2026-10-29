@@ -11,6 +11,10 @@ voxel-pruned frames, "Frame f, Object o" answers, empty-context rule, start fix)
   RPpt  RP, but step 2 sees plain frames and answers "Frame f, Point (x, y)" (0-1000 relative coordinates); the point
         is back-projected with the frame's depth and pose to the navigation target, so no detector box is needed to
         commit (P3 variant b; the detector still builds LMEE's map objects)
+  RPcu  RP, with room close-ups and a lower show threshold (P3 glimpse fix A + B, analysis/p3_glimpse.py): a region is
+        shown in step 1 once a kept frame has >= SHOW_CU (1%) of its pixels in it, and after each panorama come up to two
+        full-resolution crops of the region from the kept frames that see most of it; step-2 frames stay at >= 5% (or the
+        >= 1% frames when a region has none)
   E0  MemoryExplorer's own pipeline (bank, CLIP retrieval, its prompts) with the decision VLM given by --vlm
   F1 / F2 / F2b / PA / PB run as in p3_0_nav.py.
 RG and RP: a region is observed once a kept frame has >= MIN_SHARE of its pixels in it; its frames are those kept
@@ -55,7 +59,8 @@ from rcmem.panorama import RegionPanorama  # noqa: E402
 
 F, ir, eu, C = N.F, N.ir, N.eu, N.C
 from src.tsdf_planner import TSDFPlanner  # noqa: E402
-REGION_EXPS = ("RG", "RP", "RPin", "RPpt")  # everything but RG uses predicted regions
+REGION_EXPS = ("RG", "RP", "RPin", "RPpt", "RPcu")  # everything but RG uses predicted regions
+SHOW_CU, N_CU, CU_PX = 0.01, 2, 448  # RPcu: show threshold, close-ups per region, close-up longest side (px)
 RES, LAB = N.PANO_RES, 224  # frames for panoramas at 448 px; region labels and GT on a 224 grid (upsampled x2)
 OPT = {"viz": False}
 EP = {}  # per episode: builder, kept-frame data, subtask goals, committed targets
@@ -142,17 +147,42 @@ def frame_labels():
 
 
 def observed(labels):
-    """Region codes with >= MIN_SHARE of some kept frame, in order of first such frame, and each region's frames."""
-    order, frames = [], collections.defaultdict(list)
+    """Region codes with >= the show share of some kept frame (MIN_SHARE; SHOW_CU for RPcu), in order of first such
+    frame, and each region's step-2 frames: those with >= MIN_SHARE of it, else those with >= the show share."""
+    show = SHOW_CU if F.EXP == "RPcu" else N.MIN_SHARE
+    order, strict, loose = [], collections.defaultdict(list), collections.defaultdict(list)
     for n in F.CTX["kept"]:
         if n not in labels:
             continue
         cnt = np.bincount(labels[n].ravel())
-        for r in np.nonzero(cnt[1:] >= N.MIN_SHARE * labels[n].size)[0] + 1:
-            frames[int(r)].append(n)
+        for r in np.nonzero(cnt[1:] >= show * labels[n].size)[0] + 1:
+            r = int(r)
+            loose[r].append(n)
+            if cnt[r] >= N.MIN_SHARE * labels[n].size:
+                strict[r].append(n)
             if r not in order:
-                order.append(int(r))
-    return order, frames
+                order.append(r)
+    return order, {r: strict[r] or loose[r] for r in order}
+
+
+def closeups(scene, r, labels):
+    """Up to N_CU full-resolution crops of region r from the kept frames with the most of its pixels: the bounding box of
+    those pixels, widened to at least a quarter of the frame per side, longest side resized to CU_PX."""
+    out = []
+    for c, n in sorted(((int((labels[n] == r).sum()), n) for n in labels), reverse=True)[:N_CU]:
+        if not c or n not in scene.all_observations:
+            continue
+        img = np.asarray(scene.all_observations[n])[..., :3]
+        H, W = img.shape[:2]
+        ys, xs = np.nonzero(labels[n] == r)
+        y0, y1, x0, x1 = ys.min() * H / LAB, (ys.max() + 1) * H / LAB, xs.min() * W / LAB, (xs.max() + 1) * W / LAB
+        h, w = max(y1 - y0, H / 4), max(x1 - x0, W / 4)
+        a, b = int(np.clip((y0 + y1 - h) / 2, 0, H - h)), int(np.clip((x0 + x1 - w) / 2, 0, W - w))
+        crop = img[a:a + int(h), b:b + int(w)]
+        f = CU_PX / max(crop.shape[:2])
+        out.append(np.ascontiguousarray(cv2.resize(crop, (max(1, round(crop.shape[1] * f)), max(1, round(crop.shape[0] * f))),
+                                                   interpolation=cv2.INTER_AREA)))
+    return out
 
 
 def centre(r):
@@ -238,9 +268,11 @@ def markers(md, regions):
 # ---------------------------------------------------------------- step 1
 SYS1 = N.SYS1
 INTRO = N.INTRO["PA"]
+INTRO_CU = ("After a Region's image come up to two close-up views of that room at full resolution, taken from the frames "
+            "that show it best, so small objects stay visible.\n")
 
 
-def step1(md, tsdf_planner, regions, bands, model, processor):
+def step1(md, tsdf_planner, regions, bands, model, processor, scene=None, labels=None):
     shown = [r for r in regions if r in bands]
     mk, parsed = markers(md, shown)
     content = []
@@ -249,9 +281,16 @@ def step1(md, tsdf_planner, regions, bands, model, processor):
         content += [(f"{q}\nImage goal:", N.base64.b64encode(open(md["image"], "rb").read()).decode("utf-8")), ("\n",)]
     else:
         content.append((q + "\n",))
-    content += [(mk,), (INTRO,)]
+    content += [(mk,), (INTRO + (INTRO_CU if F.EXP == "RPcu" else ""),)]
+    n_cu = 0
     for k, r in enumerate(shown):
         content += [(f"Region {k}: ", eu.encode_tensor2base64(bands[r])), ("\n",)]
+        if F.EXP == "RPcu":
+            cus = closeups(scene, r, labels)
+            n_cu += len(cus)
+            if cus:
+                content.append((f"Close-ups of Region {k}:\n",))
+                content += [("", eu.encode_tensor2base64(c)) for c in cus] + [("\n",)]
     content.append(("The followings are all the Frontiers that you can explore:\n",))
     if not tsdf_planner.frontiers:
         content.append(("No Frontier is available.\n",))
@@ -263,7 +302,7 @@ def step1(md, tsdf_planner, regions, bands, model, processor):
     reply, n_tok, dt = F.call_vlm(SYS1, content, model, processor)
     p = N.parse_step1(reply, len(shown), len(tsdf_planner.frontiers))
     block = {"step1_reply": reply[:2000], "step1_tokens": n_tok, "step1_s": dt, "markers": mk, "parse": parsed,
-             "shown": [key(r) for r in shown], "step1_choice": None if p is None else (key(shown[p[1]]) if p[0] == "region" else "explore"),
+             "shown": [key(r) for r in shown], "closeups": n_cu, "step1_choice": None if p is None else (key(shown[p[1]]) if p[0] == "region" else "explore"),
              "step1_frontier": p[1] if p and p[0] == "frontier" else None}
     return p, block, content
 
@@ -549,7 +588,7 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
         finally:
             F.context_frames = N._ctx_f
     else:
-        p, block, content = step1(md, tsdf_planner, regions, bands, model, processor)
+        p, block, content = step1(md, tsdf_planner, regions, bands, model, processor, scene, labels)
         shown_codes = [r for r in regions if r in bands]
         P3.update(block)
         if p is not None and p[0] == "region":
