@@ -5,7 +5,7 @@ Inputs
 - analysis/out_p3/parser_eval.json       instruction parser vs the task configs (python rcmem/instruction.py)
 - analysis/out_p3/pilot.json             pilot sample (analysis/p3_pilot.py); docs/qual/p3_*.html (analysis/p3_qual.py)
 - analysis/runs/<run>                    navigation runs, 58-task subset, choice mode, seed 77, Qwen3-VL-8B base:
-    p3_RP_s77 (RCMem, predicted regions), p3_RG_s77 (RCMem, GT regions), p3_E0q_s77 (MemoryExplorer's pipeline),
+    p3_RP_s77 (RCMem, predicted regions), p3_RG_s77 (RCMem, GT regions),
     p3r_F1_s77 (F1, from the P3-0 re-check: same code and backbone), p3_F2bq_s77 (F2b, optional),
     p3r_PA_s77 (P3-0's GT-region panoramas without subtask markers, for reference)
 - analysis/out_p2b/p2b_results.json      reference rows on MemoryExplorer's Qwen2.5-VL-7B and the noise band
@@ -36,7 +36,6 @@ RUNS = [  # key, run, label
     ("PA", "p3r_PA_s77", "P3-0 panoramas (GT regions), no subtask markers"),
     ("F2bq", "p3_F2bq_s77", "F2b: context restricted to the goal's region type"),
     ("F1q", "p3r_F1_s77", "F1: all kept frames, no regions"),
-    ("E0q", "p3_E0q_s77", "MemoryExplorer's pipeline (bank, CLIP retrieval, its prompts)"),
 ]
 KEYS = ["SR", "SPL", "premature_commit_rate", "distractor_rate_of_memory_choices", "step1_exact", "none_P", "none_R",
         "step2_acc", "step2_share", "tokens_per_decision", "tokens_per_decision_max", "sec_per_decision", "render_s"]
