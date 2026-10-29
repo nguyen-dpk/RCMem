@@ -19,7 +19,10 @@ DEPTH_STRIDE = 5           # 1280 px depth -> 256 x 256 samples for the voxel se
 NOVELTY = 0.25             # frame-level pruning: keep a frame if >= 25% of its voxels are not covered yet
 
 
-def smart_resize(h, w, factor=TOKEN_PX, min_pixels=MIN_PIXELS, max_pixels=MAX_PIXELS):
+def smart_resize(h, w, factor=None, min_pixels=None, max_pixels=None):
+    # defaults read TOKEN_PX at call time: p2b_experiments sets it to 32 for Qwen3-VL (16 px patches merged 2x2)
+    factor = factor or TOKEN_PX
+    min_pixels, max_pixels = min_pixels or 4 * factor * factor, max_pixels or 16384 * factor * factor
     hb, wb = max(factor, round(h / factor) * factor), max(factor, round(w / factor) * factor)
     if hb * wb > max_pixels:
         beta = math.sqrt((h * w) / max_pixels)

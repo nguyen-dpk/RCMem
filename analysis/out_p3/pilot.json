@@ -1,0 +1,91 @@
+{
+ "seed": 0,
+ "scenes": [
+  "00808-y9hTuugGdiq",
+  "00815-h1zeeAwLh9Z",
+  "00880-Nfvxx8J5NCo",
+  "00849-a8BtkwhxdRV",
+  "00848-ziup5kvtCCR"
+ ],
+ "episodes": [
+  "00808-y9hTuugGdiq_ep_0",
+  "00808-y9hTuugGdiq_ep_1",
+  "00815-h1zeeAwLh9Z_ep_0",
+  "00880-Nfvxx8J5NCo_ep_0",
+  "00849-a8BtkwhxdRV_ep_0",
+  "00849-a8BtkwhxdRV_ep_1",
+  "00848-ziup5kvtCCR_ep_0",
+  "00848-ziup5kvtCCR_ep_1"
+ ],
+ "rule": "Rule: for seed s = 0, 1, 2, ...: shuffle the subset's scene files with random.Random(s), take scenes in that order until\nthey hold >= 8 episodes; accept the first s whose episodes cover every case below (flags from the fixed baseline's\nlogged run p2_E0_fix_s77 and the P3-0a decision table analysis/out_p3_0/p2_E0_fix_s77__qwen3_band.jsonl):\n  description goal; image goal; a decision with the goal's region already seen; one with it not seen yet; a goal with\n  a same-category GT instance in another region (distractor); an episode whose goals span >= 2 regions; a QA subtask.\nWhole scene files are taken, so episode ids match the full runs. Writes analysis/out_p3/pilot_data/<scene>.json\n(symlinks), analysis/cfg/p3_pilot.yaml (the subset config pointed at them) and analysis/out_p3/pilot.json.\nRun (repo root): python analysis/p3_pilot.py\n",
+ "cases": {
+  "description": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "image": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00849-a8BtkwhxdRV_ep_1",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "region_seen": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "region_unseen": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00849-a8BtkwhxdRV_ep_1",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "distractor": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00849-a8BtkwhxdRV_ep_1",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "multi_region": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00849-a8BtkwhxdRV_ep_1",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ],
+  "qa": [
+   "00808-y9hTuugGdiq_ep_0",
+   "00808-y9hTuugGdiq_ep_1",
+   "00815-h1zeeAwLh9Z_ep_0",
+   "00880-Nfvxx8J5NCo_ep_0",
+   "00849-a8BtkwhxdRV_ep_0",
+   "00849-a8BtkwhxdRV_ep_1",
+   "00848-ziup5kvtCCR_ep_0",
+   "00848-ziup5kvtCCR_ep_1"
+  ]
+ }
+}

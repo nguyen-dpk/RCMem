@@ -49,6 +49,14 @@ def c2w_onecanvas(cam, yaw, tilt=TILT):
     return T
 
 
+def habitat_pose_to_onecanvas(T_hab):
+    """4x4 Habitat camera-to-world (OpenGL camera, as LMEE passes cam_pos) -> OneCanvas camera-to-world."""
+    T = np.eye(4)
+    T[:3, :3] = H2O @ np.asarray(T_hab)[:3, :3] @ GL2CV
+    T[:3, 3] = H2O @ np.asarray(T_hab)[:3, 3]
+    return T
+
+
 def to_onecanvas(p):
     return np.asarray(p, dtype=np.float64) @ H2O.T
 
@@ -88,4 +96,5 @@ if __name__ == "__main__":
     assert np.isclose(np.linalg.det(H2O), 1.0) and np.allclose(to_onecanvas([0, 1, 0]), [0, 0, 1]), "Z-up"
     fwd = c2w_habitat(cam, yaw)[:3, :3] @ [0, 0, -1]
     assert np.isclose(np.arctan2(-fwd[0], -fwd[2]), yaw) and np.isclose(fwd[1], np.sin(TILT)), "yaw/tilt convention"
+    assert np.allclose(habitat_pose_to_onecanvas(c2w_habitat(cam, yaw)), c2w_onecanvas(cam, yaw)), "live pose path"
     print("geometry self-check ok")

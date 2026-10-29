@@ -1,0 +1,3502 @@
+{
+ "summary": {
+  "tasks": 166,
+  "subtasks": 824,
+  "goal_located": 100.0,
+  "region_type": 96.96601941747574,
+  "instance_pairs": 96.06520517144463,
+  "task_exact": 82.53012048192771,
+  "region_type_easy": 97.43589743589743,
+  "task_exact_easy": 87.87878787878788,
+  "region_type_medium": 97.5,
+  "task_exact_medium": 83.63636363636364,
+  "region_type_hard": 94.5578231292517,
+  "task_exact_hard": 69.56521739130434
+ },
+ "errors": [
+  {
+   "task": "Start by checking the painting on the wall in the living area, then move over to the dresser to inspect its contents, and finally head to the rec room part of the space to see if the exercise bike is available for use.",
+   "difficulty": "easy",
+   "n": 3,
+   "found": [
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 22,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "dresser",
+     "pos": 85,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "exercise bike",
+     "pos": 183,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the painting on the wall in the living area, then move to the dresser to inspect its contents, and finally go to the exercise bike in the rec room to see if it's in good condition.",
+   "difficulty": "easy",
+   "n": 3,
+   "found": [
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 22,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "dresser",
+     "pos": 80,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "exercise bike",
+     "pos": 135,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by examining the painting on the wall in the living area, then move to the dresser to check its contents, and finally head over to the exercise bike near the rec room corner to inspect its settings.",
+   "difficulty": "easy",
+   "n": 3,
+   "found": [
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 23,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "dresser",
+     "pos": 81,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living area",
+     "instance": 0
+    },
+    {
+     "goal": "exercise bike",
+     "pos": 141,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom",
+      "Living room",
+      "Rec room"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the kitchen to examine the microwave, then take a look at the pictures hanging on the wall before moving to the living room to check the ottoman.",
+   "difficulty": "easy",
+   "n": 5,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "microwave",
+     "pos": 36,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 71,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 71,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 71,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "ottoman",
+     "pos": 146,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the calendar in the kitchen, then head to the bathroom to look at the painting on the wall. After that, go to the dining room and living room area to observe the flower vase and one of the carpets. Finally, visit the bedroom to see the island and a painting nearby.",
+   "difficulty": "hard",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "calendar",
+     "pos": 22,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 88,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    },
+    {
+     "goal": "flower vase",
+     "pos": 180,
+     "types": [
+      "Dining room",
+      "Living room"
+     ],
+     "phrase": "dining room and living room",
+     "instance": 2
+    },
+    {
+     "goal": "carpet",
+     "pos": 207,
+     "types": [
+      "Dining room",
+      "Living room"
+     ],
+     "phrase": "dining room and living room",
+     "instance": 2
+    },
+    {
+     "goal": "island",
+     "pos": 254,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    },
+    {
+     "goal": "painting",
+     "pos": 267,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 7",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Dining room",
+      "Living room"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Dining room",
+      "Living room"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the pictures in the first bathroom, then head to the bedroom nearby to examine the pictures on the wall, followed by visiting the laundry room to look at the artwork there. After that, move to the larger bedroom to inspect the nightstand and dresser, and finally stop by the second bathroom to view the pictures hanging inside.",
+   "difficulty": "hard",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 22,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 101,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 321,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 3
+    },
+    {
+     "goal": "nightstand",
+     "pos": 245,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "dresser",
+     "pos": 260,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 321,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 0",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Laundry room"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by examining the pictures in the first bathroom, then head to the nearby bedroom to check the framed artwork on the wall, followed by visiting the laundry room to look at the pictures there. After that, move to the larger bedroom to inspect the nightstand and dresser alongside the surrounding pictures, and finally go to the other bathroom to view the remaining pictures hanging up.",
+   "difficulty": "hard",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    false,
+    true,
+    true,
+    false
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 23,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 181,
+     "types": [
+      "Laundry room"
+     ],
+     "phrase": "laundry room",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 300,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "nightstand",
+     "pos": 251,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "dresser",
+     "pos": 266,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 300,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 0",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Laundry room"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the first bedroom to look at the book on display, then head to the living and rec room to admire the painting and picture on the wall, followed by a visit to another bedroom to see the two pictures hanging there. Finally, go to the last bedroom to observe the painting and the footstool near the bed.",
+   "difficulty": "hard",
+   "n": 7,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "book",
+     "pos": 42,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 110,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 123,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 198,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 123,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 269,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    },
+    {
+     "goal": "footstool",
+     "pos": 286,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 6",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the first bedroom to look at the book on display, then head to the shared living and rec room to examine the painting and picture on the wall. Next, visit the second bedroom to check the two pictures hanging there, followed by the third bedroom to view the paintings and flower, and finally go to the last bedroom to inspect the painting and footstool.",
+   "difficulty": "hard",
+   "n": 5,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "book",
+     "pos": 42,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 118,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 131,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 266,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    },
+    {
+     "goal": "painting",
+     "pos": 338,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 4
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 6",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the kitchen to examine the flower vase and microwave, then head to the living room to check the pictures on the wall and the rug underneath, followed by a quick look at the painting in the same area. After that, visit the first bedroom to see the painting and plant there, and finally move to the other bedroom to observe the single painting hanging up.",
+   "difficulty": "hard",
+   "n": 7,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "flower vase",
+     "pos": 36,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "microwave",
+     "pos": 52,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 105,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "rug",
+     "pos": 134,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 182,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 256,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "painting",
+     "pos": 342,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 10",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 10",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Living room",
+      "Office"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the living room to examine the flower vases on the table, then head to the kitchen to check the microwave and refrigerator. After that, walk through the hall area to see the pictures on the wall, stop by the office to look at the framed photos, and finally visit the bathroom to view the picture hanging there.",
+   "difficulty": "hard",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "flower vase",
+     "pos": 40,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 0
+    },
+    {
+     "goal": "microwave",
+     "pos": 105,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "refrigerator",
+     "pos": 119,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 183,
+     "types": [
+      "Hall"
+     ],
+     "phrase": "hall",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 297,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 4
+    },
+    {
+     "goal": "picture",
+     "pos": 183,
+     "types": [
+      "Hall"
+     ],
+     "phrase": "hall",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 11",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Hall",
+      "Living room"
+     ]
+    ],
+    [
+     "Region 14",
+     [
+      "Office"
+     ]
+    ],
+    [
+     "Region 15",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the flower vases in the living room, then move to the kitchen to look at the microwave and refrigerator. Next, head to the tie area between the living room and hall to examine the rug and pictures, followed by the office to inspect the set of wall pictures. Finally, go to the bathroom to see the single picture hanging there.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "flower vase",
+     "pos": 22,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 0
+    },
+    {
+     "goal": "flower vase",
+     "pos": 22,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 0
+    },
+    {
+     "goal": "microwave",
+     "pos": 95,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "refrigerator",
+     "pos": 109,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "rug",
+     "pos": 198,
+     "types": [
+      "Hall",
+      "Living room"
+     ],
+     "phrase": "living room and hall",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 206,
+     "types": [
+      "Hall",
+      "Living room"
+     ],
+     "phrase": "living room and hall",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 11",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Hall",
+      "Living room"
+     ]
+    ],
+    [
+     "Region 15",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the painting and vase in the kitchen, then move to the bedroom to look at the painting on the wall, and finally visit the second bathroom to inspect the shower glass and the flower vase there.",
+   "difficulty": "medium",
+   "n": 5,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 22,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "vase",
+     "pos": 35,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 96,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "shower glass",
+     "pos": 171,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "flower vase",
+     "pos": 192,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 2",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 16",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the picture in the bathroom, then visit the first bedroom to look at the hanging clothes, move to another bedroom to inspect the painting on the wall, and finally go to the bedroom with multiple pictures to examine one of the frames.",
+   "difficulty": "medium",
+   "n": 4,
+   "found": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 22,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "hanging clothes",
+     "pos": 91,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 147,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 213,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 13",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 16",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 15",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the picture in the living room and hall area, then head to the kitchen to inspect the refrigerator and coffee machine. After that, visit the first bathroom to see the two pictures on display, and finally go to the bedroom to examine the dresser and one of the nightstands.",
+   "difficulty": "medium",
+   "n": 7,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 22,
+     "types": [
+      "Hall",
+      "Living room"
+     ],
+     "phrase": "living room and hall",
+     "instance": 0
+    },
+    {
+     "goal": "refrigerator",
+     "pos": 104,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "coffee machine",
+     "pos": 121,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 189,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 22,
+     "types": [
+      "Hall",
+      "Living room"
+     ],
+     "phrase": "living room and hall",
+     "instance": 0
+    },
+    {
+     "goal": "dresser",
+     "pos": 255,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    },
+    {
+     "goal": "nightstand",
+     "pos": 278,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 4",
+     [
+      "Hall",
+      "Living room"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 10",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 10",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by checking the pictures on the wall in the bathroom, then head to the dining room to examine the flower vase and the two other pictures. Next, move to the living room to look at the painting and the speaker, and finally go to the kitchen to inspect the refrigerator and microwave.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 22,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 134,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "flower vase",
+     "pos": 104,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 134,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 189,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 2
+    },
+    {
+     "goal": "microwave",
+     "pos": 277,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Kitchen"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by examining the painting in the first bathroom, then head to the bedroom to check the carpet and another painting there. Next, go to the second bathroom to look at the shower glass, and finally return to the kitchen to inspect the microwave and one of the vases on display.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "flower vase",
+     "pos": 263,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    },
+    {
+     "goal": "carpet",
+     "pos": 93,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 112,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "shower glass",
+     "pos": 175,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "microwave",
+     "pos": 238,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    },
+    {
+     "goal": "vase",
+     "pos": 263,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 5",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 16",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Kitchen"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start by examining the pictures in the first bathroom, then head to the laundry room to check the artwork there. Next, visit the bedroom nearby to look at the nightstand and one of the pictures on the wall, and finish in another bedroom where you can inspect a few more pictures and the dresser.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 23,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 185,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "nightstand",
+     "pos": 159,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 185,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 270,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    },
+    {
+     "goal": "dresser",
+     "pos": 287,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 0",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Laundry room"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the bathroom to examine the picture on the wall, then head to the kitchen to check the painting there. Next, visit the other bathroom to look at its painting, and finally go to the living room to inspect each of the pictures and the painting displayed on the walls.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 37,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 96,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 158,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 225,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 3
+    },
+    {
+     "goal": "picture",
+     "pos": 37,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 96,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 2",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 5",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Living room"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the bathroom to examine the two pictures on the wall, then head to the dining room to check the flower vase and one of the pictures nearby. After that, move to the living room to look at the painting on the wall, and finally stop by the kitchen to inspect the refrigerator.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 41,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 132,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "flower vase",
+     "pos": 105,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 132,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 200,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 2
+    },
+    {
+     "goal": "refrigerator",
+     "pos": 269,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Kitchen"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the bathroom to look at the two pictures on the wall, then head to the dining room to check the flower vase and one of the pictures there. After that, move to the living room to inspect the painting and the speaker, and finally stop by the kitchen to see the refrigerator.",
+   "difficulty": "medium",
+   "n": 7,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "picture",
+     "pos": 41,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 132,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "flower vase",
+     "pos": 105,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 132,
+     "types": [
+      "Dining room"
+     ],
+     "phrase": "dining room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 199,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 2
+    },
+    {
+     "goal": "speaker",
+     "pos": 216,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 2
+    },
+    {
+     "goal": "refrigerator",
+     "pos": 268,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Dining room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 12",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 13",
+     [
+      "Kitchen"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the first bedroom to examine the hanging clothes, then move to another bedroom where a painting is displayed on the wall, followed by visiting a third bedroom to check the pictures above the furniture, and finally go to the last bedroom to inspect the remaining hanging clothes near the closet.",
+   "difficulty": "medium",
+   "n": 4,
+   "found": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "hanging clothes",
+     "pos": 42,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 96,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 181,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "hanging clothes",
+     "pos": 271,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 11",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 16",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 15",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 15",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the first bedroom to examine the two paintings on the wall, then head to the bathroom to check the hanger, and finally move to the second bedroom to look at the painting there.",
+   "difficulty": "medium",
+   "n": 4,
+   "found": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 46,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 170,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "hanger",
+     "pos": 108,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 170,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the first bedroom to look at the book on display, then head to the living and rec room to admire the painting and picture on the wall, followed by a visit to another bedroom to see the two pictures hanging there. Finally, go to the last bedroom to observe the paintings and the flower nearby.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "book",
+     "pos": 42,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 110,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 123,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "picture",
+     "pos": 198,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "picture",
+     "pos": 123,
+     "types": [
+      "Rec room"
+     ],
+     "phrase": "rec room",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 269,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Living room",
+      "Rec room"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 3",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the hall to observe the painting and flower vase, then move to the bedroom nearby to check the picture and painting on the wall, after that head to the bathroom to see the flowerpot and one of the pictures, and finally visit another bathroom to view the painting there.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 33,
+     "types": [
+      "Hall"
+     ],
+     "phrase": "hall",
+     "instance": 0
+    },
+    {
+     "goal": "flower vase",
+     "pos": 46,
+     "types": [
+      "Hall"
+     ],
+     "phrase": "hall",
+     "instance": 0
+    },
+    {
+     "goal": "picture",
+     "pos": 104,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 116,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 1
+    },
+    {
+     "goal": "flowerpot",
+     "pos": 181,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "painting",
+     "pos": 263,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 3
+    }
+   ],
+   "gt": [
+    [
+     "Region 17",
+     [
+      "Hall"
+     ]
+    ],
+    [
+     "Region 17",
+     [
+      "Hall"
+     ]
+    ],
+    [
+     "Region 19",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 19",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 19",
+     [
+      "Bedroom"
+     ]
+    ],
+    [
+     "Region 34",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the kitchen to check the microwave and coffee machine, then head to the first bathroom to observe the painting there, and finally visit the second bathroom to examine the two paintings on the wall.",
+   "difficulty": "medium",
+   "n": 5,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "microwave",
+     "pos": 34,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "coffee machine",
+     "pos": 48,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 111,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 184,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "painting",
+     "pos": 111,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the kitchen to check the microwave, then move to the living room to observe the plant and vase, and finally visit both offices to inspect the plants in each room, including the one in the second office near the vases.",
+   "difficulty": "medium",
+   "n": 6,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "microwave",
+     "pos": 34,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "plant",
+     "pos": 89,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "vase",
+     "pos": 99,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "plant",
+     "pos": 151,
+     "types": [
+      "Office"
+     ],
+     "phrase": "offices",
+     "instance": 2
+    },
+    {
+     "goal": "plant",
+     "pos": 89,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    },
+    {
+     "goal": "vase",
+     "pos": 99,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 3",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 4",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 2",
+     [
+      "Office"
+     ]
+    ],
+    [
+     "Region 6",
+     [
+      "Office"
+     ]
+    ],
+    [
+     "Region 6",
+     [
+      "Office"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the kitchen to examine the microwave and coffee machine, then head to the first bathroom to check the painting there, and finally proceed to the second bathroom to inspect the two paintings on display.",
+   "difficulty": "medium",
+   "n": 5,
+   "found": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "parse": [
+    {
+     "goal": "microwave",
+     "pos": 36,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "coffee machine",
+     "pos": 50,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 111,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 189,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 2
+    },
+    {
+     "goal": "painting",
+     "pos": 111,
+     "types": [
+      "Bathroom"
+     ],
+     "phrase": "bathroom",
+     "instance": 1
+    }
+   ],
+   "gt": [
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 1",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 9",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bathroom"
+     ]
+    ],
+    [
+     "Region 11",
+     [
+      "Bathroom"
+     ]
+    ]
+   ]
+  },
+  {
+   "task": "Start in the living room to examine the two paintings on the wall, then head to the kitchen to check the microwave, and finally proceed to the bedroom to take a look at the painting there.",
+   "difficulty": "medium",
+   "n": 4,
+   "found": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "type_ok": [
+    true,
+    false,
+    true,
+    true
+   ],
+   "pairs_ok": [
+    false,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   "parse": [
+    {
+     "goal": "painting",
+     "pos": 44,
+     "types": [
+      "Living room"
+     ],
+     "phrase": "living room",
+     "instance": 0
+    },
+    {
+     "goal": "painting",
+     "pos": 173,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    },
+    {
+     "goal": "microwave",
+     "pos": 105,
+     "types": [
+      "Kitchen"
+     ],
+     "phrase": "kitchen",
+     "instance": 1
+    },
+    {
+     "goal": "painting",
+     "pos": 173,
+     "types": [
+      "Bedroom"
+     ],
+     "phrase": "bedroom",
+     "instance": 2
+    }
+   ],
+   "gt": [
+    [
+     "Region 7",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 7",
+     [
+      "Living room"
+     ]
+    ],
+    [
+     "Region 8",
+     [
+      "Kitchen"
+     ]
+    ],
+    [
+     "Region 10",
+     [
+      "Bedroom"
+     ]
+    ]
+   ]
+  }
+ ]
+}

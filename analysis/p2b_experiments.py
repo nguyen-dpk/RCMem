@@ -141,8 +141,13 @@ def call_vlm(sys_prompt, content, model, processor):
     """LMEE's call_qwen25 (same messages, max_new_tokens=512), also returning prompt length and latency."""
     msgs = C.to_messages(sys_prompt, content)
     text = processor.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
-    imgs, vids = process_vision_info(msgs)
-    inputs = processor(text=[text], images=imgs, videos=vids, padding=True, return_tensors="pt").to(model.device)
+    if "qwen3" in model.config.model_type:  # Qwen3-VL: 16 px patches; qwen_vl_utils already resized the images
+        imgs, vids = process_vision_info(msgs, image_patch_size=16)
+        inputs = processor(text=[text], images=imgs, videos=vids, padding=True, do_resize=False, return_tensors="pt")
+    else:
+        imgs, vids = process_vision_info(msgs)
+        inputs = processor(text=[text], images=imgs, videos=vids, padding=True, return_tensors="pt")
+    inputs = inputs.to(model.device)
     n = int(inputs.input_ids.shape[1])
     torch.cuda.synchronize()
     t0 = time.time()
@@ -171,7 +176,7 @@ def parse_nav(reply):
 
 
 # ---------------------------------------------------------------- the decision
-def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, model, processor, verbose=False):
+def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, model, processor, verbose=False, caller=None):
     md, nav = subtask_metadata, subtask_metadata["task_type"] != "QA"
     names, mask = context_frames(md, scene)
     objs = {n: frame_objects(scene, n) for n in names}
@@ -187,7 +192,7 @@ def f_query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mo
                [c for _, c, _ in objs[n]]) for n in ns]
         return C.nav_prompt(md["question"], goal_b64, fr, frontier_b64) if nav else C.qa_prompt(md["question"], None, fr, ego)
 
-    caller = inspect.currentframe().f_back.f_locals  # run_lmee.main
+    caller = caller if caller is not None else inspect.currentframe().f_back.f_locals  # run_lmee.main
     empty = nav and not names and EMPTY_EXPLORE
     oom_dropped = 0
     if empty:  # empty-context rule: nothing to commit to, so explore without asking the VLM
@@ -306,7 +311,9 @@ ir.run_lmee.get_pts_angle_goatbench = pts_angle
 
 def parse(argv):
     p = argparse.ArgumentParser()
-    p.add_argument("--exp", choices=["F1", "F2", "F2b"])
+    p.add_argument("--exp", choices=["F1", "F2", "F2b", "PA", "PB", "RG", "RP", "E0"])  # PA / PB: analysis/p3_0_nav.py; RG / RP / E0: analysis/p3_nav.py
+    p.add_argument("--viz", action="store_true", help="P3: dump maps, panoramas and prompts per decision (pilot reports)")
+    p.add_argument("--vlm", default=None, help="decision VLM checkpoint (default: the cfg's, MemoryExplorer)")
     p.add_argument("--no_fix_start", action="store_true")
     p.add_argument("--no_empty_explore", action="store_true", help="ask the VLM even with no frame in context (first P2b runs)")
     p.add_argument("--seed", type=int, default=None)
@@ -328,6 +335,8 @@ def load_cfg(args):
     OmegaConf.resolve(cfg)
     if args.seed is not None:
         cfg.seed = args.seed
+    if args.vlm:
+        cfg.model.pretrained_path = args.vlm
     if args.device_map:
         cfg.model.device = args.device_map
     cfg.exp_name = args.run_name or "worker"
@@ -380,6 +389,7 @@ def run_job(args, model=None, processor=None):
                  f"-> {cfg.output_dir} *****")
     if model is None:
         model, processor = load_vlm(cfg)
+    C.TOKEN_PX = 32 if "qwen3" in model.config.model_type else 28  # image-token size for the prompt-length estimate
     try:
         ir.run_lmee.main(cfg, model, processor, start_ratio=args.start_ratio, end_ratio=args.end_ratio, split=1, answer_type="choice")
     finally:

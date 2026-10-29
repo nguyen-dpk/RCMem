@@ -63,6 +63,17 @@ class RegionPanorama:
         img[fill] = acc[fill] / nb[fill][:, None]
         return img.round().clamp(0, 255).to(torch.uint8).cpu().numpy()
 
+    def band_image(self, trim=0.01, min_h=56):
+        """image() cropped to the latitude band actually observed (A1-band): the rows holding the central 1 - 2 * trim
+        of the seen pixels (stray splats near the zenith or nadir would otherwise stretch it), at least min_h rows."""
+        img, cnt = self.image(), self.seen().sum(1).cpu().numpy()
+        if not cnt.any():
+            return img
+        c = np.cumsum(cnt) / cnt.sum()
+        a, b = int(np.searchsorted(c, trim, side="right")), int(np.searchsorted(c, 1 - trim)) + 1
+        a = max(0, min(a - max(0, min_h - (b - a)) // 2, self.h - min_h))
+        return img[a:max(b, a + min_h)]
+
     def hole_fraction(self):
         return float(1 - self.seen().float().mean())
 
@@ -108,4 +119,8 @@ if __name__ == "__main__":
     pano.add(rgb // 2, np.full((64, 64), 5000.0), np.ones((64, 64), bool), T, K)  # a farther wall must not win
     assert (pano.rgb[before] == 200).all()
     assert pano.instance_pixels({7}) > 0 and 0 < pano.hole_fraction() < 1 and pano.image().shape == (256, 512, 3)
+    band, cnt = pano.band_image(), pano.seen().numpy().sum(1)
+    rows = np.nonzero(cnt)[0]
+    assert band.shape[1] == 512 and 56 <= band.shape[0] <= max(56, rows.max() + 1 - rows.min())
+    assert (band != GREY).any(2).sum() >= 0.97 * cnt.sum()  # at least the central 98% of seen pixels are kept
     print("panorama self-check ok")
