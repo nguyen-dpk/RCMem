@@ -1,0 +1,266 @@
+{
+ "run": "p2_E0_fix_s77",
+ "decisions": 845,
+ "thresholds_px_of_1280x1280": [
+  200,
+  1638,
+  4096
+ ],
+ "small_px": 4096,
+ "stages": {
+  "200": {
+   "room hidden": 44,
+   "not detected": 123,
+   "tiny in pano": 214,
+   "available": 77,
+   "pruned": 15
+  },
+  "1638": {
+   "room hidden": 16,
+   "not detected": 123,
+   "tiny in pano": 175,
+   "available": 77,
+   "pruned": 7
+  },
+  "4096": {
+   "room hidden": 5,
+   "not detected": 122,
+   "tiny in pano": 135,
+   "available": 76,
+   "pruned": 26
+  }
+ },
+ "by_kind": {
+  "200": {
+   "large, from another room": {
+    "room hidden": 8,
+    "tiny in pano": 22,
+    "not detected": 22
+   },
+   "large, from its room": {
+    "not detected": 100,
+    "tiny in pano": 136,
+    "available": 76
+   },
+   "small, from its room": {
+    "tiny in pano": 27,
+    "available": 1
+   },
+   "small, from another room": {
+    "tiny in pano": 29,
+    "pruned": 15,
+    "room hidden": 36,
+    "not detected": 1
+   }
+  },
+  "1638": {
+   "large, from another room": {
+    "room hidden": 8,
+    "tiny in pano": 21,
+    "not detected": 22,
+    "pruned": 2
+   },
+   "large, from its room": {
+    "not detected": 100,
+    "tiny in pano": 133,
+    "available": 76,
+    "pruned": 2
+   },
+   "small, from its room": {
+    "tiny in pano": 12,
+    "pruned": 1,
+    "available": 1
+   },
+   "small, from another room": {
+    "tiny in pano": 9,
+    "pruned": 2,
+    "room hidden": 8,
+    "not detected": 1
+   }
+  },
+  "4096": {
+   "large, from another room": {
+    "room hidden": 5,
+    "tiny in pano": 20,
+    "pruned": 6,
+    "not detected": 22
+   },
+   "large, from its room": {
+    "not detected": 100,
+    "tiny in pano": 115,
+    "available": 76,
+    "pruned": 20
+   }
+  }
+ },
+ "examples": {
+  "room hidden": [
+   {
+    "subtask": "00829-QaLdnwvtxbs_0_0",
+    "global_step": 22,
+    "goal": "picture",
+    "max_goal_px": 9151,
+    "pano_px": 0,
+    "kind": "large, from another room"
+   },
+   {
+    "subtask": "00877-4ok3usBNeis_0_2",
+    "global_step": 15,
+    "goal": "nightstand",
+    "max_goal_px": 854,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00808-y9hTuugGdiq_0_3",
+    "global_step": 46,
+    "goal": "picture",
+    "max_goal_px": 2306,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00871-VBzV5z6i1WS_1_2",
+    "global_step": 39,
+    "goal": "piano",
+    "max_goal_px": 1064,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00871-VBzV5z6i1WS_1_2",
+    "global_step": 45,
+    "goal": "piano",
+    "max_goal_px": 1064,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   }
+  ],
+  "not detected": [
+   {
+    "subtask": "00829-QaLdnwvtxbs_0_1",
+    "global_step": 25,
+    "goal": "picture",
+    "max_goal_px": 133097,
+    "pano_px": 4251,
+    "kind": "large, from its room"
+   },
+   {
+    "subtask": "00829-QaLdnwvtxbs_0_2",
+    "global_step": 33,
+    "goal": "picture",
+    "max_goal_px": 128465,
+    "pano_px": 6417,
+    "kind": "large, from its room"
+   },
+   {
+    "subtask": "00820-mL8ThkuaVTM_2_2",
+    "global_step": 16,
+    "goal": "hanger",
+    "max_goal_px": 52689,
+    "pano_px": 2004,
+    "kind": "large, from its room"
+   },
+   {
+    "subtask": "00820-mL8ThkuaVTM_2_2",
+    "global_step": 20,
+    "goal": "hanger",
+    "max_goal_px": 52689,
+    "pano_px": 2004,
+    "kind": "large, from its room"
+   },
+   {
+    "subtask": "00813-svBbv1Pavdk_0_0",
+    "global_step": 4,
+    "goal": "flower vase",
+    "max_goal_px": 16926,
+    "pano_px": 1141,
+    "kind": "large, from its room"
+   }
+  ],
+  "tiny in pano": [
+   {
+    "subtask": "00829-QaLdnwvtxbs_0_3",
+    "global_step": 34,
+    "goal": "picture",
+    "max_goal_px": 90639,
+    "pano_px": 711,
+    "kind": "large, from its room"
+   },
+   {
+    "subtask": "00820-mL8ThkuaVTM_2_2",
+    "global_step": 14,
+    "goal": "hanger",
+    "max_goal_px": 3395,
+    "pano_px": 405,
+    "kind": "small, from its room"
+   },
+   {
+    "subtask": "00813-svBbv1Pavdk_0_0",
+    "global_step": 0,
+    "goal": "flower vase",
+    "max_goal_px": 3075,
+    "pano_px": 404,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00813-svBbv1Pavdk_0_0",
+    "global_step": 2,
+    "goal": "flower vase",
+    "max_goal_px": 4365,
+    "pano_px": 815,
+    "kind": "large, from another room"
+   },
+   {
+    "subtask": "00813-svBbv1Pavdk_0_2",
+    "global_step": 33,
+    "goal": "picture",
+    "max_goal_px": 3056,
+    "pano_px": 0,
+    "kind": "small, from its room"
+   }
+  ],
+  "pruned": [
+   {
+    "subtask": "00813-svBbv1Pavdk_1_6",
+    "global_step": 39,
+    "goal": "picture",
+    "max_goal_px": 2915,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00813-svBbv1Pavdk_1_6",
+    "global_step": 46,
+    "goal": "picture",
+    "max_goal_px": 2915,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00824-Dd4bFSTQ8gi_0_2",
+    "global_step": 56,
+    "goal": "picture",
+    "max_goal_px": 1117,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00871-VBzV5z6i1WS_0_5",
+    "global_step": 89,
+    "goal": "shower glass",
+    "max_goal_px": 516,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   },
+   {
+    "subtask": "00871-VBzV5z6i1WS_0_5",
+    "global_step": 94,
+    "goal": "shower glass",
+    "max_goal_px": 516,
+    "pano_px": 0,
+    "kind": "small, from another room"
+   }
+  ]
+ }
+}
