@@ -1,0 +1,1 @@
+Go given by the user on 2026-10-29 19:40 KST after reviewing docs/qual/p3_RP_20261029.html (pilot p3_pilot_RP): 'Go, start RP and RG' (full subset runs, seed 77, queued ahead of F2b). The baselines E0q and F2bq were approved earlier the same day to start during the pilot.

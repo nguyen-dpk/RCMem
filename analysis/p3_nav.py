@@ -443,6 +443,14 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
         os.makedirs(d, exist_ok=True)
         rec = LAST.get("rec", {})
         s2 = save_step2(d, scene, md, frames_of[shown_codes[p[1]]]) if P3.get("step2") else []
+        # LMEE deletes the episode folder at its end: keep thumbnails of the frames captured since the last decision
+        for n in [n for n in F.CTX["frac"] if n not in EP.setdefault("viz_seen", set())]:
+            if n in scene.all_observations:
+                th = cv2.resize(np.asarray(scene.all_observations[n])[..., :3], (128, 128), interpolation=cv2.INTER_AREA)
+                cv2.imwrite(os.path.join(d, f"f_{n[:-4]}.jpg"), th[..., ::-1], [cv2.IMWRITE_JPEG_QUALITY, 60])
+            EP["viz_seen"].add(n)
+        if md["task_type"] == "image" and not os.path.exists(os.path.join(d, "..", f"{ir.CUR['subtask']}_goal.jpg")):
+            cv2.imwrite(os.path.join(d, "..", f"{ir.CUR['subtask']}_goal.jpg"), cv2.imread(md["image"]), [cv2.IMWRITE_JPEG_QUALITY, 70])
         sids = set(int(x) for x in md["goal_obj_ids"])
         gxz = [np.asarray(o.aabb.center)[[0, 2]].tolist() for o in scene.simulator.semantic_scene.objects
                if o is not None and int(o.semantic_id) in sids]

@@ -67,7 +67,9 @@ def decision_html(run_dir, vdir, prev_n, ep_dir, seen_prev):
     for n in new:
         f = info["frac"][n]
         k = n in kept
-        cells.append(f'<div class=fr>{img(jpg(os.path.join(ep_dir, "memory", n), 120, 60), 96)}<br>'
+        th = os.path.join(vdir, f"f_{n[:-4]}.jpg")
+        th = th if os.path.exists(th) else os.path.join(ep_dir, "memory", n)  # older runs: LMEE's episode folder
+        cells.append(f'<div class=fr>{img(jpg(th, 120, 60), 96)}<br>'
                      f'{n}<br>{"kept" if k else "dropped"} · new {0 if f is None else 100 * float(f):.0f}%</div>')
     H.append(f"<h4>1. Frames since the previous decision ({len(new)} captured, "
              f"{sum(n in kept for n in new)} kept; {len(kept)} kept in total)</h4><div class=row>{''.join(cells)}</div>")
@@ -87,7 +89,7 @@ def decision_html(run_dir, vdir, prev_n, ep_dir, seen_prev):
         if os.path.exists(f):
             c = info["centres"][i]
             pans.append(f'<div class=pano><b>{r}</b> · holes {100 * info["holes"][i]:.0f}% · centre '
-                        f'({c[0]:.1f}, {c[1]:.1f}, {c[2]:.1f})<br>{img(jpg(f, 768, 65), 600)}</div>')
+                        f'({c[0]:.1f}, {c[1]:.1f}, {c[2]:.1f})<br>{img(jpg(f, 640, 60), 600)}</div>')
     H.append(f"<h4>3. Panoramas ({len(pans)}; built in {p3['render_s']:.2f} s)</h4>" + "".join(pans))
     # 4 context
     H.append(f"<h4>4. Step-1 prompt ({p3.get('step1_tokens', 0)} tokens; images as &lt;image&gt;)</h4>"
@@ -131,7 +133,7 @@ def main():
     for sid, ds in decisions.items():
         recs[sid] = ds
     vdirs = collections.defaultdict(list)
-    for d in sorted(os.listdir(os.path.join(run_dir, "viz"))):
+    for d in sorted(x for x in os.listdir(os.path.join(run_dir, "viz")) if os.path.isdir(os.path.join(run_dir, "viz", x))):
         vdirs[d.rsplit("_", 1)[0]].append(os.path.join(run_dir, "viz", d))
     exp = json.loads(open(os.path.join(run_dir, sorted(f for f in os.listdir(run_dir) if f.startswith("records"))[0])).readline()) and \
         next((d.get("p3", {}).get("exp") for ds in decisions.values() for d in ds if d.get("p3")), "?")
@@ -178,7 +180,7 @@ def main():
             body.append(f"<h3 id='{sid}'>{sid} · {st['goal_type']} · {html.escape(st['class'])} · "
                         f"{'success' if succ else 'failure'}: {html.escape(r.get('category', '?'))}</h3>"
                         f"<p>{html.escape(st['question'][:600])}</p>"
-                        + (img(jpg(os.path.join(run_dir, sid, 'image_goal.png'), 300), 200) if st["goal_type"] == "image" else "")
+                        + (img(jpg(os.path.join(run_dir, "viz", f"{sid}_goal.jpg"), 300), 200) if st["goal_type"] == "image" else "")
                         + "".join(blocks))
         S.append(f"<tr><td><a href='#{ep}'>{ep}</a></td><td>{', '.join(c for c, v in pilot['cases'].items() if ep in v)}</td>"
                  f"<td><table>{''.join(rows)}</table></td></tr>")
