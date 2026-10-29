@@ -7,6 +7,10 @@ voxel-pruned frames, "Frame f, Object o" answers, empty-context rule, start fix)
       change as the map grows)
   RG  the same with ground-truth HM3D regions (pixel -> instance -> region; centre = box of the region's GT objects at
       floor + 1.5 m, as P3-0)
+  RPin  RP, but step 2 boxes only the objects whose 3D centre lies in region k (P3 variant a)
+  RPpt  RP, but step 2 sees plain frames and answers "Frame f, Point (x, y)" (0-1000 relative coordinates); the point
+        is back-projected with the frame's depth and pose to the navigation target, so no detector box is needed to
+        commit (P3 variant b; the detector still builds LMEE's map objects)
   E0  MemoryExplorer's own pipeline (bank, CLIP retrieval, its prompts) with the decision VLM given by --vlm
   F1 / F2 / F2b / PA / PB run as in p3_0_nav.py.
 RG and RP: a region is observed once a kept frame has >= MIN_SHARE of its pixels in it; its frames are those kept
@@ -29,6 +33,7 @@ import os
 import re
 import sys
 import time
+from types import SimpleNamespace
 
 if __name__ == "__main__" and os.environ.get("PYTHONUTF8") != "1":
     os.execve(sys.executable, [sys.executable] + sys.argv, {**os.environ, "PYTHONUTF8": "1"})
@@ -49,6 +54,8 @@ from rcmem.geometry import habitat_pose_to_onecanvas, intrinsics, to_onecanvas  
 from rcmem.panorama import RegionPanorama  # noqa: E402
 
 F, ir, eu, C = N.F, N.ir, N.eu, N.C
+from src.tsdf_planner import TSDFPlanner  # noqa: E402
+REGION_EXPS = ("RG", "RP", "RPin", "RPpt")  # everything but RG uses predicted regions
 RES, LAB = N.PANO_RES, 224  # frames for panoramas at 448 px; region labels and GT on a 224 grid (upsampled x2)
 OPT = {"viz": False}
 EP = {}  # per episode: builder, kept-frame data, subtask goals, committed targets
@@ -78,7 +85,7 @@ _prev_usg = ir.Scene.update_scene_graph
 def update_scene_graph(self, *a, **k):
     n_before = len(F.CTX["kept"])
     out = _prev_usg(self, *a, **k)
-    if F.EXP not in ("RG", "RP") or k.get("semantic_obs") is None:
+    if F.EXP not in REGION_EXPS or k.get("semantic_obs") is None:
         return out
     N.scene_regions(self)  # GT instance -> region (RG labels, diagnostics) and GT centres (RG)
     depth = np.asarray(k["depth"], np.float32)
@@ -98,7 +105,7 @@ def update_scene_graph(self, *a, **k):
     p224, ok = backproject_full(d224, k["cam_pos"])
     EP["frames"][name] = {
         "rgb": cv2.resize(np.asarray(k["image_rgb"])[..., :3], (RES, RES), interpolation=cv2.INTER_AREA),
-        "depth_mm": d448 * 1000, "pose": habitat_pose_to_onecanvas(k["cam_pos"]),
+        "depth_mm": d448 * 1000, "pose": habitat_pose_to_onecanvas(k["cam_pos"]), "cam": np.asarray(k["cam_pos"], float),
         "cells": np.where(ok, EP["rb"].cells(p224), -1).reshape(LAB, LAB), "gt": code, "sem": sem,
         "valid": ((d448 > 0.1) & (d448 < 10.0)), "frac": F.CTX["frac"].get(name)}
     return out
@@ -334,7 +341,7 @@ def save_viz(run_dir, regions, bands, holes, cs, labels, content, info):
         return im
 
     shown = [(k, (cs[r][0], cs[r][2])) for k, r in enumerate(regions) if r in cs]
-    if F.EXP == "RP":
+    if F.EXP != "RG":
         left = draw(pred, shown)
     else:
         left = draw(np.where(np.isin(gt, regions), gt, 0), shown)
@@ -344,6 +351,132 @@ def save_viz(run_dir, regions, bands, holes, cs, labels, content, info):
                "centres": [list(map(float, cs[r])) if r in cs else None for r in regions],
                "kept": list(F.CTX["kept"]), "frac": {n: F.CTX["frac"].get(n) for n in F.CTX["frac"]}, **info},
               open(os.path.join(d, "info.json"), "w"), default=str)
+
+
+# ---------------------------------------------------------------- step-2 variants (RPin, RPpt)
+PT_ID = -7  # synthetic object id of a pointed target: only in the decision record and the planner's view, never in LMEE's map
+PT = {}
+POINT_SYS = C.NAV_SYS.replace("  ANSWER: Frame i, Object j\n", "  ANSWER: Frame i, Point (x, y)\n").replace(
+    "  where i and j are plain integers.\n", "  where i is a plain integer and (x, y) is the centre of the target object in Frame i, "
+    "from 0 to 1000 (x left to right, y top to bottom).\n").replace(
+    "  IMPORTANT: When choosing a Frame, you MUST specify both the frame index and the object index.\n",
+    "  IMPORTANT: When choosing a Frame, you MUST specify both the frame index and the point.\n").replace(
+    "with the object number", "with where the object is in the frame").replace("frame or object indices", "frame indices").replace(
+    "select the Frame object that is the target", "select the Frame and point that show the target")
+assert POINT_SYS.count("Point (x, y)") == 1 and "object index" not in POINT_SYS, "Phase 2b step-2 prompt changed"
+POINT_DEF = ("Definitions:\n"
+             "Frame: An image you observed earlier in this episode. Frames are listed in the order you saw them. "
+             "Choosing a frame means that the object asked in the task is visible in that frame; you then give the point at the "
+             "centre of that object as (x, y), from 0 to 1000 relative to the frame's width and height.\n"
+             "Frontier: An unexplored region that could provide new information or a closer view of the target object. "
+             "Selecting a frontier means that you will further explore that direction.\n"
+             "Indices start at 0. Always reference indices.\n"
+             "Example: a refrigerator in the right half of Frame 2 -> ANSWER: Frame 2, Point (760, 430)\n")
+
+
+def point_prompt(question, image_goal, frames, frontier_imgs):
+    """The Phase 2b step-2 prompt (C.nav_prompt) with plain frames and a point answer instead of numbered objects."""
+    content = [(POINT_DEF,)]
+    task_text = f"Task Instruction: {question}"
+    content += [(f"{task_text}\nImage goal:", image_goal), ("\n",)] if image_goal is not None else [(task_text + "\n",)]
+    content.append(("Select the Frame point or Frontier that would help complete the task.\n"
+                    "The followings are all the Frames you have observed (in viewing order) that you can choose:\n",))
+    if not frames:
+        content.append(("No Frame is available.\n",))
+    for fi, img, _ in frames:
+        content += [(f"Frame {fi}: ", img), ("\n",)]
+    content.append(("The followings are all the Frontiers that you can explore:\n",))
+    if not frontier_imgs:
+        content.append(("No Frontier is available.\n",))
+    for i, img in enumerate(frontier_imgs):
+        content += [(f"Frontier {i}: ", img), ("\n",)]
+    content.append(("You MUST output the THOUGHT section followed by ONE valid ANSWER line:\n"
+                    "   ANSWER: Frame i, Point (x, y)  (when the target is visible in Frame i)\n"
+                    "   ANSWER: Frontier i  (when deciding to explore a new region)\n",))
+    return POINT_SYS, content
+
+
+def point_3d(fr, x, y):
+    """(x, y) in 0-1000 relative coordinates of a kept frame -> Habitat point (median depth of a 7x7 window), or None."""
+    u, v = float(np.clip(x / 1000 * RES, 0, RES - 1)), float(np.clip(y / 1000 * RES, 0, RES - 1))
+    d = fr["depth_mm"] / 1000.0
+    w = d[max(0, int(v) - 3):int(v) + 4, max(0, int(u) - 3):int(u) + 4]
+    w = w[(w > 0.1) & (w < 10.0)]
+    if not w.size:
+        return None
+    z, f = float(np.median(w)), (RES / 2) / np.tan(np.radians(C.HFOV) / 2)
+    p = np.array([(u + 0.5 - RES / 2) / f * z, -(v + 0.5 - RES / 2) / f * z, -z])  # OpenGL camera: -z forward
+    return fr["cam"][:3, :3] @ p + fr["cam"][:3, 3]
+
+
+def parse_point(reply, scene):
+    """"Frame f, Point (x, y)" -> ("frame", f, 0) with the 3D point put in scene.objects[PT_ID] for this call only;
+    "Frontier i" -> ("frontier", i, None); else None."""
+    lines = [l for l in reply.split("\n") if l.strip().lower().startswith("answer:")]
+    s_ = (lines[0] if lines else reply).lower()
+    m = re.search(r"frame\s*(\d+)\D+?(\d+(?:\.\d+)?)\D{1,6}?(\d+(?:\.\d+)?)", s_)
+    if m:
+        f, x, y = int(m.group(1)), float(m.group(2)), float(m.group(3))
+        n = F.CTX["kept"][f] if 0 <= f < len(F.CTX["kept"]) else None
+        pt = point_3d(EP["frames"][n], x, y) if n in EP["frames"] else None
+        if pt is None:
+            return None
+        PT.update(c=pt, xy=(x, y))
+        scene.objects[PT_ID] = {"conf": 1.0, "class_name": "pointed location", "bbox": SimpleNamespace(center=pt), "image": n}
+        return "frame", f, 0
+    m = re.search(r"frontier\s*(\d+)", s_)
+    return ("frontier", int(m.group(1)), None) if m else None
+
+
+def step2_variant(scene, r):
+    """Patch step 2 for RPin / RPpt (nothing for RP / RG); returns the function that undoes the patches."""
+    saved = (F.frame_objects, F.draw_frame, F.C.nav_prompt, F.parse_nav)
+
+    def undo():
+        F.frame_objects, F.draw_frame, F.C.nav_prompt, F.parse_nav = saved
+        scene.objects.pop(PT_ID, None)  # the planner sees the point through with_point() from here on
+
+    if F.EXP == "RPin":
+        def in_region(sc, n):
+            objs = saved[0](sc, n)
+            if not objs:
+                return objs
+            lab = EP["rb"].assign(np.stack([np.asarray(sc.objects[o]["bbox"].center, float) for o, _, _ in objs]))
+            return [x for x, l in zip(objs, lab) if l == r]
+        F.frame_objects = in_region
+    elif F.EXP == "RPpt":
+        F.frame_objects = lambda sc, n: [(PT_ID, "pointed location", np.zeros(4))]  # one pseudo-object per frame
+        F.draw_frame = lambda rgb, objs, size=C.PROMPT_PX: np.ascontiguousarray(F.resize_image(rgb, size, size))
+        F.C.nav_prompt = point_prompt
+        F.parse_nav = lambda reply: parse_point(reply, scene)
+    return undo
+
+
+def with_point(objects, choice):
+    """The planner's object dict plus the pointed target when the choice is one (a copy; LMEE's map is not touched)."""
+    if PT and PT_ID in (getattr(choice, "cluster", None) or []):
+        o = dict(objects)
+        o[PT_ID] = {"conf": 1.0, "class_name": "pointed location", "bbox": SimpleNamespace(center=PT["c"])}
+        return o
+    return objects
+
+
+_snp, _step = TSDFPlanner.set_next_navigation_point, TSDFPlanner.agent_step
+
+
+def set_next_navigation_point(self, *a, **k):
+    if "objects" in k:
+        k["objects"] = with_point(k["objects"], k.get("choice", a[0] if a else None))
+    return _snp(self, *a, **k)
+
+
+def agent_step(self, *a, **k):
+    if "objects" in k:
+        k["objects"] = with_point(k["objects"], self.max_point)
+    return _step(self, *a, **k)
+
+
+TSDFPlanner.set_next_navigation_point, TSDFPlanner.agent_step = set_next_navigation_point, agent_step
 
 
 # ---------------------------------------------------------------- the decision
@@ -386,7 +519,7 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
     if F.EXP == "E0":
         P3.clear()
         return E0_QUERY(*args)
-    if F.EXP not in ("RG", "RP"):
+    if F.EXP not in REGION_EXPS:
         return N.query(*args)
     P3.clear()
     if md["task_type"] == "QA":  # QA: all kept frames, as F1
@@ -404,7 +537,7 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
     info = goal_info(scene, md, regions, labels, frames_of)
     P3.update(exp=F.EXP, regions=[key(r) for r in regions], **info, render_s=render_s, n_regions=len(regions),
               holes=[holes.get(r) for r in regions], step1_choice=None, step2=False, step1_tokens=0, step1_s=0.0)
-    if F.EXP == "RP":
+    if F.EXP != "RG":
         maj, sc = gt_of_regions(labels, regions)
         P3.update(region_gt=maj, seg=sc, n_map_regions=int(EP["rb"].segment().max()))
     content, p, shown_codes = [], None, []
@@ -423,13 +556,17 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
             r = shown_codes[p[1]]
             P3["step2"] = True
             F.context_frames = lambda md_, sc: (frames_of[r], f"region {r}")
+            undo = step2_variant(scene, r)
             try:
                 ret = F.f_query(*args, caller=caller)
+                if ret is not None and hasattr(ret[0], "cluster") and ret[0].cluster:
+                    oid = ret[0].cluster[0]
+                    EP["targets"][subtask_index()] = {"point": np.asarray(scene.objects[oid]["bbox"].center).tolist(), "region": key(r)}
+                    if oid == PT_ID:
+                        P3.update(point=PT["xy"], point_3d=PT["c"].tolist())
             finally:
                 F.context_frames = N._ctx_f
-            if ret is not None and hasattr(ret[0], "cluster") and ret[0].cluster:
-                oid = ret[0].cluster[0]
-                EP["targets"][subtask_index()] = {"point": np.asarray(scene.objects[oid]["bbox"].center).tolist(), "region": key(r)}
+                undo()
         else:
             canned = f"ANSWER: Frontier {p[1]}" if p is not None else ""
             F.context_frames, F.EMPTY_EXPLORE = (lambda md_, sc: ([], "step1_" + ("frontier" if p else "invalid"))), False

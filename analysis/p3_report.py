@@ -51,7 +51,7 @@ def run_metrics(run):
     import p2b_report as PB  # noqa: E402
     _, _, decisions = PB.A.load_records(os.path.join(REPO, "analysis/runs", run))
     ds = [d for v in decisions.values() for d in v]
-    p3 = [d["p3"] for d in ds if d.get("p3", {}).get("exp") in ("RG", "RP")]
+    p3 = [d["p3"] for d in ds if d.get("p3", {}).get("exp") in ("RG", "RP", "RPin", "RPpt")]
     if p3:
         m["render_s"] = float(np.mean([p["render_s"] for p in p3]))
         m["render_s_max"] = float(np.max([p["render_s"] for p in p3]))
