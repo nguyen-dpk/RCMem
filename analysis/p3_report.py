@@ -6,7 +6,7 @@ Inputs
 - analysis/out_p3/pilot.json             pilot sample (analysis/p3_pilot.py); docs/qual/p3_*.html (analysis/p3_qual.py)
 - analysis/runs/<run>                    navigation runs, 58-task subset, choice mode, seed 77, Qwen3-VL-8B base:
     p3_RP_s77 (RCMem, predicted regions), p3_RG_s77 (RCMem, GT regions),
-    p3r_F1_s77 (F1, from the P3-0 re-check: same code and backbone), p3_F2bq_s77 (F2b, optional),
+    p3r_F1_s77 (F1, from the P3-0 re-check: same code and backbone),
     p3r_PA_s77 (P3-0's GT-region panoramas without subtask markers, for reference)
 - analysis/out_p2b/p2b_results.json      reference rows on MemoryExplorer's Qwen2.5-VL-7B and the noise band
 Metrics per run: analysis/p3_0_report.nav_run (Phase 2b metrics + step 1 + cost), plus render time, online
@@ -39,7 +39,6 @@ RUNS = [  # key, run, label
     ("RPcu", "p3_RPcu_s77", "RP variant: room close-ups + show threshold 1%"),
     ("RP25", "p3_RP25_s77", "RCMem zero-shot, predicted regions, on Qwen2.5-VL-7B-Instruct base"),
     ("PA", "p3r_PA_s77", "P3-0 panoramas (GT regions), no subtask markers"),
-    ("F2bq", "p3_F2bq_s77", "F2b: context restricted to the goal's region type"),
     ("F1q", "p3r_F1_s77", "F1: all kept frames, no regions"),
 ]
 KEYS = ["SR", "SPL", "premature_commit_rate", "distractor_rate_of_memory_choices", "step1_exact", "none_P", "none_R",
@@ -117,9 +116,6 @@ def main():
         bar = R["F1q"]["SR"] + band
         res["g2"] = {"RP": R["RP"]["SR"], "F1": R["F1q"]["SR"], "bar": bar, "pass": R["RP"]["SR"] >= bar,
                      "borderline": abs(R["RP"]["SR"] - bar) <= BORDER}
-        if "F2bq" in R:
-            res["g2"]["half_gap_bar"] = (R["F1q"]["SR"] + R["F2bq"]["SR"]) / 2
-            res["g2"]["half_gap_pass"] = R["RP"]["SR"] >= res["g2"]["half_gap_bar"]
     os.makedirs(OUT, exist_ok=True)
     json.dump(res, open(os.path.join(OUT, "p3_results.json"), "w"), indent=1, default=str)
 
@@ -216,8 +212,6 @@ def main():
         gd = os.path.join(OUT, "g2_decision.txt")
         if g["borderline"] and os.path.exists(gd):
             L.append("Borderline handling: " + open(gd).read().strip())
-        if "half_gap_bar" in g:
-            L.append(f"Half-the-gap form: (F1 + F2b) / 2 = {g['half_gap_bar']:.1f} → {'passes' if g['half_gap_pass'] else 'fails'}.")
         L.append("")
     else:
         L += ["Not computed: RP or F1 run missing.", ""]

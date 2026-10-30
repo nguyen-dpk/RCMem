@@ -3,8 +3,8 @@
 # CPU stages always run: region-builder offline accuracy, parser accuracy, pilot sample, then docs/p3_report.md.
 # PILOT=1 runs the pilot (RP, --viz, analysis/cfg/p3_pilot.yaml) on GPUs 0-3 and writes its qualitative report.
 # RERUN=1 runs the subset runs (seed 77, base Qwen3-VL-8B) through the Phase 2b GPU queue (analysis/runs/p2b_queue.sh):
-#   RP (RCMem, predicted regions), RG (RCMem, GT regions), F2bq (optional F2b; MemoryExplorer's pipeline on Qwen3 was
-#   dropped on 29 Oct by the user's decision: analysis/p3_nav.py --exp E0 still runs it);
+#   RP (RCMem, predicted regions), RG (RCMem, GT regions), the RP variants RPin / RPpt / RPcu, and RP on Qwen2.5-VL-7B-Instruct
+#   (F2b and MemoryExplorer's pipeline on Qwen3 were dropped by the user's decisions; p3_nav.py --exp F2b / E0 still runs them);
 #   F1 on Qwen3-VL-8B is P3-0's p3r_F1_s77 (bash analysis/p3_0r_run_all.sh). REPORT_ONLY=1 skips the CPU stages too.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -23,10 +23,11 @@ if [ "${PILOT:-0}" = "1" ]; then
   $P analysis/p3_qual.py --run p3_pilot_RP   # -> docs/qual/p3_RP_<date>.html
 fi
 if [ "${RERUN:-0}" = "1" ]; then
-  for x in "RP p3_RP_s77" "RG p3_RG_s77" "F2b p3_F2bq_s77"; do
+  for x in "RP p3_RP_s77 $VLM" "RG p3_RG_s77 $VLM" "RPin p3_RPin_s77 $VLM" "RPpt p3_RPpt_s77 $VLM" "RPcu p3_RPcu_s77 $VLM" \
+           "RP p3_RP25_s77 Qwen/Qwen2.5-VL-7B-Instruct"; do
     set -- $x
-    echo "$1 $2 0.0 0.5 --seed 77 --vlm $VLM"
-    echo "$1 $2 0.5 1.0 --seed 77 --vlm $VLM"
+    echo "$1 $2 0.0 0.5 --seed 77 --vlm $3"
+    echo "$1 $2 0.5 1.0 --seed 77 --vlm $3"
   done > analysis/runs/p3_jobs.txt
   QUEUE=analysis/runs/p3_jobs.txt WORKER=analysis/p3_nav.py analysis/runs/p2b_queue.sh ${GPUS:-0+1 2+3}
 fi
