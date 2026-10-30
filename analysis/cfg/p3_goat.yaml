@@ -5,7 +5,7 @@ output_parent_dir: "/home/quang/nguyendpk/LMEE/analysis/runs"
 scene_dataset_config_path: "../data/hm3d_annotated_basis.scene_dataset_config.json"
 scene_data_path: "../data/hm3d-0.2/hm3d"
 goat_data_dir: "../data/goat_bench/val_unseen/content/"
-test_data_dir: "../analysis/runs/goat_ep0_data"  # GOAT-Bench val_unseen, episode 0 per scene (analysis/goat_runner.py convert)
+test_data_dir: "../analysis/runs/goat_sub12_data"  # GOAT-Bench val_unseen, episode 0 of every third scene (12 of 36; analysis/goat_runner.py convert)
 
 concept_graph_config_path: "cfg/concept_graph_default.yaml"
 

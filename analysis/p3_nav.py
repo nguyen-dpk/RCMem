@@ -651,6 +651,12 @@ def run_job(a, model=None, processor=None):
     OPT["viz"] = bool(getattr(a, "viz", False))
     if getattr(a, "goat", False):  # GOAT-Bench: goat_runner's goal preparation and question patches (they stay for the process)
         import goat_runner  # noqa: F401
+    if a.exp == "E0":  # MemoryExplorer: LMEE calls its (instrumented) query directly, which reads run_lmee.main's frame
+        ir.run_lmee.query_mllm_for_response = E0_QUERY
+        try:
+            return _run_job(a, model, processor)
+        finally:
+            ir.run_lmee.query_mllm_for_response = query
     if model is not None and a.vlm and model.config._name_or_path != a.vlm:
         # a queue worker keeps its model between jobs: on a checkpoint change, free the old weights before loading
         # (the worker still holds a reference, so emptying the tensors is what releases the GPU memory)
