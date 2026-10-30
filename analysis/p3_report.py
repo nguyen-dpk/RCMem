@@ -38,6 +38,7 @@ RUNS = [  # key, run, label
     ("RPpt", "p3_RPpt_s77", "RP variant: step 2 by pointing (no detector box needed)"),
     ("RPcu", "p3_RPcu_s77", "RP variant: room close-ups + show threshold 1%"),
     ("RP25", "p3_RP25_s77", "RCMem zero-shot, predicted regions, on Qwen2.5-VL-7B-Instruct base"),
+    ("RPcu25", "p3_RPcu25_s77", "RPcu (close-ups + show 1%) on Qwen2.5-VL-7B-Instruct base"),
     ("PA", "p3r_PA_s77", "P3-0 panoramas (GT regions), no subtask markers"),
     ("F1q", "p3r_F1_s77", "F1: all kept frames, no regions"),
 ]
