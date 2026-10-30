@@ -558,8 +558,10 @@ def query(subtask_metadata, scene, tsdf_planner, rgb_egocentric_views, cfg, mode
     if F.EXP == "E0":
         P3.clear()
         return E0_QUERY(*args)
+    if F.EXP in ("F1", "F2", "F2b"):  # pass run_lmee.main's frame: the empty-context rule reads the agent's position from it
+        return F.f_query(*args, caller=caller)
     if F.EXP not in REGION_EXPS:
-        return N.query(*args)
+        raise ValueError(f"run {F.EXP} with analysis/p3_0_nav.py (its query reads its caller's frame)")
     P3.clear()
     if md["task_type"] == "QA":  # QA: all kept frames, as F1
         F.context_frames = lambda md_, sc: (list(F.CTX["kept"]), "qa_all_frames")
