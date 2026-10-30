@@ -11,7 +11,8 @@ Inputs
 - analysis/out_p2b/p2b_results.json      reference rows on MemoryExplorer's Qwen2.5-VL-7B and the noise band
 Metrics per run: analysis/p3_0_report.nav_run (Phase 2b metrics + step 1 + cost), plus render time, online
 segmentation scores (RP), step-2 accuracy (step 2 ran on a region whose frames show the goal: the chosen object is a
-detection of the goal) and the step-2 share. G2: RP SR >= F1 SR + band; within +-2.6 SR (one run-to-run std) of the
+detection of the goal; a pointed target (RPpt) counts when it lies within 1 m of a goal object's centre) and the
+step-2 share. G2: RP SR >= F1 SR + band; within +-2.6 SR (one run-to-run std) of the
 bar is borderline and needs seeds 78-79 (P3-0's F1 s78/s79 exist).
 Run (repo root, lmee env): python analysis/p3_report.py   -> analysis/out_p3/p3_results.json, docs/p3_report.md
 """
@@ -53,7 +54,7 @@ def git(*a):
 def run_metrics(run):
     m = R0.nav_run(run)
     import p2b_report as PB  # noqa: E402
-    _, _, decisions = PB.A.load_records(os.path.join(REPO, "analysis/runs", run))
+    scenes, subtasks, decisions = PB.A.load_records(os.path.join(REPO, "analysis/runs", run))
     ds = [d for v in decisions.values() for d in v]
     p3 = [d["p3"] for d in ds if d.get("p3", {}).get("exp") in ("RG", "RP", "RPin", "RPpt", "RPcu")]
     if p3:
@@ -77,7 +78,13 @@ def run_metrics(run):
             if p.get("step2") and p.get("step1_choice") in p.get("goal_visible_regions", []):
                 ch = d.get("choice") or {}
                 goal = {int(x) for v in (d.get("goal_obj_ids_mapping") or {}).values() for x in v}
-                hits.append(ch.get("type") == "memory" and bool(set(ch.get("cluster", [])) & goal))
+                if ch.get("cluster") == [-7]:  # RPpt: a pointed target is right if it lies within 1 m of a goal object
+                    objs = scenes[PB.A.scene_of(d["subtask"])]
+                    gc = [objs[g]["center"] for g in subtasks[d["subtask"]]["goal_obj_ids"] if g in objs]
+                    pt = np.asarray(d["objects"]["-7"]["center"])
+                    hits.append(bool(gc) and min(np.linalg.norm(np.asarray(c) - pt) for c in gc) <= 1.0)
+                else:
+                    hits.append(ch.get("type") == "memory" and bool(set(ch.get("cluster", [])) & goal))
         m["step2_acc"] = 100 * float(np.mean(hits)) if hits else None
         m["step2_n"] = len(hits)
         m["markers_same_room"] = sum("same room as subtask" in p.get("markers", "") for p in p3)
@@ -196,7 +203,8 @@ def main():
     L += ["", "Step-1 exact region: the chosen region is the observed region holding the goal (GT region for RG; the predicted "
           "region containing the goal object's centre for RP), or `explore` when there is none. 'Not seen yet': positive = "
           "`explore`. Step-2 accuracy: over step-2 calls on a region whose frames show ≥ 100 goal pixels, the chosen object "
-          f"is a detection of the goal (n = {R.get('RP', {}).get('step2_n', '—')} for RP). Premature commit and distractor rates "
+          f"is a detection of the goal, or for RPpt the pointed 3D point lies within 1 m of a goal object "
+          f"(n = {R.get('RP', {}).get('step2_n', '—')} for RP). Premature commit and distractor rates "
           "as in Phase 1–2b (`analysis/analyze.py`).", ""]
     # ---- G2
     g = res["g2"]
