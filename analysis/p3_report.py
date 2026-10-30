@@ -204,6 +204,9 @@ def main():
         L += [f"RCMem with predicted regions {g['RP']:.1f} SR vs F1 on Qwen3-VL-8B {g['F1']:.1f} SR + band {band:.1f} = "
               f"**{g['bar']:.1f}**: **{'passes' if g['pass'] else 'fails'}**"
               + (f" (borderline, within {BORDER} SR of the bar: add seeds 78–79 before deciding)" if g["borderline"] else "") + "."]
+        gd = os.path.join(OUT, "g2_decision.txt")
+        if g["borderline"] and os.path.exists(gd):
+            L.append("Borderline handling: " + open(gd).read().strip())
         if "half_gap_bar" in g:
             L.append(f"Half-the-gap form: (F1 + F2b) / 2 = {g['half_gap_bar']:.1f} → {'passes' if g['half_gap_pass'] else 'fails'}.")
         L.append("")

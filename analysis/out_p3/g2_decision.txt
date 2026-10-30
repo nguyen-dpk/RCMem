@@ -1,0 +1,1 @@
+30 Oct 2026, user's decision: G2 is borderline on seed 77 (RP 34.6 vs bar 36.4); seeds 78-79 (RP s78/s79, F1 s79) are not run now; G2 stays a diagnostic judged after P5, as DEV_PLAN allows.
