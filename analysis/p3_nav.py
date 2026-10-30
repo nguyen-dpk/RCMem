@@ -645,6 +645,17 @@ _run_job = F.run_job
 
 def run_job(a, model=None, processor=None):
     OPT["viz"] = bool(getattr(a, "viz", False))
+    if model is not None and a.vlm and model.config._name_or_path != a.vlm:
+        # a queue worker keeps its model between jobs: on a checkpoint change, free the old weights before loading
+        # (the worker still holds a reference, so emptying the tensors is what releases the GPU memory)
+        import gc
+        import torch
+        print(f"checkpoint change {model.config._name_or_path} -> {a.vlm}: unloading", flush=True)
+        for t in list(model.parameters()) + list(model.buffers()):
+            t.data = torch.empty(0)
+        gc.collect()
+        torch.cuda.empty_cache()
+        model = processor = None
     return _run_job(a, model, processor)
 
 
