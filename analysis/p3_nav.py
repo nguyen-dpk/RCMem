@@ -15,6 +15,8 @@ voxel-pruned frames, "Frame f, Object o" answers, empty-context rule, start fix)
         shown in step 1 once a kept frame has >= SHOW_CU (1%) of its pixels in it, and after each panorama come up to two
         full-resolution crops of the region from the kept frames that see most of it; step-2 frames stay at >= 5% (or the
         >= 1% frames when a region has none)
+  --goat  any of these on GOAT-Bench val_unseen episodes (analysis/goat_runner.py's conversion and patches; GOAT has no
+        compound instruction, so the subtask markers carry the goal names but rarely a room)
   E0  MemoryExplorer's own pipeline (bank, CLIP retrieval, its prompts) with the decision VLM given by --vlm
   F1 / F2 / F2b / PA / PB run as in p3_0_nav.py.
 RG and RP: a region is observed once a kept frame has >= MIN_SHARE of its pixels in it; its frames are those kept
@@ -214,7 +216,7 @@ def subtask_index():
 
 
 def goal_name(q):
-    m = re.search(r"subtask of finding the (?:exact )?(.+?), which", q)
+    m = re.search(r"subtask of finding the (?:exact )?(.+?), which", q) or re.search(r"Can you find the (.+?)\?", q)  # GOAT object goals
     return m.group(1) if m else ""
 
 
@@ -647,6 +649,8 @@ _run_job = F.run_job
 
 def run_job(a, model=None, processor=None):
     OPT["viz"] = bool(getattr(a, "viz", False))
+    if getattr(a, "goat", False):  # GOAT-Bench: goat_runner's goal preparation and question patches (they stay for the process)
+        import goat_runner  # noqa: F401
     if model is not None and a.vlm and model.config._name_or_path != a.vlm:
         # a queue worker keeps its model between jobs: on a checkpoint change, free the old weights before loading
         # (the worker still holds a reference, so emptying the tensors is what releases the GPU memory)
