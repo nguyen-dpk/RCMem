@@ -224,7 +224,8 @@ def main():
           f"- User's go before the full runs: {open(go).read().strip() if os.path.exists(go) else 'not recorded'}.",
           f"- Frozen prompts and settings for P6: tag `p3-freeze` {'→ ' + git('rev-list', '-n1', '--abbrev-commit', 'p3-freeze') if tag else '(not created yet)'} "
           "(`analysis/p3_nav.py` SYS1 / INTRO / markers, `analysis/p2b_context.py` step-2 prompt, `rcmem/regions.py` constants, "
-          "`rcmem/instruction.py`, MIN_SHARE 0.05, voxel 0.05 m, A1-band 1024 px).",
+          "`rcmem/instruction.py`, MIN_SHARE 0.05, voxel 0.05 m, A1-band 1024 px). P6's zero-shot RCMem row runs `--exp RPcu` "
+          "(best zero-shot setting: close-ups, show threshold 1%), with RP as its ablation; the user can override this choice.",
           f"- Missing runs: {', '.join(res['missing']) or 'none'}.", ""]
     open(DOC, "w").write("\n".join(L) + "\n")
     print(DOC)
