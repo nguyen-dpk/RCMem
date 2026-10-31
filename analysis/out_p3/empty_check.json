@@ -1,0 +1,17 @@
+{
+ "navigation_decisions": 68,
+ "masks": [
+  "no_region_seen"
+ ],
+ "parses": [
+  "empty_context_explore",
+  "empty_context_no_frontier"
+ ],
+ "nav_prompt_tokens": [
+  0
+ ],
+ "regions_observed": [
+  0
+ ],
+ "pass": true
+}

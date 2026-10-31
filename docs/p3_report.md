@@ -59,6 +59,10 @@ Step 1 (made before moving) sees the task, the subtask markers `<subtask i: goal
 
 Step-1 exact region: the chosen region is the observed region holding the goal (GT region for RG; the predicted region containing the goal object's centre for RP), or `explore` when there is none. 'Not seen yet': positive = `explore`. Step-2 accuracy: over step-2 calls on a region whose frames show ≥ 100 goal pixels, the chosen object is a detection of the goal, or for RPpt the pointed 3D point lies within 1 m of a goal object (n = 230.0 for RP). Premature commit and distractor rates as in Phase 1–2b (`analysis/analyze.py`).
 
+Against F2b (context restricted to the goal's region type, MemoryExplorer's Qwen2.5-VL-7B, 3 seeds, 28.9 SR): RP +5.6 SR, RPcu +9.7. F2b on Qwen3-VL-8B was not run (user's decision, 31 Oct).
+
+Empty-context rule (`analysis/p3_empty_check.py`, simulator, region show threshold forced above 100% so no region is ever observed): 68 navigation decisions, masks ['no_region_seen'], parses ['empty_context_explore', 'empty_context_no_frontier'], navigation prompt tokens [0] → **PASS**. In the subset runs it never fires: the initial 360° look-around always observes a region first.
+
 ## 5. Gate G2 (diagnostic, judged after P5)
 
 RCMem with predicted regions 34.6 SR vs F1 on Qwen3-VL-8B 31.2 SR + band 5.1 = **36.4**: **fails** (borderline, within 2.6 SR of the bar: add seeds 78–79 before deciding).

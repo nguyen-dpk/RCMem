@@ -203,6 +203,18 @@ def main():
           f"is a detection of the goal, or for RPpt the pointed 3D point lies within 1 m of a goal object "
           f"(n = {R.get('RP', {}).get('step2_n', '—')} for RP). Premature commit and distractor rates "
           "as in Phase 1–2b (`analysis/analyze.py`).", ""]
+    if "RP" in R:
+        f2b = pb["F"]["F2b"]["mean"]["SR"]
+        L += [f"Against F2b (context restricted to the goal's region type, MemoryExplorer's Qwen2.5-VL-7B, 3 seeds, "
+              f"{f2b:.1f} SR): RP {R['RP']['SR'] - f2b:+.1f} SR" + (f", RPcu {R['RPcu']['SR'] - f2b:+.1f}" if "RPcu" in R else "") +
+              ". F2b on Qwen3-VL-8B was not run (user's decision, 31 Oct).", ""]
+    ec = os.path.join(OUT, "empty_check.json")
+    if os.path.exists(ec):
+        e = json.load(open(ec))
+        L += [f"Empty-context rule (`analysis/p3_empty_check.py`, simulator, region show threshold forced above 100% so no "
+              f"region is ever observed): {e['navigation_decisions']} navigation decisions, masks {e['masks']}, parses "
+              f"{e['parses']}, navigation prompt tokens {e['nav_prompt_tokens']} → **{'PASS' if e['pass'] else 'FAIL'}**. "
+              "In the subset runs it never fires: the initial 360° look-around always observes a region first.", ""]
     # ---- G2
     g = res["g2"]
     L += ["## 5. Gate G2 (diagnostic, judged after P5)", ""]
