@@ -69,6 +69,6 @@ Borderline handling: 30 Oct 2026, user's decision: G2 is borderline on seed 77 (
 - Pilot sample (`analysis/p3_pilot.py`, seed 0): 00808-y9hTuugGdiq_ep_0, 00808-y9hTuugGdiq_ep_1, 00815-h1zeeAwLh9Z_ep_0, 00880-Nfvxx8J5NCo_ep_0, 00849-a8BtkwhxdRV_ep_0, 00849-a8BtkwhxdRV_ep_1, 00848-ziup5kvtCCR_ep_0, 00848-ziup5kvtCCR_ep_1.
 - Qualitative reports: `docs/qual/p3_RP_20261029.html`.
 - User's go before the full runs: Go given by the user on 2026-10-29 19:40 KST after reviewing docs/qual/p3_RP_20261029.html (pilot p3_pilot_RP): 'Go, start RP and RG' (full subset runs, seed 77, queued ahead of F2b). The baselines E0q and F2bq were approved earlier the same day to start during the pilot..
-- Frozen prompts and settings for P6: tag `p3-freeze` (not created yet) (`analysis/p3_nav.py` SYS1 / INTRO / markers, `analysis/p2b_context.py` step-2 prompt, `rcmem/regions.py` constants, `rcmem/instruction.py`, MIN_SHARE 0.05, voxel 0.05 m, A1-band 1024 px).
+- Frozen prompts and settings for P6: tag `p3-freeze` → e577127 (`analysis/p3_nav.py` SYS1 / INTRO / markers, `analysis/p2b_context.py` step-2 prompt, `rcmem/regions.py` constants, `rcmem/instruction.py`, MIN_SHARE 0.05, voxel 0.05 m, A1-band 1024 px). P6's zero-shot RCMem row runs `--exp RPcu` (best zero-shot setting: close-ups, show threshold 1%), with RP as its ablation; the user can override this choice.
 - Missing runs: none.
 
