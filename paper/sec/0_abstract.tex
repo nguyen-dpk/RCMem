@@ -1,0 +1,23 @@
+\begin{abstract}
+Memory-based embodied agents face one decision over and over: commit to an
+object they remember, or keep exploring. We show that this decision, not what
+is stored or retrieved, is where a strong memory agent fails. Labelling every
+commitment of MemoryExplorer on LMEE-Bench with simulator ground truth, we find
+that 57.4\% of navigation failures are commitments to the wrong remembered
+object, three quarters of them made before the goal had been seen. On a
+58-task subset, most such choices lie in a region other than the goal's.
+Until the goal's region has been
+observed, the agent commits as often when the goal is absent from memory as
+when it is present. Keeping the whole history in the model's context, as
+recent implicit memories do, makes matters worse (19.6 vs.\ 25.9 SR, same model)
+unless the context is scoped to the goal's region: with ground-truth regions,
+this adds 18.0 SR. We
+therefore propose \ours, a region-scoped context memory. The VLM's context holds
+one panorama per region, with unobserved space left visible as holes, and the
+agent commits in two steps before it moves: first a region or ``explore'', then
+a target inside that region only. \ours{} is trained on streams in which the
+goal is often absent, and it needs no retrieval index, no stored features and
+at most two VLM calls per decision. On LMEE-Bench and GOAT-Bench, \ours{}
+improves success rate by \tbd{+X} over MemoryExplorer and cuts premature
+commitments from \tbd{X}\% to \tbd{Y}\%.
+\end{abstract}
