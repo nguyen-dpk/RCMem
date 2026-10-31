@@ -1,0 +1,80 @@
+{
+ "p2_E0_fix_s77": {
+  "label": "MemoryExplorer E0 (fixed start)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 3.1066176470588234,
+  "vlm_s_per_decision": 9.722332015810277,
+  "vlm_source": "log timestamps",
+  "render_s_per_decision": 0.0,
+  "vlm_s_per_subtask": 36.17279411764706,
+  "steps_per_subtask": 13.507352941176471,
+  "metres_per_subtask": 12.03942330510985,
+  "wall_s_per_subtask": 156.2316176470588,
+  "success": 0.24632352941176472
+ },
+ "p2_E0_fix_s78": {
+  "label": "MemoryExplorer E0 (fixed start)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 3.1323529411764706,
+  "vlm_s_per_decision": 9.84319526627219,
+  "vlm_source": "log timestamps",
+  "render_s_per_decision": 0.0,
+  "vlm_s_per_subtask": 36.69485294117647,
+  "steps_per_subtask": 13.566176470588236,
+  "metres_per_subtask": 12.195325056412084,
+  "wall_s_per_subtask": 155.63235294117646,
+  "success": 0.2757352941176471
+ },
+ "p2_E0_fix_s79": {
+  "label": "MemoryExplorer E0 (fixed start)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 3.110294117647059,
+  "vlm_s_per_decision": 8.418181818181818,
+  "vlm_source": "log timestamps",
+  "render_s_per_decision": 0.0,
+  "vlm_s_per_subtask": 30.639705882352942,
+  "steps_per_subtask": 13.492647058823529,
+  "metres_per_subtask": 12.092242947455151,
+  "wall_s_per_subtask": 133.91176470588235,
+  "success": 0.2536764705882353
+ },
+ "p3r_F1_s77": {
+  "label": "F1 (Qwen3, no regions)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 2.838235294117647,
+  "vlm_s_per_decision": 10.525344965680276,
+  "vlm_source": "records",
+  "render_s_per_decision": 0.0,
+  "vlm_s_per_subtask": 29.873405564357252,
+  "steps_per_subtask": 10.055147058823529,
+  "metres_per_subtask": 8.630156337522923,
+  "wall_s_per_subtask": 97.55882352941177,
+  "success": 0.3125
+ },
+ "p3_RP_s77": {
+  "label": "RCMem RP (Qwen3)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 3.5220588235294117,
+  "vlm_s_per_decision": 15.052613645356482,
+  "vlm_source": "records",
+  "render_s_per_decision": 0.27498580095414576,
+  "vlm_s_per_subtask": 53.98470687340288,
+  "steps_per_subtask": 13.3125,
+  "metres_per_subtask": 11.826213828852232,
+  "wall_s_per_subtask": 152.59558823529412,
+  "success": 0.34558823529411764
+ },
+ "p3_RPcu_s77": {
+  "label": "RCMem RPcu (Qwen3)",
+  "nav_subtasks": 272,
+  "decisions_per_subtask": 3.7720588235294117,
+  "vlm_s_per_decision": 15.353222828627098,
+  "vlm_source": "records",
+  "render_s_per_decision": 0.2475756859918784,
+  "vlm_s_per_subtask": 58.84712969117305,
+  "steps_per_subtask": 15.492647058823529,
+  "metres_per_subtask": 13.384456875329791,
+  "wall_s_per_subtask": 152.54044117647058,
+  "success": 0.3860294117647059
+ }
+}
