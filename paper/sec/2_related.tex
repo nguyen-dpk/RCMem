@@ -1,0 +1,11 @@
+\section{Related Work}
+\label{sec:related}
+
+% \paragraph{Memory for route following.}
+Implicit memories keep the history in the policy's own context and compress it
+to fit: StreamVLN~\cite{streamvln} prunes its KV cache in 3D, and
+JanusVLN~\cite{janusvln} keeps separate spatial and semantic caches. Both
+address vision-and-language navigation, a different task from ours. The
+instruction gives the route, and memory tracks progress along it. There is no
+remembered object to commit to. \ours{} takes from them the idea of keeping
+memory in the model's context, not the decision it has to make there.

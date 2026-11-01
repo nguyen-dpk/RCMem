@@ -1,23 +1,21 @@
 \begin{abstract}
-Memory-based embodied agents face one decision over and over: commit to an
-object they remember, or keep exploring. We show that this decision, not what
-is stored or retrieved, is where a strong memory agent fails. Labelling every
-commitment of MemoryExplorer on LMEE-Bench with simulator ground truth, we find
-that 57.4\% of navigation failures are commitments to the wrong remembered
-object, three quarters of them made before the goal had been seen. On a
-58-task subset, most such choices lie in a region other than the goal's.
-Until the goal's region has been
-observed, the agent commits as often when the goal is absent from memory as
-when it is present. Keeping the whole history in the model's context, as
-recent implicit memories do, makes matters worse (19.6 vs.\ 25.9 SR, same model)
-unless the context is scoped to the goal's region: with ground-truth regions,
-this adds 18.0 SR. We
-therefore propose \ours, a region-scoped context memory. The VLM's context holds
-one panorama per region, with unobserved space left visible as holes, and the
-agent commits in two steps before it moves: first a region or ``explore'', then
-a target inside that region only. \ours{} is trained on streams in which the
-goal is often absent, and it needs no retrieval index, no stored features and
-at most two VLM calls per decision. On LMEE-Bench and GOAT-Bench, \ours{}
-improves success rate by \tbd{+X} over MemoryExplorer and cuts premature
-commitments from \tbd{X}\% to \tbd{Y}\%.
+Long-horizon embodied agents rely on memory, and reusing memory brings a
+decision they face over and over: commit to an object they remember, or keep
+exploring. Work on embodied memory has improved what is stored and how it is
+retrieved, but leaves the agent unable to tell when its memory is still
+incomplete, and checks its choices only after it has travelled. We argue that
+this commitment, not retrieval, is the main bottleneck. Analysing a strong
+memory agent with simulator ground truth, we find that most navigation
+failures are commitments to the wrong remembered object, typically made before
+the goal has been seen, and that deciding before moving, within
+the right region, recovers much of the loss. Making this decision without an
+oracle requires the agent to represent what it has not yet seen, to scope its
+choice to specific region instances rather than room names, and to learn that
+exploring is often the right answer. We propose \ours, a region-scoped context
+memory that addresses each in turn. The model's context holds one panorama per
+region with unobserved space left visible; the agent commits in two steps
+before it moves, first a region or ``explore'', then a target within that
+region; and it is trained on streams in which the goal is often absent. On
+LMEE-Bench and GOAT-Bench, \ours{} improves success rate by \tbd{+X} over
+strong memory baselines and substantially reduces premature commitments.
 \end{abstract}

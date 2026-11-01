@@ -121,15 +121,11 @@ text(FX, 324, 170, ["Step 2: its frames only"], size=13)
 for i, n in enumerate((16, 17, 18)):
     img(FX + i * (FS + 4), SY, FS, FS, f"step2_frame{n}.jpg", GREEN if n == 17 else None)
 
-# two separate ways back to the context: step 1 explores, or step 2 declines
+# back to the context: step 1 explores
 EX = X + 10
 line(BX, MID, EX, MID, GREY, 2)
 arrow(EX, MID, EX, 321, GREY)
 text(X + 15, MID - 18, 50, ["explore"], size=13, color=GREY, bold=True)
-DX = 489
-line(FX + 3 * FS + 8, MID, DX, MID, GREY, 2)
-arrow(DX, MID, DX, 321, GREY)
-text(432, 324, 52, ["declines"], size=12, color=GREY, bold=True)
 
 text(X, SY + FS - 4, 260, ["Decisions 1\u20135: no commitment.", "The agent moves and the panoramas grow."], size=13, color=GREY)
 arrow(FX + FS + 4 + FS // 2, SY + FS, FX + FS + 4 + FS // 2, SY + FS + 16, GREEN)

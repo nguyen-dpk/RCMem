@@ -16,137 +16,139 @@
   \label{fig:teaser}
 \end{figure}
 
-An embodied agent asked to ``check the Christmas tree and the dryer, then the
-bedroom nightstand'' must explore an unfamiliar home, remember what it sees,
-and, for each subtask, decide again and again whether the goal is already in
-its memory. If it is, the agent should \emph{commit}: travel to the remembered
-object. If it is not, it should \emph{explore}. A wrong commitment costs a
-wasted trip and often the subtask; a needless exploration costs only steps.
-Every memory-based agent faces this decision, whatever form its memory takes,
-and in multi-goal tasks it faces it at nearly every step
-(\cref{fig:teaser}).
 
-Work on embodied memory has mostly improved \emph{what} is remembered and
-\emph{how} it is found. Explicit memories store views, graphs or 3D maps
-outside the model and retrieve from them: multi-view snapshots~\cite{3dmem},
-RL-trained retrieval~\cite{lmee}, room-level graphs~\cite{stegnav,evomemnav}
-and 3D Gaussian maps~\cite{gsmem,lagmemo}. Implicit memories keep the history in
-the policy's own context and compress it to fit: StreamVLN~\cite{streamvln}
-prunes its KV cache in 3D, JanusVLN~\cite{janusvln} keeps separate spatial and
-semantic caches, and AstraNav-Memory~\cite{astranav} spends about 30 tokens per
-image. Where the question of \emph{when} to trust memory is addressed, it is
-mostly handled after the agent has travelled: the target is verified on
-arrival~\cite{stegnav,evomemnav}, checked against the expected
-room~\cite{contextnav}, or re-rendered and checked again~\cite{3dgsnav}. The
-closest exception is EvoMemNav~\cite{evomemnav}, where a low-confidence anchor
-choice sends the agent back to exploring. We know of no method that decides,
-before moving and from what each region has and has not shown, whether the goal
-could be in memory yet.
+% --- 1. The general problem of the field
+Embodied agents are increasingly expected to work over long horizons: a
+household robot may receive one request after another in the same home, each
+naming several objects, and cannot afford to search the house from scratch
+every time. Memory has therefore become a central component of recent
+navigation agents built on vision-language models (VLMs). Reusing memory,
+however, brings a decision that a memoryless agent never faces. Whenever a new
+goal arrives, the agent must judge whether the goal is already in its memory:
+if it is, the agent should \emph{commit} and travel to the remembered object;
+if it is not, it should \emph{explore}. The two errors are not symmetric. A
+needless exploration costs only steps, whereas a wrong commitment costs a
+wasted trip and often the goal itself. Every memory-based agent makes this
+decision, whatever form its memory takes, and in multi-goal tasks it makes it
+at nearly every step (\cref{fig:teaser}).
 
-\paragraph{Where a memory agent fails.}
-We take MemoryExplorer~\cite{lmee}, a Qwen2.5-VL-7B~\cite{qwen25vl}
-agent trained with GRPO to retrieve from a CLIP-indexed memory bank, run it on
-LMEE-Bench~\cite{lmee} in HM3D-Sem scenes~\cite{hm3dsem}, and label every
-commitment with simulator ground truth: regions, instances and their
-visibility. Retrieval is not the bottleneck. The correct memory is among the
-retrieved candidates in 84--91\% of decisions, and only 2 of 145 questions need
-more than one stored view. The commitment is. On the full benchmark (one run),
-57.4\% of the 625 navigation failures are commitments to the wrong remembered
-object, and 272 of these 359 were made before the goal had been seen at all; on
-a 58-task subset, 87.5\% of same-category distractor choices and 97.4\% of other
-premature choices lie in a region other than the goal's. The agent is, in
-effect, blind until it has seen the goal's region. On the full benchmark, once
-that region has been observed, it commits far more often when the goal is in
-memory than when it is not (41.5\% vs.\ 19.0\% of decisions); before, it commits
-as often either way (24.4\% vs.\ 26.7\%), and 57\% of all decisions are made in
-this state.
+% --- 2. Previous work, and why it falls short
+Work on memory for embodied search has mostly improved \emph{what} is remembered
+and \emph{how} it is found, from multi-view snapshots~\cite{3dmem} and RL-trained
+retrieval~\cite{lmee} to compressed views held in the model's
+context~\cite{astranav}, room-level graphs~\cite{stegnav,evomemnav} and 3D
+Gaussian maps~\cite{gsmem,lagmemo}. These designs make memory richer and easier
+to search, but none tells the agent when its memory is still incomplete. Where the question of \emph{when} to trust
+memory is addressed, it is mostly handled after the agent has travelled: the
+target is verified on arrival~\cite{stegnav,evomemnav}, checked against the
+expected room~\cite{contextnav}, or re-rendered and checked
+again~\cite{3dgsnav}. The closest exception is EvoMemNav~\cite{evomemnav},
+where a low-confidence anchor choice sends the agent back to exploring.
+Checking after the trip can only reject a choice that has already been paid
+for, and when the goal has not been seen yet there is nothing right to fall
+back on: a rejected agent simply commits to the next remembered candidate.
 
-\paragraph{The decision must come before moving.}
-With ground-truth regions, restricting commitments to the goal's region before
-the agent travels raises the success rate (SR) from 25.9 to 41.7 and cuts
-premature commitments from 28.9\% to 1.8\% (58-task subset, three seeds; we
-treat differences below 5.1~SR, twice the pooled run-to-run standard deviation,
-as noise). The
-remedies used in the field do much less. Naming the goal's region in the prompt
-adds 3.4~SR and verifying the target on arrival 4.9~SR (single runs against
-the baseline before our orientation fix), although the verifier's
-rejections are correct 95.1\% of the time: after a correct rejection, the agent
-commits to the next wrong object, and for most wrong commitments there was
-nothing right to verify yet. The oracle gate is a ceiling, not a method; the
-question is what an agent needs in order to make the same decision itself.
+% --- 3. Thesis
+% \paragraph{The bottleneck is the commitment.}
+We argue that memory-based agents fail less at remembering than at deciding
+whether what they remember is enough. To test this, we take a strong
+retrieval-based agent, MemoryExplorer~\cite{lmee}, on LMEE-Bench~\cite{lmee}
+in HM3D-Sem scenes~\cite{hm3dsem}, and label every commitment with simulator
+ground truth: regions, instances and their visibility. Retrieval is rarely the
+problem: very few navigation failures are retrieval misses. Instead, more than
+half are commitments to the wrong remembered object, most of them made before
+the goal had been seen at all (\cref{tab:diagnosis}a). Until the goal's region
+has been observed, the agent commits as often when the goal is absent from
+memory as when it is present: it cannot tell that its memory is incomplete
+(\cref{tab:diagnosis}b).
 
-\paragraph{Where the structure should live.}
-Keeping the whole episode in the model's context, as implicit memories do,
-seems a natural answer: nothing can be lost to retrieval, and a stream of views
-pruned by 3D novelty keeps the goal view in 95.5\% of decisions within 16k
-tokens. Holding the model fixed, we find the opposite. Without structure, the
-context shows the agent every distractor at once: SR falls to 19.6, from 25.9
-with the retrieved bank, and premature commitments rise to 40.6\%. Restricting
-the same context to the goal's region lifts SR to 37.6 and removes nearly all
-premature commitments (1.3\%), a gain of 18.0~SR over the unstructured
-context, on a par with the 15.8~SR the same gate adds to the bank (the
-difference is within noise). Knowing only the
-region's \emph{type} recovers about half of this gain (52\%); with the bank,
-a third of the type gate's remaining wrong commitments land in a second room
-of the same type and 38\% in rooms that no label covered. Implicit memory lacks
-structure, not capacity, and the structure it needs is region
-\emph{instances}, not region names.
+\begin{table}[t]
+  \caption{\textbf{Where a memory agent fails.} MemoryExplorer on the full
+  LMEE-Bench (one run; 625 navigation failures, 2,260 decisions), labelled with
+  simulator ground truth.}
+  \label{tab:diagnosis}
+  \centering
+  \small
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrr@{}}
+    \toprule
+    \multicolumn{2}{@{}l}{(a) Cause of navigation failure} & Share (\%) \\
+    \midrule
+    \multicolumn{2}{@{}l}{\textbf{Wrong commitment}} & \textbf{57.4} \\
+    \multicolumn{2}{@{}l}{\quad before the goal was seen} & 43.5 \\
+    \multicolumn{2}{@{}l}{\quad after the goal was seen} & 13.9 \\
+    \multicolumn{2}{@{}l}{Perception} & 18.1 \\
+    \multicolumn{2}{@{}l}{Retrieval miss} & 1.4 \\
+    \multicolumn{2}{@{}l}{Other} & 23.0 \\
+    \midrule
+    (b) Commit rate (\%) & Goal in memory & Goal absent \\
+    \midrule
+    Region observed & 41.5 & 19.0 \\
+    Region not observed & 24.4 & 26.7 \\
+    \bottomrule
+  \end{tabular*}
+\end{table}
 
-\paragraph{\ours.}
+% --- 4. Challenges
+% \paragraph{Challenges.}
+Making this decision well raises three challenges.
+\begin{enumerate*}[label=(\roman*)]
+  \item \emph{Representing absence.} To know that the goal is not yet in
+    memory, the agent must see what it has \emph{not} observed, but retrieved
+    views and frame streams record only what it has.
+  \item \emph{Scoping by region instance.} The decision must be tied to a
+    specific place. Room names are not enough: homes contain several rooms of
+    the same type, and many regions carry no label. Nor is more memory the
+    answer; holding the model fixed, keeping the whole history in its context
+    shows it every distractor at once and lowers the success
+    rate (SR) below the retrieved bank.
+  \item \emph{Learning to abstain.} Memory always offers a best match, even
+    when the goal is not there. To set it aside, the agent must learn from
+    cases in which the goal is absent and exploring is the right answer, and a
+    wrong commitment must cost it more than a needless exploration.
+\end{enumerate*}
+
+% --- 5. What we propose
+% \paragraph{\ours.}
 We propose \ours{} (Region-scoped Context Memory), a VLM whose context is its
-memory, organised by region. Observations are pruned by 3D novelty and assigned
-to regions segmented from the free-space map at narrow
-passages~\cite{bormann2016room}. Each region enters the context as one
-equirectangular panorama rendered from the point that sees most of it. Pixels
-that nothing has observed stay grey, so the model sees both what a region
-contains and how much of it is still unseen, which is exactly the blind state
-above. Regions carry no labels: whether a region is the bedroom a subtask
-refers to is read from its pixels. At each decision the agent commits in two
-steps before it moves. From the panoramas, the subtask markers and one view per
-frontier, it chooses a region or to explore; then, from that region's kept
-frames only, it selects the goal or declines.
+memory, organised by region, with one design element per challenge. Observations
+are pruned by 3D novelty and assigned to regions segmented from the free-space
+map~\cite{bormann2016room}. Each region enters the context as one panorama
+rendered from the point that sees most of it, and pixels that nothing has
+observed stay grey, so the model sees both what a region contains and what it
+has yet to show~(i). Regions are instances without labels: whether a region is
+the bedroom a subtask refers to is read from its pixels. The agent commits in
+two steps before it moves: from the panoramas and one view per frontier, it
+chooses a region or to explore; then, from that region's frames alone, it
+selects the goal or declines~(ii).
 % If the frozen zero-shot config (RPcu) stays the main one, add its room
 % close-ups here, e.g. ``with a few close-up views of each region''.
-Subtask markers and the order of the region blocks carry time.
-\ours{} is fine-tuned on context streams rebuilt from training trajectories
-without hand-inserted goal views, including absent-goal and distractor streams
-in which exploring is the right answer, and with an objective that charges a
-wrong commitment more than a needless exploration. Outside the model it stores
-the pruned RGB-D frames, their camera poses and the floor map. There is
-no retrieval index and no stored feature, and a decision takes at most two VLM
-calls.
+We fine-tune \ours{} on streams in which the goal is often absent, then train
+the decision with an Expected Commitment Reward (ECR): where
+GRPO~\cite{deepseekmath} samples rollouts, ECR grades every option from ground
+truth, charging a misleading commitment the most and rewarding exploration by
+its progress toward the goal~(iii). Outside the model, \ours{} stores only the
+pruned frames, their camera poses and the floor map, with no retrieval index.
 
 % Dev reference (P3, subset, seed 77, zero-shot, Qwen3-VL-8B; not main results):
 % F1 31.2, RCMem RP 34.6, RPcu 38.6 SR.
 We evaluate on the full LMEE-Bench (166 tasks, three seeds) and on
-GOAT-Bench~\cite{goatbench}. \ours{} runs on Qwen3-VL-8B~\cite{qwen3vl}; because
-MemoryExplorer uses Qwen2.5-VL-7B, the backbone's own gain is reported
-separately. Moving the context without
-regions from Qwen2.5-VL-7B to Qwen3-VL-8B gives \tbd{+X}~SR, and \ours{} adds
-\tbd{+Y}~SR over it on the same model. Premature commitments fall from
-\tbd{X}\% to \tbd{Y}\%, and \ours{} stores \tbd{X}\,MB per episode against
-\tbd{Y}\,MB. Our diagnosis uses one agent with two memory designs, a retrieved
-bank and an in-context stream, on one benchmark; we evaluate the method on two.
+GOAT-Bench~\cite{goatbench}. \ours{} runs on Qwen3-VL-8B~\cite{qwen3vl}; since
+the strongest baseline uses Qwen2.5-VL-7B, we report the backbone's gain
+separately with same-backbone controls. \ours{} improves SR by \tbd{+X} over
+the strongest baseline, \tbd{+Y} of which comes from the method rather than
+the backbone, and substantially reduces premature commitments.
 
-\noindent In summary, we make four contributions:
+\noindent In summary, we make three contributions:
 \begin{enumerate}
   \setlength{\itemsep}{1pt}
-  \item \textbf{A ground-truth diagnosis of memory failures.} We show that a
-    strong memory agent fails at the commitment, not at retrieval: most wrong
-    commitments are made before the goal's region has been observed, and in
-    that state the agent cannot tell whether the goal is in memory.
-  \item \textbf{In-context memory needs structure.} With the model held fixed,
-    an unstructured context is worse than a retrieved bank, while scoping it to
-    the goal's region gains as much as the same gate gives the bank; region
-    types alone recover only about half of this gain.
   \item \textbf{\ours.} A context memory with one panorama per region that
-    shows unobserved space, a two-step commitment made before moving, and
-    training on streams where the goal is often absent. It is compact and
-    direct: no retrieval, no stored features, at most two VLM calls per
-    decision.
-  \item \textbf{A sound evaluation.} We fix a start-orientation bug that
-    affected every LMEE episode we ran, set a noise band from repeated baseline runs,
-    correct QA accuracy for an answer-letter prior (always answering ``B''
-    scores 59.3\%), and separate the backbone's gain from the method's with
-    same-backbone controls.
+    shows unobserved space, and a two-step commitment, first a region or
+    ``explore'', then a target within that region, made before the agent moves.
+  \item \textbf{Expected Commitment Reward (ECR).} Training on absent-goal
+    streams with a reward that grades every option, so a misleading commitment
+    costs the most and exploring earns by its progress.
+  \item \textbf{Evaluation.} We conduct extensive experiments on LMEE-Bench and
+    GOAT-Bench, with repeated runs and an explicit noise band, a QA metric
+    corrected for the answer-letter prior, and same-backbone controls that
+    separate the backbone's gain from the method's.
 \end{enumerate}
